@@ -19,7 +19,7 @@ namespace Crm_v10.Controllers
         {
             return View(db.Kullanicilar.ToList());
         }
-        //sema
+        
         // GET: Kullanicilars/Details/5
         public ActionResult Details(int? id)
         {
