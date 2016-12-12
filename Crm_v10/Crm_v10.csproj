@@ -197,9 +197,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KullanicilarsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SatisElemanlarisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -585,8 +586,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -607,8 +606,18 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Home\Kullanicilar.cshtml" />
+    <Content Include="Views\Home\_Kullanicilar.cshtml" />
     <Content Include="Views\Home\LoginPage.cshtml" />
+    <Content Include="Views\Kullanicilars\Create.cshtml" />
+    <Content Include="Views\Kullanicilars\Delete.cshtml" />
+    <Content Include="Views\Kullanicilars\Details.cshtml" />
+    <Content Include="Views\Kullanicilars\Edit.cshtml" />
+    <Content Include="Views\Kullanicilars\Index.cshtml" />
+    <Content Include="Views\SatisElemanlaris\Create.cshtml" />
+    <Content Include="Views\SatisElemanlaris\Delete.cshtml" />
+    <Content Include="Views\SatisElemanlaris\Details.cshtml" />
+    <Content Include="Views\SatisElemanlaris\Edit.cshtml" />
+    <Content Include="Views\SatisElemanlaris\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

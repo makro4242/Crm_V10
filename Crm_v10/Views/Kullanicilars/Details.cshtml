@@ -1,0 +1,48 @@
+﻿@model Crm_v10.Models.Kullanicilar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card-box">
+                <h2>İncele</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>Kullanıcı Bilgilerini İncele</b>
+                </h4>
+
+                <div class="form-horizontal">
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Kullanıcı Kodu
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KullaniciKodu)
+                        </dd>
+                        <dt>
+                            Kullanıcı Adı
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KullaniciAdi)
+                        </dd>
+                        <dt>
+                            Kullanıcı Şifresi
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KullaniciSifresi)
+                        </dd>
+                    </dl>
+                </div>
+                @Html.ActionLink("Listeye Dön", "Index")
+            </div>
+        </div>
+    </div>
+</div>
+
