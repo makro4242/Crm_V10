@@ -14,15 +14,14 @@ namespace Crm_v10.Models
         public int UlkeKodu { get; set; }
 
         [Required]
+        [StringLength(5)]
+        public string UlkeKisaAdi { get; set; }
+        [Required]
         [StringLength(50)]
         public string UlkeAdi { get; set; }
 
-        [Required]
-        [StringLength(5)]
-        public string UlkeTelefonKodu { get; set; }
+        
 
-        [Required]
-        [StringLength(5)]
-        public string UlkeParaBirimi { get; set; }
+       
     }
 }

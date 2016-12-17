@@ -39,7 +39,6 @@
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >GSM2</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Mail1</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Mail2</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Doğum Tarihi</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 200.4px;">İşlemler</th>
                                 </tr>
                             </thead>
@@ -67,9 +66,6 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.YetkiliMail2)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.YetkiliDogumTarihi)
                                         </td>
                                         <td>
                                             <a href="/Yetkilis/Edit/@item.ID" class="btn btn-default waves-effect waves-light" >Düzenle</a>

@@ -13,10 +13,11 @@ namespace Crm_v10.Controllers
     public class PotansiyelsController : Controller
     {
         private CrmV10Model db = new CrmV10Model();
-
+       
         // GET: Potansiyels
         public ActionResult Index()
         {
+
             return View(db.Potansiyel.ToList());
         }
 
@@ -38,6 +39,10 @@ namespace Crm_v10.Controllers
         // GET: Potansiyels/Create
         public ActionResult Create()
         {
+            ViewBag.Yetkili= new SelectList(db.Yetkili, "Id", "YetkiliAd");
+            ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
+            ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
             return View();
         }
 
@@ -46,7 +51,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
+        public ActionResult Create([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelYetkiliID,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +75,10 @@ namespace Crm_v10.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "YetkiliAd");
+            ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
+            ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
             return View(potansiyel);
         }
 
@@ -78,7 +87,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
+        public ActionResult Edit([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelYetkiliID,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
         {
             if (ModelState.IsValid)
             {

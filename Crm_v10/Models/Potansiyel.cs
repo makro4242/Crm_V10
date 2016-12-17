@@ -27,6 +27,8 @@ namespace Crm_v10.Models
         [StringLength(20)]
         public string PotansiyelAdresiUINKodu { get; set; }
 
+        public int PotansiyelYetkiliID { get; set; }
+
         [Required]
         [StringLength(20)]
         public string PotansiyelAdresGpsEnlem { get; set; }
