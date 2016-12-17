@@ -1,0 +1,100 @@
+﻿@model Crm_v10.Models.Yetkili
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="card-box">
+                    <h2>Düzenle</h2>
+                    <h4 class="m-t-0 header-title">
+                        <b>YETKİLİ BİLGİLERİNİ DÜZENLE</b>
+                    </h4>
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliKodu, "Yetkili Kodu", htmlAttributes: new { @class = "control-label col-md-2", @required = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliKodu, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliKodu, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliAd, "Yetkili Ad", htmlAttributes: new { @class = "control-label col-md-2", @required = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliAd, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliAd, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliSoyad, "Yetkili Soyad", htmlAttributes: new { @class = "control-label col-md-2", @required = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliSoyad, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliSoyad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliGSM1, "GSM 1", htmlAttributes: new { @class = "control-label col-md-2", @required = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliGSM1, new { htmlAttributes = new { @class = "form-control", @maxlength = "11", @type = "number" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliGSM1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliGSM2, "GSM 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliGSM2, new { htmlAttributes = new { @class = "form-control", @maxlength = "11", @type = "number" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliGSM2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliMail1, "EMail 1", htmlAttributes: new { @class = "control-label col-md-2", @required = "" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliMail1, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliMail1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliMail2, "EMail 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliMail2, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliMail2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliDogumTarihi, "Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.YetkiliDogumTarihi, new { htmlAttributes = new { @class = "form-control"  } })
+                                @Html.ValidationMessageFor(model => model.YetkiliDogumTarihi, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-default" /> |
+                            @Html.ActionLink("Listeye Dön", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

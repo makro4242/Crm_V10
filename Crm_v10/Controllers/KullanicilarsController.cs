@@ -12,7 +12,7 @@ namespace Crm_v10.Controllers
 {
     public class KullanicilarsController : Controller
     {
-        private CrmV10 db = new CrmV10();
+        private CrmV10Model db = new CrmV10Model();
 
         // GET: Kullanicilars
         public ActionResult Index()

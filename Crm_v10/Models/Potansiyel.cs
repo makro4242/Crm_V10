@@ -40,8 +40,8 @@ namespace Crm_v10.Models
         public int PotansiyelIl { get; set; }
 
         [Required]
-        [StringLength(30)]
-        public string Potansiyelİlçe { get; set; }
+        [StringLength(50)]
+        public string PotansiyelIlce { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -57,7 +57,7 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(100)]
-        public string PotansiyelİstigalBilgisi { get; set; }
+        public string PotansiyelIstigalBilgisi { get; set; }
 
         [Column(TypeName = "text")]
         [Required]

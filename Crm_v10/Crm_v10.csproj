@@ -200,12 +200,19 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullanicilarsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PotansiyelsController.cs" />
     <Compile Include="Controllers\SatisElemanlarisController.cs" />
+    <Compile Include="Controllers\YetkilisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612161314588_InitalCrmv10.cs" />
+    <Compile Include="Migrations\201612161314588_InitalCrmv10.Designer.cs">
+      <DependentUpon>201612161314588_InitalCrmv10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CrmV10.cs" />
+    <Compile Include="Models\CrmV10Models.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Iller.cs" />
     <Compile Include="Models\Kullanicilar.cs" />
@@ -215,6 +222,7 @@
     <Compile Include="Models\SatisElemanlari.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\Ulkeler.cs" />
+    <Compile Include="Models\Yetkili.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -563,6 +571,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -618,6 +627,16 @@
     <Content Include="Views\SatisElemanlaris\Details.cshtml" />
     <Content Include="Views\SatisElemanlaris\Edit.cshtml" />
     <Content Include="Views\SatisElemanlaris\Index.cshtml" />
+    <Content Include="Views\Yetkilis\Create.cshtml" />
+    <Content Include="Views\Yetkilis\Delete.cshtml" />
+    <Content Include="Views\Yetkilis\Details.cshtml" />
+    <Content Include="Views\Yetkilis\Edit.cshtml" />
+    <Content Include="Views\Yetkilis\Index.cshtml" />
+    <Content Include="Views\Potansiyels\Create.cshtml" />
+    <Content Include="Views\Potansiyels\Delete.cshtml" />
+    <Content Include="Views\Potansiyels\Details.cshtml" />
+    <Content Include="Views\Potansiyels\Edit.cshtml" />
+    <Content Include="Views\Potansiyels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -633,6 +652,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612161314588_InitalCrmv10.resx">
+      <DependentUpon>201612161314588_InitalCrmv10.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

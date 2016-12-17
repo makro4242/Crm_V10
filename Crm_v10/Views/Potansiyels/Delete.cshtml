@@ -1,0 +1,155 @@
+﻿@model Crm_v10.Models.Potansiyel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card-box">
+                <h2>Sil</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>POTANSİYEL SİL</b>
+                </h4>
+
+                <div class="form-horizontal">
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                           PotansiyelKodu :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelKodu)
+                        </dd>
+
+                        <dt>
+                           Potansiyel Unvanı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelUnvani)
+                        </dd>
+
+                        <dt>
+                          Adres :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelAdresi)
+                        </dd>
+
+                        <dt>
+                           Adresi UIN Kodu :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelAdresiUINKodu)
+                        </dd>
+
+                        <dt>
+                            Gps Enlem :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelAdresGpsEnlem)
+                        </dd>
+
+                        <dt>
+                           Gps Boylam :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelAdresGpsBoylam)
+                        </dd>
+
+                        <dt>
+                           Ulke Kodu :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelUlkeKodu)
+                        </dd>
+
+                        <dt>
+                           İl :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelIl)
+                        </dd>
+
+                        <dt>
+                         İlce :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelIlce)
+                        </dd>
+
+                        <dt>
+                           Vergi Dairesi :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelVergiDairesi)
+                        </dd>
+
+                        <dt>
+                           Vergi Numarası :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelVergiNumarasi)
+                        </dd>
+
+                        <dt>
+                          Web Adresi :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelWebAdresi)
+                        </dd>
+
+                        <dt>
+                          Sektör :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelIstigalBilgisi)
+                        </dd>
+
+                        <dt>
+                           Not :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelNot)
+                        </dd>
+
+                        <dt>
+                          Satış Elemanı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PotansiyelSatisElemani)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Sil" class="btn btn-default" /> |
+                            @Html.ActionLink("Listeye Dön", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

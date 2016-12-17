@@ -5,10 +5,10 @@ namespace Crm_v10.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class CrmV10 : DbContext
+    public partial class CrmV10Model : DbContext
     {
-        public CrmV10()
-            : base("name=CrmV10")
+        public CrmV10Model()
+            : base("name=CrmV10Models")
         {
         }
 
@@ -19,6 +19,7 @@ namespace Crm_v10.Models
         public virtual DbSet<SatisElemanlari> SatisElemanlari { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Ulkeler> Ulkeler { get; set; }
+        public virtual DbSet<Yetkili> Yetkili { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

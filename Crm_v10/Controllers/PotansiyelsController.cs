@@ -10,107 +10,107 @@ using Crm_v10.Models;
 
 namespace Crm_v10.Controllers
 {
-    public class SatisElemanlarisController : Controller
+    public class PotansiyelsController : Controller
     {
         private CrmV10Model db = new CrmV10Model();
 
-        // GET: SatisElemanlaris
+        // GET: Potansiyels
         public ActionResult Index()
         {
-            return View(db.SatisElemanlari.ToList());
+            return View(db.Potansiyel.ToList());
         }
 
-        // GET: SatisElemanlaris/Details/5
+        // GET: Potansiyels/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            if (satisElemanlari == null)
+            Potansiyel potansiyel = db.Potansiyel.Find(id);
+            if (potansiyel == null)
             {
                 return HttpNotFound();
             }
-            return View(satisElemanlari);
+            return View(potansiyel);
         }
 
-        // GET: SatisElemanlaris/Create
+        // GET: Potansiyels/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SatisElemanlaris/Create
+        // POST: Potansiyels/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,SatisElemaniKodu,SatisElemaniAdiSoyadi")] SatisElemanlari satisElemanlari)
+        public ActionResult Create([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
         {
             if (ModelState.IsValid)
             {
-                db.SatisElemanlari.Add(satisElemanlari);
+                db.Potansiyel.Add(potansiyel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(satisElemanlari);
+            return View(potansiyel);
         }
 
-        // GET: SatisElemanlaris/Edit/5
+        // GET: Potansiyels/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            if (satisElemanlari == null)
+            Potansiyel potansiyel = db.Potansiyel.Find(id);
+            if (potansiyel == null)
             {
                 return HttpNotFound();
             }
-            return View(satisElemanlari);
+            return View(potansiyel);
         }
 
-        // POST: SatisElemanlaris/Edit/5
+        // POST: Potansiyels/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,SatisElemaniKodu,SatisElemaniAdiSoyadi")] SatisElemanlari satisElemanlari)
+        public ActionResult Edit([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(satisElemanlari).State = EntityState.Modified;
+                db.Entry(potansiyel).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(satisElemanlari);
+            return View(potansiyel);
         }
 
-        // GET: SatisElemanlaris/Delete/5
+        // GET: Potansiyels/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            if (satisElemanlari == null)
+            Potansiyel potansiyel = db.Potansiyel.Find(id);
+            if (potansiyel == null)
             {
                 return HttpNotFound();
             }
-            return View(satisElemanlari);
+            return View(potansiyel);
         }
 
-        // POST: SatisElemanlaris/Delete/5
+        // POST: Potansiyels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            db.SatisElemanlari.Remove(satisElemanlari);
+            Potansiyel potansiyel = db.Potansiyel.Find(id);
+            db.Potansiyel.Remove(potansiyel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
