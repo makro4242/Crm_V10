@@ -17,48 +17,63 @@ namespace Crm_v10.Controllers
         // GET: GorevEklemes
         public ActionResult Index()
         {
-            var gorevEkleme = db.GorevEkleme.Include(g => g.Potansiyel).Include(g => g.SatisElemanlari);
-            return View(gorevEkleme.ToList());
+            if (Session["KullaniciID"] != null)
+            {
+                var gorevEkleme = db.GorevEkleme.Include(g => g.Potansiyel).Include(g => g.SatisElemanlari);
+                return View(gorevEkleme.ToList());
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // GET: GorevEklemes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
+                if (gorevEkleme == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(gorevEkleme);
             }
-            GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-            if (gorevEkleme == null)
-            {
-                return HttpNotFound();
-            }
-            return View(gorevEkleme);
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // GET: GorevEklemes/Create
         public ActionResult Create()
         {
-            var Oncelik = new[]
-              {
-               new SelectListItem(){Value = "Normal", Text= "Normal"},
-               new SelectListItem(){Value = "Düşük", Text= "Düşük"},
-               new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
-               new SelectListItem(){Value = "Acil", Text= "Acil"},
-            };
-            var Durum = new[]
+            if (Session["KullaniciID"] != null)
             {
-               new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
-               new SelectListItem(){Value = "Teklif", Text= "Teklif"},
-               new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif"},
-               new SelectListItem(){Value = "Satış", Text= "Satış"},
-               new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
-            };
-            ViewBag.Durum = Durum;
-            ViewBag.Oncelik = Oncelik;
-            ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani");
-            ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi");
-            return View();
+                var Oncelik = new[]
+                {
+                 new SelectListItem(){Value = "Normal", Text= "Normal"},
+                 new SelectListItem(){Value = "Düşük", Text= "Düşük"},
+                 new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
+                 new SelectListItem(){Value = "Acil", Text= "Acil"},
+               };
+                var Durum = new[]
+                {
+                 new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
+                 new SelectListItem(){Value = "Teklif", Text= "Teklif"},
+                 new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif"},
+                 new SelectListItem(){Value = "Satış", Text= "Satış"},
+                 new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
+              };
+                ViewBag.Durum = Durum;
+                ViewBag.Oncelik = Oncelik;
+                ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani");
+                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi");
+                return View();
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // POST: GorevEklemes/Create
@@ -83,36 +98,42 @@ namespace Crm_v10.Controllers
         // GET: GorevEklemes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-            if (gorevEkleme == null)
-            {
-                return HttpNotFound();
-            }
-            var Oncelik = new[]
-            {
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
+                if (gorevEkleme == null)
+                {
+                    return HttpNotFound();
+                }
+                var Oncelik = new[]
+                {
                new SelectListItem(){Value = "Normal", Text= "Normal"},
                new SelectListItem(){Value = "Düşük", Text= "Düşük"},
                new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
                new SelectListItem(){Value = "Acil", Text= "Acil"},
             };
-            var Durum = new[]
-              {
+                var Durum = new[]
+                  {
                new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
                new SelectListItem(){Value = "Teklif", Text= "Teklif"},
                new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif"},
                new SelectListItem(){Value = "Satış", Text= "Satış"},
                new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
-            ViewBag.Durum = Durum;
-            ViewBag.Oncelik = Oncelik;
-            ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
-            ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
-            return View(gorevEkleme);
+                ViewBag.Durum = Durum;
+                ViewBag.Oncelik = Oncelik;
+                ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
+                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
+                return View(gorevEkleme);
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
         }
+
 
         // POST: GorevEklemes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -135,16 +156,21 @@ namespace Crm_v10.Controllers
         // GET: GorevEklemes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
+                if (gorevEkleme == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(gorevEkleme);
             }
-            GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-            if (gorevEkleme == null)
-            {
-                return HttpNotFound();
-            }
-            return View(gorevEkleme);
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // POST: GorevEklemes/Delete/5
@@ -161,7 +187,7 @@ namespace Crm_v10.Controllers
         public JsonResult KoduGetir()
         {
             string veri = "";
-           
+
             var Sonuc = (from p in ctx.GorevEkleme
                          orderby p.ID
                          select p.ID).ToList();
