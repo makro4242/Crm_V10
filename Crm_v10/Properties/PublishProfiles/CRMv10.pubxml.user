@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
     <File Include="bin/Crm_v10.dll">
-      <publishTime>12/21/2016 16:48:23</publishTime>
+      <publishTime>12/21/2016 17:47:01</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/15/2016 17:44:36</publishTime>
@@ -6805,6 +6805,222 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/pages/nestable.js">
       <publishTime>12/15/2016 17:44:21</publishTime>
     </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ar.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.az.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.bg.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.bs.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ca.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.cs.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.cy.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.da.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.de.min.js">
+      <publishTime>12/21/2016 17:08:30</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.el.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en-GB.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.et.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.eu.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fa.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fi.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fo.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr-CH.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.gl.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.he.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.hr.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.hu.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.hy.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.id.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.is.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it-CH.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ja.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ka.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.kh.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.kk.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.kr.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.lt.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.lv.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.me.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.mk.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ms.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nb.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nl-BE.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.nl.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.no.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pl.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ro.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.rs-latin.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.rs.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.ru.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sk.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sl.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sq.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sr-latin.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sr.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sv.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sw.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.th.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.tr.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.uk.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.vi.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
+    <File Include="Content/plugins/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-TW.min.js">
+      <publishTime>12/21/2016 17:08:31</publishTime>
+    </File>
     <File Include="Content/plugins/bootstrap-validator/dist/validator.js">
       <publishTime>12/15/2016 17:44:22</publishTime>
     </File>
@@ -7951,6 +8167,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/plugins/sweetalert/thumbs-up.jpg">
       <publishTime>12/19/2016 16:32:19</publishTime>
     </File>
+    <File Include="Content/plugins/timepicker/bootstrap-timepicker.min.css">
+      <publishTime>12/21/2016 17:06:37</publishTime>
+    </File>
+    <File Include="Content/plugins/timepicker/bootstrap-timepicker.min.js">
+      <publishTime>12/21/2016 17:06:37</publishTime>
+    </File>
     <File Include="Content/Site.css">
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
@@ -8015,7 +8237,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>12/19/2016 11:52:08</publishTime>
+      <publishTime>12/21/2016 17:06:39</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>12/15/2016 17:44:31</publishTime>
@@ -8054,7 +8276,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Create.cshtml">
-      <publishTime>12/21/2016 16:43:53</publishTime>
+      <publishTime>12/21/2016 17:30:43</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Delete.cshtml">
       <publishTime>12/21/2016 16:45:27</publishTime>
@@ -8150,7 +8372,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/21/2016 16:42:55</publishTime>
+      <publishTime>12/21/2016 17:15:00</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/15/2016 17:44:31</publishTime>

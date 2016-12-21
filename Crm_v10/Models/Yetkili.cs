@@ -42,7 +42,13 @@ namespace Crm_v10.Models
 
         [StringLength(50)]
         public string YetkiliMail2 { get; set; }
-
+        public string FullName
+        {
+            get
+            {
+                return String.Format("{0} {1}", YetkiliAd, YetkiliSoyad);
+            }
+        }
         public DateTime? YetkiliDogumTarihi { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

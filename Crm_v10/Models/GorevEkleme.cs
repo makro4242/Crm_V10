@@ -13,7 +13,8 @@ namespace Crm_v10.Models
 
         [StringLength(500)]
         public string Aciklama { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+               ApplyFormatInEditMode = true)]
         public DateTime? Tarih { get; set; }
 
         public int? PotansiyelID { get; set; }
