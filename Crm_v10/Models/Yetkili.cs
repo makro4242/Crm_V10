@@ -44,13 +44,6 @@ namespace Crm_v10.Models
         public string YetkiliMail2 { get; set; }
 
         public DateTime? YetkiliDogumTarihi { get; set; }
-        public string FullName
-        {
-            get
-            {
-                return String.Format("{0} {1}", YetkiliAd, YetkiliSoyad);
-            }
-        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Potansiyel> Potansiyel { get; set; }

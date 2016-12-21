@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhtWnPpgTrEe4oFwjlkAPFwAAAAACAAAAAAAQZgAAAAEAACAAAAApmRZCG/lFfo864BujTd7hmsyaLaOKKj4X+n47+/6XOAAAAAAOgAAAAAIAACAAAADhiRCQH3608NU7NvtfOD4kWITfuvwGg/Z2jcsuR24KsSAAAABcgPFSc8QxJcdPH7gkfYznYsoFN60XB1vMDbHdtI+BaUAAAACbbDbH7pqIsfvyxMSYRW4kghy3t5ivWowOduJZ0VEj/+KsKKbBe5p0ku7fbGRG7ES5OnoINC82dZui4Ip9DFi0</EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\Sema-Seda\Desktop\CRMPublish20122016</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Sema-Seda\Desktop\CRMPublish21122016</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
     <File Include="bin/Crm_v10.dll">
-      <publishTime>12/20/2016 14:49:15</publishTime>
+      <publishTime>12/21/2016 16:48:23</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/15/2016 17:44:36</publishTime>
@@ -8053,6 +8053,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
+    <File Include="Views/GorevEklemes/Create.cshtml">
+      <publishTime>12/21/2016 16:43:53</publishTime>
+    </File>
+    <File Include="Views/GorevEklemes/Delete.cshtml">
+      <publishTime>12/21/2016 16:45:27</publishTime>
+    </File>
+    <File Include="Views/GorevEklemes/Details.cshtml">
+      <publishTime>12/21/2016 16:45:14</publishTime>
+    </File>
+    <File Include="Views/GorevEklemes/Edit.cshtml">
+      <publishTime>12/21/2016 16:42:53</publishTime>
+    </File>
+    <File Include="Views/GorevEklemes/Index.cshtml">
+      <publishTime>12/21/2016 16:47:32</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>12/20/2016 14:39:38</publishTime>
     </File>
@@ -8066,7 +8081,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Kullanicilars/Create.cshtml">
-      <publishTime>12/19/2016 10:10:18</publishTime>
+      <publishTime>12/21/2016 09:58:14</publishTime>
     </File>
     <File Include="Views/Kullanicilars/Delete.cshtml">
       <publishTime>12/17/2016 12:39:05</publishTime>
@@ -8075,7 +8090,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2016 12:40:11</publishTime>
     </File>
     <File Include="Views/Kullanicilars/Edit.cshtml">
-      <publishTime>12/20/2016 14:27:23</publishTime>
+      <publishTime>12/21/2016 09:58:22</publishTime>
     </File>
     <File Include="Views/Kullanicilars/Index.cshtml">
       <publishTime>12/17/2016 10:13:16</publishTime>
@@ -8099,7 +8114,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Potansiyels/Create.cshtml">
-      <publishTime>12/19/2016 14:26:29</publishTime>
+      <publishTime>12/21/2016 12:36:22</publishTime>
     </File>
     <File Include="Views/Potansiyels/Delete.cshtml">
       <publishTime>12/19/2016 12:56:51</publishTime>
@@ -8108,13 +8123,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/19/2016 12:56:38</publishTime>
     </File>
     <File Include="Views/Potansiyels/Edit.cshtml">
-      <publishTime>12/17/2016 18:23:33</publishTime>
+      <publishTime>12/21/2016 16:18:05</publishTime>
     </File>
     <File Include="Views/Potansiyels/Index.cshtml">
       <publishTime>12/19/2016 12:48:21</publishTime>
     </File>
     <File Include="Views/SatisElemanlaris/Create.cshtml">
-      <publishTime>12/17/2016 12:47:24</publishTime>
+      <publishTime>12/21/2016 11:40:27</publishTime>
     </File>
     <File Include="Views/SatisElemanlaris/Delete.cshtml">
       <publishTime>12/17/2016 12:47:36</publishTime>
@@ -8123,7 +8138,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/17/2016 12:47:57</publishTime>
     </File>
     <File Include="Views/SatisElemanlaris/Edit.cshtml">
-      <publishTime>12/17/2016 13:23:48</publishTime>
+      <publishTime>12/21/2016 11:41:17</publishTime>
     </File>
     <File Include="Views/SatisElemanlaris/Index.cshtml">
       <publishTime>12/17/2016 10:29:02</publishTime>
@@ -8135,22 +8150,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/20/2016 14:18:29</publishTime>
+      <publishTime>12/21/2016 16:42:55</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Yetkilis/Create.cshtml">
-      <publishTime>12/17/2016 18:43:42</publishTime>
+      <publishTime>12/21/2016 09:58:56</publishTime>
     </File>
     <File Include="Views/Yetkilis/Delete.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/17/2016 13:25:00</publishTime>
     </File>
     <File Include="Views/Yetkilis/Details.cshtml">
       <publishTime>12/17/2016 13:25:12</publishTime>
     </File>
     <File Include="Views/Yetkilis/Edit.cshtml">
-      <publishTime>12/17/2016 18:44:45</publishTime>
+      <publishTime>12/21/2016 09:58:52</publishTime>
     </File>
     <File Include="Views/Yetkilis/Index.cshtml">
       <publishTime>12/17/2016 18:06:14</publishTime>
@@ -8159,7 +8174,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/19/2016 17:39:40</publishTime>
+      <publishTime>12/21/2016 14:24:50</publishTime>
     </File>
   </ItemGroup>
 </Project>

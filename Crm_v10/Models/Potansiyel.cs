@@ -9,6 +9,12 @@ namespace Crm_v10.Models
     [Table("Potansiyel")]
     public partial class Potansiyel
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Potansiyel()
+        {
+            GorevEkleme = new HashSet<GorevEkleme>();
+        }
+
         public int ID { get; set; }
 
         [Required]
@@ -66,6 +72,9 @@ namespace Crm_v10.Models
         public string PotansiyelNot { get; set; }
 
         public int PotansiyelSatisElemani { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GorevEkleme> GorevEkleme { get; set; }
 
         public virtual Iller Iller { get; set; }
 

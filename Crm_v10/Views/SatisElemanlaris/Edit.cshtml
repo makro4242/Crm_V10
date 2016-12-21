@@ -6,27 +6,29 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="card-box">
                     <h2>Düzenle</h2>
                     <h4 class="m-t-0 header-title">
                         <b>SATIŞ ELEMANLARI BİLGİLERİNİ DÜZENLE</b>
                     </h4>
                     <div class="form-horizontal">
+                        <input type="hidden" id="sayfa" name="sayfa" value="SatisElemanlaris" />
                         <hr />
+                        En Son Eklenen Satiş Elemanı Kodunu görebilmek için Satış Elemanı Kodu Bölümüne Tıklayıp,<br /> Shift Tuşuna Basmanız Yeterli.<br /><br />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.ID)
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SatisElemaniKodu,"Satış Elemanı Kodu" ,htmlAttributes: new { @class = "control-label col-md-2", @required = "" })
+                            @Html.LabelFor(model => model.SatisElemaniKodu,"Satış Elemanı Kodu" ,htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.SatisElemaniKodu, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.SatisElemaniKodu, new { htmlAttributes = new { @class = "form-control koduTamamla" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniKodu, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SatisElemaniAdiSoyadi,"Ad Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.SatisElemaniAdiSoyadi,"Ad Soyad", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.SatisElemaniAdiSoyadi, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniAdiSoyadi, "", new { @class = "text-danger" })

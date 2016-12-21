@@ -12,6 +12,7 @@ namespace Crm_v10.Models
         {
         }
 
+        public virtual DbSet<GorevEkleme> GorevEkleme { get; set; }
         public virtual DbSet<Iller> Iller { get; set; }
         public virtual DbSet<Kullanicilar> Kullanicilar { get; set; }
         public virtual DbSet<Log> Log { get; set; }
@@ -23,6 +24,10 @@ namespace Crm_v10.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<GorevEkleme>()
+                .Property(e => e.TahminiTutar)
+                .HasPrecision(19, 4);
+
             modelBuilder.Entity<Iller>()
                 .HasMany(e => e.Potansiyel)
                 .WithRequired(e => e.Iller)
@@ -32,6 +37,11 @@ namespace Crm_v10.Models
             modelBuilder.Entity<Potansiyel>()
                 .Property(e => e.PotansiyelNot)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<SatisElemanlari>()
+                .HasMany(e => e.GorevEkleme)
+                .WithOptional(e => e.SatisElemanlari)
+                .HasForeignKey(e => e.SatisElemaniID);
 
             modelBuilder.Entity<SatisElemanlari>()
                 .HasMany(e => e.Potansiyel)

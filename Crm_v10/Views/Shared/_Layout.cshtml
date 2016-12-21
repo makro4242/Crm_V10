@@ -208,7 +208,7 @@
                             </ul>
                             <a href="#" class="waves-effect"><i class="ti-pencil-alt"></i> <span> Evraklar </span> </a>
                             <ul class="list-unstyled">
-                                <li><a href="index.html">Görev Ekleme</a></li>
+                                <li><a href="@Url.Action("Index", "GorevEklemes")">Görev Ekleme</a></li>
                                 <li><a href="index.html">Aksiyon Ekleme</a></li>
                             </ul>
                         <li class="text-muted menu-title">Ayarlar</li>
@@ -384,6 +384,7 @@
     <script src="/Content/js/jquery.core.js"></script>
     <script src="/Content/js/jquery.app.js"></script>
     <script src="/Content/plugins/select2/select2.min.js" type="text/javascript"></script>
+
     <script>
         jQuery(document).ready(function () {
             // Select2
@@ -393,28 +394,49 @@
     <script>
         $(document).ready(function () {
             $(".koduTamamla").keydown(function (e) {
-                if (e.keyCode == 16) {
+                if ((e.which || e.keyCode) == 112) {
                     var kod = document.querySelector('.koduTamamla').value;
-                    $.ajax({
-                        type: "POST",
-                        url: "/My/KoduGetir",
-                        data: "{kod:'" + kod + "'}",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (data) {
-                            if (data =="") {
-  
-                            }
-                            else { document.querySelector('.koduTamamla').value = data; }
-                        },
-                        error: function () {
-                            swal('Hata', 'error');
-                        }
+                            var sayfa = document.getElementById("sayfa").value;
+                            $.ajax({
+                                type: "POST",
+                                url: "/"+sayfa+"/KoduGetir",
+                                data: "{kod:'" + kod + "'}",
+                                contentType: "application/json; charset=utf-8",
+                                success: function (data) {
+                                    if (data =="") {
+
+                                    }
+                                    else { document.querySelector('.koduTamamla').value = data; }
+                                },
+                                error: function () {
+                                    swal('Hata', 'error');
+                                }
                     });
                 }
             });
         })
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var sayfa = document.getElementById("sayfa").value;
+            $.ajax({
+                type: "POST",
+                url: "/"+sayfa+"/KoduGetir",
+                data: "{}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data =="") {
 
+                    }
+                    else { document.querySelector('.GorevEkleKodu').value = data; }
+                },
+                error: function () {
+                    swal('Hata', 'error');
+                }
+            });
+        });
+    </script>
+    
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatable').dataTable();

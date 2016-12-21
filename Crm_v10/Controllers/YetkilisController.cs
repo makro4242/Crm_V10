@@ -151,11 +151,54 @@ namespace Crm_v10.Controllers
            
         }
 
-       
-       
-          
-               
-      
+
+        Crmv10DB ctx = new Crmv10DB();
+        public JsonResult KoduGetir(string kod)
+        {
+            string veri = "";
+            string sayisalDeger = "";
+            bool sifirdanFarkli = false;
+            var Sonuc = (from p in ctx.Yetkili
+                         where p.YetkiliKodu.StartsWith(kod)
+                         orderby p.YetkiliKodu
+                         select p.YetkiliKodu).ToList();
+            veri = Sonuc[Sonuc.Count - 1];
+            //sayisalDeger = veri.Replace(kod, "");
+            int sayac = 0;
+            string sifirlariTut = "";
+            for (int i = 0; i < veri.Length; i++)
+            {
+                for (int j = 0; j < kod.Length; j++)
+                {
+                    if (sayac != kod.Length)
+                    {
+                        if (veri[i] == kod[j])
+                        {
+                            sayac += 1;
+                            i += 1;
+                        }
+                    }
+                }
+                if (sifirdanFarkli == false)
+                {
+                    if (veri[i] == '0')
+                    {
+                        sifirlariTut += veri[i];
+                    }
+                    else
+                    {
+                        sayisalDeger += veri[i];
+                        sifirdanFarkli = true;
+                    }
+                }
+                else sayisalDeger += veri[i];
+            }
+            veri = kod + sifirlariTut + (Convert.ToInt32(sayisalDeger) + 1);
+            return Json(veri, JsonRequestBehavior.AllowGet);
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

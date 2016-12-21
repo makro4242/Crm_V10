@@ -18,14 +18,16 @@
                         <b>YETKİLİ BİLGİLERİ YENİ KAYIT</b>
                     </h4>
                     <div class="form-horizontal">
+                        <input type="hidden" id="sayfa" name="sayfa" value="Yetkilis" />
                         <hr />
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.YetkiliKodu,"Yetkili Kodu", htmlAttributes: new { @class = "control-label col-md-4",@required = "" })
+                            @Html.LabelFor(model => model.YetkiliKodu,"Yetkili Kodu", htmlAttributes: new { @class = "control-label col-md-4 ", @required = "" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.YetkiliKodu, new { htmlAttributes = new { @class = "form-control" , @maxlength = "20" } })
+                                @Html.EditorFor(model => model.YetkiliKodu, new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliKodu, "", new { @class = "text-danger" })
+                                @ViewBag.YetkiliKodu
                             </div>
                         </div>
 

@@ -23,11 +23,6 @@ namespace Crm_v10.Controllers
             }
 
             else return RedirectToAction("LoginPage", "Home");
-
-
-
-
-
            
         }
 
@@ -152,7 +147,16 @@ namespace Crm_v10.Controllers
 
             else return RedirectToAction("LoginPage", "Home");
         }
-
+        Crmv10DB ctx = new Crmv10DB();
+        public JsonResult KoduGetir(string kod)
+        {
+            string veri = "";
+            var Sonuc = (from p in ctx.SatisElemanlari
+                         orderby p.SatisElemaniKodu
+                         select p.SatisElemaniKodu).ToList();
+            veri =( (Sonuc[Sonuc.Count - 1])+1).ToString();
+            return Json(veri, JsonRequestBehavior.AllowGet);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
