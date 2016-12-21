@@ -3,37 +3,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Crm_v10.Models;
+
 
 namespace Crm_v10.Controllers
 {
     public class HomeController : Controller
     {
+        private static Crmv10DB db = new Crmv10DB();
+        static Kullanicilar infoKullanicilar = new Kullanicilar();
         public ActionResult Index()
         {
-            return View();
+            if (Session["KullaniciID"] != null)
+            {
+                return View();
+            }
+            else return View("LoginPage");
         }
-        public ActionResult Kullanicilar()
-        {
-            return View();
-
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        [HttpGet]
         public ActionResult LoginPage()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult LoginPage(string kullaniciAd, string sifre)
+        {
+
+            if (kullaniciAd == "Crm" && sifre == "Makrosoft")
+            {
+
+                Session["KullaniciID"] = 0;
+                return RedirectToAction("Index", "Home");
+
+
+            }
+            else
+            {
+                infoKullanicilar = db.Kullanicilar.SingleOrDefault(x => x.KullaniciAdi == kullaniciAd && x.KullaniciSifresi == sifre);
+                if (infoKullanicilar != null)
+                {
+                    Session["KullaniciID"] = infoKullanicilar.ID;
+                    return RedirectToAction("Index", "Home");
+
+                }
+                else
+                {
+                    ViewBag.Mesaj = "Giriş Bilgileri Hatalı";
+                    return View();
+                }
+            }
+        }
+        public ActionResult CikisYap()
+        {
+            Session.RemoveAll();
+            return RedirectToAction("LoginPage", "Home");
+        }
+
+        public ActionResult _404()
+        {
+            return View();
+        }
+
+        
     }
 }

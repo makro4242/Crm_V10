@@ -27,7 +27,7 @@ namespace Crm_v10.Models
         [StringLength(20)]
         public string PotansiyelAdresiUINKodu { get; set; }
 
-        public int PotansiyelYetkiliID { get; set; }
+        public int? PotansiyelYetkiliID { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -66,5 +66,13 @@ namespace Crm_v10.Models
         public string PotansiyelNot { get; set; }
 
         public int PotansiyelSatisElemani { get; set; }
+
+        public virtual Iller Iller { get; set; }
+
+        public virtual SatisElemanlari SatisElemanlari { get; set; }
+
+        public virtual Ulkeler Ulkeler { get; set; }
+
+        public virtual Yetkili Yetkili { get; set; }
     }
 }

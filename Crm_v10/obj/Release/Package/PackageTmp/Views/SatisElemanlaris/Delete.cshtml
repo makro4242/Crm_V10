@@ -1,0 +1,50 @@
+﻿@model Crm_v10.Models.SatisElemanlari
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card-box">
+                <h2>Sil</h2>
+                <h4 class="m-t-0 header-title">
+                    <b> SATIŞ ELEMANI SİL</b>
+                </h4>
+
+                <div class="form-horizontal">
+                    <hr />    <dl class="dl-horizontal">
+                        <dt>
+                          Satış Elemanı Kodu :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SatisElemaniKodu)
+                        </dd>
+
+                        <dt>
+                           Ad Soyad :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SatisElemaniAdiSoyadi)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Sil" class="btn btn-default" /> |
+                            @Html.ActionLink("Listeye Dön", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

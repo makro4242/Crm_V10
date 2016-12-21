@@ -12,33 +12,64 @@ namespace Crm_v10.Controllers
 {
     public class KullanicilarsController : Controller
     {
-        private CrmV10Model db = new CrmV10Model();
+        private Crmv10DB db = new Crmv10DB();
 
         // GET: Kullanicilars
         public ActionResult Index()
         {
-            return View(db.Kullanicilar.ToList());
+            if (Session["KullaniciID"] != null)
+            {
+                if(Session["KullaniciID"].ToString()=="0")
+                {
+                    return View(db.Kullanicilar.ToList());
+                }
+                else return RedirectToAction("Index", "Home");
+
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+
         }
-      
         // GET: Kullanicilars/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (Session["KullaniciID"].ToString() == "0")
+                {
+                    if (id == null)
+                    {
+                        return RedirectToAction("_404", "Home");
+                    }
+                    Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
+                    if (kullanicilar == null)
+                    {
+                        return RedirectToAction("_404", "Home");
+                    }
+                    return View(kullanicilar);
+                }
+                else return RedirectToAction("Index", "Home");
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
-            {
-                return HttpNotFound();
-            }
-            return View(kullanicilar);
+
+            else return RedirectToAction("LoginPage", "Home");
+
+           
         }
 
         // GET: Kullanicilars/Create
         public ActionResult Create()
         {
-            return View();
+
+            if (Session["KullaniciID"] != null)
+            {
+                if (Session["KullaniciID"].ToString() == "0")
+                {
+                    return View();
+                }
+                else return RedirectToAction("Index", "Home");
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // POST: Kullanicilars/Create
@@ -61,16 +92,24 @@ namespace Crm_v10.Controllers
         // GET: Kullanicilars/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+               
+                    if (id == null)
+                    {
+                        return RedirectToAction("_404", "Home");
+                    }
+                    Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
+                    if (kullanicilar == null)
+                    {
+                        return RedirectToAction("_404", "Home");
+                    }
+                    return View(kullanicilar);
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
-            {
-                return HttpNotFound();
-            }
-            return View(kullanicilar);
+
+            else return RedirectToAction("LoginPage", "Home");
+
+           
         }
 
         // POST: Kullanicilars/Edit/5
@@ -92,16 +131,27 @@ namespace Crm_v10.Controllers
         // GET: Kullanicilars/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (Session["KullaniciID"].ToString() == "0")
+                {
+                    if (id == null)
+                    {
+                        return RedirectToAction("_404", "Home"); ;
+                    }
+                    Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
+                    if (kullanicilar == null)
+                    {
+                        return RedirectToAction("_404", "Home");
+                    }
+                    return View(kullanicilar);
+                }
+                else return RedirectToAction("Index", "Home");
             }
-            Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            if (kullanicilar == null)
-            {
-                return HttpNotFound();
-            }
-            return View(kullanicilar);
+
+            else return RedirectToAction("LoginPage", "Home");
+
+          
         }
 
         // POST: Kullanicilars/Delete/5

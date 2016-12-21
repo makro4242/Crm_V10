@@ -17,5 +17,9 @@ namespace Crm_v10
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        public void Session_Start(object sender, EventArgs e)
+        {
+            Session.Add(" KullaniciID", new int());
+        }
     }
 }

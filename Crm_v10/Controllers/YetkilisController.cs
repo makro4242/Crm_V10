@@ -12,33 +12,50 @@ namespace Crm_v10.Controllers
 {
     public class YetkilisController : Controller
     {
-        private CrmV10Model db = new CrmV10Model();
+        private Crmv10DB db = new Crmv10DB();
 
         // GET: Yetkilis
         public ActionResult Index()
         {
-            return View(db.Yetkili.ToList());
+            if (Session["KullaniciID"] != null)
+            {
+                return View(db.Yetkili.ToList());
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+           
         }
 
         // GET: Yetkilis/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                Yetkili yetkili = db.Yetkili.Find(id);
+                if (yetkili == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(yetkili);
             }
-            Yetkili yetkili = db.Yetkili.Find(id);
-            if (yetkili == null)
-            {
-                return HttpNotFound();
-            }
-            return View(yetkili);
+
+            else return RedirectToAction("LoginPage", "Home");
+          
         }
 
         // GET: Yetkilis/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["KullaniciID"] != null)
+            {
+                return View();
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // POST: Yetkilis/Create
@@ -61,16 +78,23 @@ namespace Crm_v10.Controllers
         // GET: Yetkilis/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                Yetkili yetkili = db.Yetkili.Find(id);
+                if (yetkili == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(yetkili);
             }
-            Yetkili yetkili = db.Yetkili.Find(id);
-            if (yetkili == null)
-            {
-                return HttpNotFound();
-            }
-            return View(yetkili);
+
+            else return RedirectToAction("LoginPage", "Home");
+           
         }
 
         // POST: Yetkilis/Edit/5
@@ -92,16 +116,22 @@ namespace Crm_v10.Controllers
         // GET: Yetkilis/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                Yetkili yetkili = db.Yetkili.Find(id);
+                if (yetkili == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(yetkili);
             }
-            Yetkili yetkili = db.Yetkili.Find(id);
-            if (yetkili == null)
-            {
-                return HttpNotFound();
-            }
-            return View(yetkili);
+
+            else return RedirectToAction("LoginPage", "Home");
+           
         }
 
         // POST: Yetkilis/Delete/5
@@ -109,12 +139,23 @@ namespace Crm_v10.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Yetkili yetkili = db.Yetkili.Find(id);
-            db.Yetkili.Remove(yetkili);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["KullaniciID"] != null)
+            {
+                Yetkili yetkili = db.Yetkili.Find(id);
+                db.Yetkili.Remove(yetkili);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+           
         }
 
+       
+       
+          
+               
+      
         protected override void Dispose(bool disposing)
         {
             if (disposing)

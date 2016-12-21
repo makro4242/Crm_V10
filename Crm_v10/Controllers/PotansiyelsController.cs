@@ -12,38 +12,62 @@ namespace Crm_v10.Controllers
 {
     public class PotansiyelsController : Controller
     {
-        private CrmV10Model db = new CrmV10Model();
+        private Crmv10DB db = new Crmv10DB();
        
         // GET: Potansiyels
         public ActionResult Index()
         {
+            if (Session["KullaniciID"] != null)
+            {
+                return View(db.Potansiyel.ToList());
+            }
 
-            return View(db.Potansiyel.ToList());
+            else return RedirectToAction("LoginPage", "Home");
+
+           
         }
 
         // GET: Potansiyels/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                Potansiyel potansiyel = db.Potansiyel.Find(id);
+                if (potansiyel == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(potansiyel);
             }
-            Potansiyel potansiyel = db.Potansiyel.Find(id);
-            if (potansiyel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(potansiyel);
+
+            else return RedirectToAction("LoginPage", "Home");
+
+
+           
         }
 
         // GET: Potansiyels/Create
         public ActionResult Create()
         {
-            ViewBag.Yetkili= new SelectList(db.Yetkili, "Id", "YetkiliAd");
-            ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
-            ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
-            return View();
+            if (Session["KullaniciID"] != null)
+            {
+
+                ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+                ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
+                ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
+                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
+                return View();
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+
+
+
+
         }
 
         // POST: Potansiyels/Create
@@ -66,20 +90,29 @@ namespace Crm_v10.Controllers
         // GET: Potansiyels/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                Potansiyel potansiyel = db.Potansiyel.Find(id);
+                if (potansiyel == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+                ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
+                ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
+                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
+                return View(potansiyel);
             }
-            Potansiyel potansiyel = db.Potansiyel.Find(id);
-            if (potansiyel == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "YetkiliAd");
-            ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
-            ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
-            return View(potansiyel);
+
+            else return RedirectToAction("LoginPage", "Home");
+
+
+
+          
         }
 
         // POST: Potansiyels/Edit/5
@@ -101,16 +134,21 @@ namespace Crm_v10.Controllers
         // GET: Potansiyels/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                Potansiyel potansiyel = db.Potansiyel.Find(id);
+                if (potansiyel == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(potansiyel);
             }
-            Potansiyel potansiyel = db.Potansiyel.Find(id);
-            if (potansiyel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(potansiyel);
+
+            else return RedirectToAction("LoginPage", "Home");         
         }
 
         // POST: Potansiyels/Delete/5
@@ -118,10 +156,16 @@ namespace Crm_v10.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Potansiyel potansiyel = db.Potansiyel.Find(id);
-            db.Potansiyel.Remove(potansiyel);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["KullaniciID"] != null)
+            {
+                Potansiyel potansiyel = db.Potansiyel.Find(id);
+                db.Potansiyel.Remove(potansiyel);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+          
         }
 
         protected override void Dispose(bool disposing)

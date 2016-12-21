@@ -9,6 +9,12 @@ namespace Crm_v10.Models
     [Table("SatisElemanlari")]
     public partial class SatisElemanlari
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SatisElemanlari()
+        {
+            Potansiyel = new HashSet<Potansiyel>();
+        }
+
         public int ID { get; set; }
 
         public int SatisElemaniKodu { get; set; }
@@ -16,5 +22,8 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(100)]
         public string SatisElemaniAdiSoyadi { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Potansiyel> Potansiyel { get; set; }
     }
 }

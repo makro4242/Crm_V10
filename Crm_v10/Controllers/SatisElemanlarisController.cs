@@ -12,33 +12,56 @@ namespace Crm_v10.Controllers
 {
     public class SatisElemanlarisController : Controller
     {
-        private CrmV10Model db = new CrmV10Model();
+        private Crmv10DB db = new Crmv10DB();
 
         // GET: SatisElemanlaris
         public ActionResult Index()
         {
-            return View(db.SatisElemanlari.ToList());
+            if (Session["KullaniciID"] != null)
+            {
+                return View(db.SatisElemanlari.ToList());
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+
+
+
+
+
+           
         }
 
         // GET: SatisElemanlaris/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
+                if (satisElemanlari == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(satisElemanlari);
+
             }
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            if (satisElemanlari == null)
-            {
-                return HttpNotFound();
-            }
-            return View(satisElemanlari);
-        }
+
+            else return RedirectToAction("LoginPage", "Home");
+   }
 
         // GET: SatisElemanlaris/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["KullaniciID"] != null)
+            {
+                return View();
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
+          
         }
 
         // POST: SatisElemanlaris/Create
@@ -61,16 +84,21 @@ namespace Crm_v10.Controllers
         // GET: SatisElemanlaris/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
+                if (satisElemanlari == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(satisElemanlari);
             }
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            if (satisElemanlari == null)
-            {
-                return HttpNotFound();
-            }
-            return View(satisElemanlari);
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // POST: SatisElemanlaris/Edit/5
@@ -92,16 +120,21 @@ namespace Crm_v10.Controllers
         // GET: SatisElemanlaris/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["KullaniciID"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
+                if (satisElemanlari == null)
+                {
+                    return RedirectToAction("_404", "Home");
+                }
+                return View(satisElemanlari);
             }
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            if (satisElemanlari == null)
-            {
-                return HttpNotFound();
-            }
-            return View(satisElemanlari);
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         // POST: SatisElemanlaris/Delete/5
@@ -109,10 +142,15 @@ namespace Crm_v10.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-            db.SatisElemanlari.Remove(satisElemanlari);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["KullaniciID"] != null)
+            {
+                SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
+                db.SatisElemanlari.Remove(satisElemanlari);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            else return RedirectToAction("LoginPage", "Home");
         }
 
         protected override void Dispose(bool disposing)
