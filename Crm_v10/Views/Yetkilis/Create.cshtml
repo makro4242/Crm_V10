@@ -82,7 +82,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliDogumTarihi,"Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.YetkiliDogumTarihi, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.YetkiliDogumTarihi, new { htmlAttributes = new { @class = "form-control tarih" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliDogumTarihi, "", new { @class = "text-danger" })
                             </div>
                         </div>

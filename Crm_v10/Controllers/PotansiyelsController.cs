@@ -83,7 +83,10 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+            ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
+            ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
             return View(potansiyel);
         }
 
@@ -128,6 +131,10 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+            ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
+            ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
             return View(potansiyel);
         }
 

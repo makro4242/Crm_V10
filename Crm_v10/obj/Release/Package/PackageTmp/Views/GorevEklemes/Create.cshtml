@@ -61,8 +61,8 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.TahminiTutar,"Tahmini Tutar" ,htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.TahminiTutar, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.TahminiTutar, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.TahminiTutar, new { htmlAttributes = new { @class = "form-control", @style = "text-align:right" } })
+                                @Html.ValidationMessageFor(model => model.TahminiTutar, "", new { @class = "text-danger"  })
                             </div>
                         </div>
 

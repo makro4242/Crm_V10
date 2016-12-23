@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhtWnPpgTrEe4oFwjlkAPFwAAAAACAAAAAAAQZgAAAAEAACAAAAApmRZCG/lFfo864BujTd7hmsyaLaOKKj4X+n47+/6XOAAAAAAOgAAAAAIAACAAAADhiRCQH3608NU7NvtfOD4kWITfuvwGg/Z2jcsuR24KsSAAAABcgPFSc8QxJcdPH7gkfYznYsoFN60XB1vMDbHdtI+BaUAAAACbbDbH7pqIsfvyxMSYRW4kghy3t5ivWowOduJZ0VEj/+KsKKbBe5p0ku7fbGRG7ES5OnoINC82dZui4Ip9DFi0</EncryptedPassword>
-    <_PublishTargetUrl>C:\Users\Sema-Seda\Desktop\CRMPublish21122016</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Sema-Seda\Desktop\CRMPublish22122016</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
     <File Include="bin/Crm_v10.dll">
-      <publishTime>12/21/2016 17:47:01</publishTime>
+      <publishTime>12/22/2016 10:33:23</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/15/2016 17:44:36</publishTime>
@@ -8276,19 +8276,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Create.cshtml">
-      <publishTime>12/21/2016 17:30:43</publishTime>
+      <publishTime>12/22/2016 10:02:51</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Delete.cshtml">
-      <publishTime>12/21/2016 16:45:27</publishTime>
+      <publishTime>12/22/2016 10:26:22</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Details.cshtml">
-      <publishTime>12/21/2016 16:45:14</publishTime>
+      <publishTime>12/22/2016 10:12:00</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Edit.cshtml">
-      <publishTime>12/21/2016 16:42:53</publishTime>
+      <publishTime>12/22/2016 10:03:53</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Index.cshtml">
-      <publishTime>12/21/2016 16:47:32</publishTime>
+      <publishTime>12/22/2016 09:56:26</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>12/20/2016 14:39:38</publishTime>

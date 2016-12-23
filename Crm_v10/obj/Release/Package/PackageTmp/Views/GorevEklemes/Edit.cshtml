@@ -30,14 +30,14 @@
                             @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger", @maxlength = "500" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Tarih, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.Tarih, string.Format("{0:dd.MM.yyyy}", Model), new { htmlAttributes = new { @class = "form-control date-picker" } })
+                                @Html.EditorFor(model => model.Tarih, new { htmlAttributes = new { @class = "form-control date-picker" } })
                                 @Html.ValidationMessageFor(model => model.Tarih, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -60,8 +60,8 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.TahminiTutar, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-7">
-                                @Html.EditorFor(model => model.TahminiTutar, new { htmlAttributes = new { @class = "form-control" } })
+                            <div class="col-md-7" style="text-align:right">
+                                @Html.EditorFor(model => model.TahminiTutar, new { htmlAttributes = new { @class = "form-control", @style = "text-align:right" } })
                                 @Html.ValidationMessageFor(model => model.TahminiTutar, "", new { @class = "text-danger" })
                             </div>
                         </div>

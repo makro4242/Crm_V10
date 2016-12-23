@@ -1,0 +1,71 @@
+﻿@model Crm_v10.Models.Aksiyon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h2>İncele</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>AKSİYON EKLE BİLGİLERİNİ İNCELE</b>
+                </h4>
+                <div class="form-horizontal">
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                           Görev Açıklama :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.GorevEkleme.Aciklama)
+                        </dd>
+
+                        <dt>
+                           Tarih :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Tarih)
+                        </dd>
+
+                        <dt>
+                          Saat :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Saat)
+                        </dd>
+
+                        <dt>
+                          Aksiyon Seçim :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.AksiyonSecim)
+                        </dd>
+
+                        <dt>
+                           Aksiyon Not :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.AksiyonNot)
+                        </dd>
+
+                        <dt>
+                            Ekler :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Ekler)
+                        </dd>
+                    </dl>
+                </div>
+                @Html.ActionLink("Listeye Dön", "Index")
+            </div>
+        </div>
+    </div>
+</div>

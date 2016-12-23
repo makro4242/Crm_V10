@@ -197,6 +197,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AksiyonsController.cs" />
     <Compile Include="Controllers\GorevEklemesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullanicilarsController.cs" />
@@ -207,6 +208,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Aksiyon.cs" />
     <Compile Include="Models\Crmv10DB.cs" />
     <Compile Include="Models\GorevEkleme.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -2260,6 +2262,7 @@
     <Content Include="Content\plugins\bootstrap-datepicker\dist\css\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\js\bootstrap-datepicker.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\plugins\bootstrap-datepicker\dist\js\datepicker.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\locales\bootstrap-datepicker.ar.min.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\locales\bootstrap-datepicker.az.min.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\locales\bootstrap-datepicker.bg.min.js" />
@@ -2322,6 +2325,8 @@
     <Content Include="Content\plugins\bootstrap-datepicker\dist\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\dist\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Content\plugins\bootstrap-filestyle\src\bootstrap-filestyle.js" />
+    <Content Include="Content\plugins\bootstrap-filestyle\src\bootstrap-filestyle.min.js" />
     <Content Include="Content\plugins\bootstrap-validator\dist\validator.js" />
     <Content Include="Content\plugins\bootstrap-validator\dist\validator.min.js" />
     <Content Include="Content\plugins\bootstrap-validator\js\validator.js" />
@@ -2959,6 +2964,11 @@
     <Content Include="Views\GorevEklemes\Details.cshtml" />
     <Content Include="Views\GorevEklemes\Edit.cshtml" />
     <Content Include="Views\GorevEklemes\Index.cshtml" />
+    <Content Include="Views\Aksiyons\Create.cshtml" />
+    <Content Include="Views\Aksiyons\Delete.cshtml" />
+    <Content Include="Views\Aksiyons\Details.cshtml" />
+    <Content Include="Views\Aksiyons\Edit.cshtml" />
+    <Content Include="Views\Aksiyons\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,7 +19,7 @@ namespace Crm_v10.Models
         public int ID { get; set; }
 
         public int SatisElemaniKodu { get; set; }
-        
+
         [Required]
         [StringLength(100)]
         public string SatisElemaniAdiSoyadi { get; set; }

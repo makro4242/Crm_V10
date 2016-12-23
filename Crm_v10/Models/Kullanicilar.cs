@@ -9,6 +9,13 @@ namespace Crm_v10.Models
     [Table("Kullanicilar")]
     public partial class Kullanicilar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Kullanicilar()
+        {
+            Log = new HashSet<Log>();
+            Log1 = new HashSet<Log>();
+        }
+
         public int ID { get; set; }
 
         [Required]
@@ -22,5 +29,11 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(50)]
         public string KullaniciSifresi { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Log> Log { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Log> Log1 { get; set; }
     }
 }

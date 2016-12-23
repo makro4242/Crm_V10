@@ -38,7 +38,7 @@ namespace Crm_v10.Controllers
                 GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
                 if (gorevEkleme == null)
                 {
-                    return HttpNotFound();
+                    return RedirectToAction("_404", "Home");
                 }
                 return View(gorevEkleme);
             }
@@ -89,7 +89,23 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var Oncelik = new[]
+                {
+                 new SelectListItem(){Value = "Normal", Text= "Normal"},
+                 new SelectListItem(){Value = "Düşük", Text= "Düşük"},
+                 new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
+                 new SelectListItem(){Value = "Acil", Text= "Acil"},
+               };
+            var Durum = new[]
+            {
+                 new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
+                 new SelectListItem(){Value = "Teklif", Text= "Teklif"},
+                 new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif"},
+                 new SelectListItem(){Value = "Satış", Text= "Satış"},
+                 new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
+              };
+            ViewBag.Durum = Durum;
+            ViewBag.Oncelik = Oncelik;
             ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
             ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
             return View(gorevEkleme);
@@ -107,7 +123,7 @@ namespace Crm_v10.Controllers
                 GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
                 if (gorevEkleme == null)
                 {
-                    return HttpNotFound();
+                    return RedirectToAction("_404", "Home");
                 }
                 var Oncelik = new[]
                 {
@@ -148,6 +164,23 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var Oncelik = new[]
+                {
+                 new SelectListItem(){Value = "Normal", Text= "Normal"},
+                 new SelectListItem(){Value = "Düşük", Text= "Düşük"},
+                 new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
+                 new SelectListItem(){Value = "Acil", Text= "Acil"},
+               };
+            var Durum = new[]
+            {
+                 new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
+                 new SelectListItem(){Value = "Teklif", Text= "Teklif"},
+                 new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif"},
+                 new SelectListItem(){Value = "Satış", Text= "Satış"},
+                 new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
+              };
+            ViewBag.Durum = Durum;
+            ViewBag.Oncelik = Oncelik;
             ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
             ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
             return View(gorevEkleme);
@@ -165,7 +198,7 @@ namespace Crm_v10.Controllers
                 GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
                 if (gorevEkleme == null)
                 {
-                    return HttpNotFound();
+                    return RedirectToAction("_404", "Home");
                 }
                 return View(gorevEkleme);
             }
@@ -178,10 +211,14 @@ namespace Crm_v10.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-            db.GorevEkleme.Remove(gorevEkleme);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["KullaniciID"] != null)
+            {
+                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
+                db.GorevEkleme.Remove(gorevEkleme);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else return RedirectToAction("LoginPage", "Home");
         }
         Crmv10DB ctx = new Crmv10DB();
         public JsonResult KoduGetir()
@@ -191,7 +228,13 @@ namespace Crm_v10.Controllers
             var Sonuc = (from p in ctx.GorevEkleme
                          orderby p.ID
                          select p.ID).ToList();
-            veri = ((Sonuc[Sonuc.Count - 1]) + 1).ToString();
+            if(Sonuc.Count==0)
+            {
+                veri = "1";
+            }
+            else veri = ((Sonuc[Sonuc.Count - 1]) + 1).ToString();
+
+
             return Json(veri, JsonRequestBehavior.AllowGet);
         }
         protected override void Dispose(bool disposing)

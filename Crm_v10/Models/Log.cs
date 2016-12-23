@@ -19,10 +19,14 @@ namespace Crm_v10.Models
 
         public int OlusturanKullanici { get; set; }
 
-        public DateTime OlusturulanTarih { get; set; }
+        public DateTime? OlusturulanTarih { get; set; }
 
         public int DegistirenKullanici { get; set; }
 
-        public DateTime DegistirilenTarih { get; set; }
+        public DateTime? DegistirilenTarih { get; set; }
+
+        public virtual Kullanicilar Kullanicilar { get; set; }
+
+        public virtual Kullanicilar Kullanicilar1 { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Crm_v10.Models.GorevEkleme
+﻿@model Crm_v10.Models.Aksiyon
 
 @{
     ViewBag.Title = "Delete";
@@ -10,45 +10,22 @@
             <div class="card-box">
                 <h2>Sil</h2>
                 <h4 class="m-t-0 header-title">
-                    <b>GÖREV EKLEME SİL</b>
+                    <b>AKSİYON EKLEME SİL</b>
                 </h4>
 
                 <div class="form-horizontal">
                     <hr />
                     <dl class="dl-horizontal">
                         <dt>
-                            Görev Kodu :
+                           Görev Açıklama :
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.ID)
-                        </dd>
-                        <dt>
-                           Potansiyel Unvanı :
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Potansiyel.PotansiyelUnvani)
+                            @Html.DisplayFor(model => model.GorevEkleme.Aciklama)
                         </dd>
 
                         <dt>
-                          Satış Elemanı :
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.SatisElemanlari.SatisElemaniAdiSoyadi)
-                        </dd>
-
-                        <dt>
-                           Açıklama :
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Aciklama)
-                        </dd>
-
-                        <dt>
-                          Tarih :
+                           Tarih :
                         </dt>
 
                         <dd>
@@ -56,35 +33,35 @@
                         </dd>
 
                         <dt>
-                           Tahmini Tutar :
-                        </dt>
-
-                        <dd style="margin-left:25%">
-                            @Html.DisplayFor(model => model.TahminiTutar)
-                        </dd>
-
-                        <dt>
-                           Not :
+                          Saat :
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.GorevNot)
+                            @Html.DisplayFor(model => model.Saat)
                         </dd>
 
                         <dt>
-                           Durum :
+                           Aksiyon Seçim :
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Durum)
+                            @Html.DisplayFor(model => model.AksiyonSecim)
                         </dd>
 
                         <dt>
-                           Öncelik :
+                           Aksiyon Not :
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Oncelik)
+                            @Html.DisplayFor(model => model.AksiyonNot)
+                        </dd>
+
+                        <dt>
+                           Ekler :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Ekler)
                         </dd>
 
                     </dl>

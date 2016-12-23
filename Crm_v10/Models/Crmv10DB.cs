@@ -12,6 +12,7 @@ namespace Crm_v10.Models
         {
         }
 
+        public virtual DbSet<Aksiyon> Aksiyon { get; set; }
         public virtual DbSet<GorevEkleme> GorevEkleme { get; set; }
         public virtual DbSet<Iller> Iller { get; set; }
         public virtual DbSet<Kullanicilar> Kullanicilar { get; set; }
@@ -28,20 +29,43 @@ namespace Crm_v10.Models
                 .Property(e => e.TahminiTutar)
                 .HasPrecision(19, 4);
 
+            modelBuilder.Entity<GorevEkleme>()
+                .HasMany(e => e.Aksiyon)
+                .WithRequired(e => e.GorevEkleme)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Iller>()
                 .HasMany(e => e.Potansiyel)
                 .WithRequired(e => e.Iller)
                 .HasForeignKey(e => e.PotansiyelIl)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Kullanicilar>()
+                .HasMany(e => e.Log)
+                .WithRequired(e => e.Kullanicilar)
+                .HasForeignKey(e => e.OlusturanKullanici)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Kullanicilar>()
+                .HasMany(e => e.Log1)
+                .WithRequired(e => e.Kullanicilar1)
+                .HasForeignKey(e => e.DegistirenKullanici)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Potansiyel>()
                 .Property(e => e.PotansiyelNot)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Potansiyel>()
+                .HasMany(e => e.GorevEkleme)
+                .WithRequired(e => e.Potansiyel)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SatisElemanlari>()
                 .HasMany(e => e.GorevEkleme)
-                .WithOptional(e => e.SatisElemanlari)
-                .HasForeignKey(e => e.SatisElemaniID);
+                .WithRequired(e => e.SatisElemanlari)
+                .HasForeignKey(e => e.SatisElemaniID)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SatisElemanlari>()
                 .HasMany(e => e.Potansiyel)
@@ -57,8 +81,9 @@ namespace Crm_v10.Models
 
             modelBuilder.Entity<Yetkili>()
                 .HasMany(e => e.Potansiyel)
-                .WithOptional(e => e.Yetkili)
-                .HasForeignKey(e => e.PotansiyelYetkiliID);
+                .WithRequired(e => e.Yetkili)
+                .HasForeignKey(e => e.PotansiyelYetkiliID)
+                .WillCascadeOnDelete(false);
         }
     }
 }

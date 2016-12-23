@@ -17,13 +17,11 @@ namespace Crm_v10.Models
 
         public int ID { get; set; }
 
-        public int UlkeKodu { get; set; }
+        public int? UlkeKodu { get; set; }
 
-        [Required]
         [StringLength(5)]
         public string UlkeKisaAdi { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string UlkeAdi { get; set; }
 
