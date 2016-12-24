@@ -390,16 +390,21 @@
 
     <script>
         $(document).ready(function () {
-            $('.para').change(function () {
-                var number = document.querySelector('.para').value,
-                dollars = number.split('.')[0],
-                cents = (number.split('.')[1] || '') + '00';
-                dollars = dollars.split('').reverse().join('')
-                    .replace(/(\d{3}(?!$))/g, '$1.')
-                    .split('').reverse().join('');
-                $(".para").val(dollars + '.' + cents.slice(0, 2) + '₺');
-                document.querySelector('.gosterilmeyenparaformati').value = number;
+            $("#datatable").dataTable({
+                "lengthMenu": [10, 25, 50, 75, 100, 300],
+                "order": [[0, "desc"]]
             });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('form').parsley();
         });
     </script>
     <script>
@@ -420,6 +425,21 @@
                 return true;
             }
         })
+    </script>
+   
+    <script>
+        $(document).ready(function () {
+            $('.para').change(function () {
+                var number = document.querySelector('.para').value,
+                dollars = number.split('.')[0],
+                cents = (number.split('.')[1] || '') + '00';
+                dollars = dollars.split('').reverse().join('')
+                    .replace(/(\d{3}(?!$))/g, '$1.')
+                    .split('').reverse().join('');
+                $(".para").val(dollars + '.' + cents.slice(0, 2) + '₺');
+                document.querySelector('.gosterilmeyenparaformati').value = number;
+            });
+        });
     </script>
     <script>
         $('input.' + "sayi").keypress(function (event) { // Sadece sayı ve '/,.' karakterinin girilmesini saglar
@@ -457,14 +477,6 @@
             
         });
 
-    </script>
-    <script>
-        $(document).ready(function () {
-            $("#datatable").dataTable({
-                "lengthMenu": [10, 25, 50, 75, 100, 300],
-                "order": [[0, "desc"]]
-            });
-        })
     </script>
    
     <script>
@@ -527,6 +539,13 @@
             });
         })
     </script>
+    <script>
+        $(document).ready(function () {
+            var number = document.querySelector('.para').value;
+            document.querySelector('.editpara').value = number;
+
+        })
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             var sayfa = document.getElementById("sayfa").value;
@@ -547,16 +566,6 @@
             });
         });
     </script>
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#datatable').dataTable();
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('form').parsley();
-        });
-    </script>
+   
 </body>
 </html>

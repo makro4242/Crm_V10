@@ -353,7 +353,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
     <File Include="Content/images/favicon_1.ico">
-      <publishTime>12/02/2016 15:29:31</publishTime>
+      <publishTime>02/12/2016 15:29:31</publishTime>
     </File>
     <File Include="Content/images/foggy_birds.png">
       <publishTime>12/15/2016 17:44:18</publishTime>
@@ -8285,7 +8285,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Aksiyons/Create.cshtml">
-      <publishTime>12/24/2016 11:53:00</publishTime>
+      <publishTime>12/24/2016 15:01:22</publishTime>
     </File>
     <File Include="Views/Aksiyons/Delete.cshtml">
       <publishTime>12/23/2016 15:55:14</publishTime>
@@ -8300,7 +8300,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/23/2016 16:34:41</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Create.cshtml">
-      <publishTime>12/24/2016 11:52:40</publishTime>
+      <publishTime>12/24/2016 16:36:04</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Delete.cshtml">
       <publishTime>12/24/2016 11:01:28</publishTime>
@@ -8309,7 +8309,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/24/2016 11:01:21</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Edit.cshtml">
-      <publishTime>12/24/2016 11:58:13</publishTime>
+      <publishTime>12/24/2016 17:19:15</publishTime>
     </File>
     <File Include="Views/GorevEklemes/Index.cshtml">
       <publishTime>12/22/2016 15:24:45</publishTime>
@@ -8396,7 +8396,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/24/2016 11:49:38</publishTime>
+      <publishTime>12/24/2016 17:41:41</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>12/15/2016 17:44:31</publishTime>
