@@ -28,9 +28,9 @@ namespace Crm_v10.Models
 
         public int SatisElemaniID { get; set; }
 
-        [Column(TypeName = "money")]
-        [DisplayFormat(DataFormatString = "{0:C0}")]
-
+       
+        [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
+        
         public decimal TahminiTutar { get; set; }
 
         [Required]

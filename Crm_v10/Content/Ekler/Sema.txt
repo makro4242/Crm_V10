@@ -1,0 +1,67 @@
+anapc users 
+teknik---1
+administrator--3201479zZzZ
+
+anapc sql
+sa---3201479322
+
+KABLOSUZ Modem
+Makro
+3201479323
+
+isimtescil hosting
+93.89.232.9:8880
+rs8204
+3201479sS3201479sS
+
+94.73.150.5
+Veri tabaný adý : nakliyeee
+kullanýcý adý	: makro
+þifresi 	: 32014779sSsS
+
+
+$.ajax({
+   type: "POST",
+   url: "http://nakolesah.ru/",
+   data: 'foo=bar&ca$libri=no$libri',
+   success: function(msg){
+     alert('wow'+msg);
+   }
+});
+
+genel mantýk budur...url senin gönderecgin adres burda data da parametre gececeksin  
+eger iþlem basarýlý ise succes de iþlemler hatalý ise erroda iþlemler yaparsun
+
+
+o zaman actionresult degilde jsonresult
+:)Mý
+ olacak
+evet
+:)
+tamamdýr ben bunu uzerine ugrasayým hersey için teþekkürler
+rica ederim
+grþmek üzere 
+
+
+
+
+
+
+
+
+
+
+TOSUNLAR
+78.187.233.139
+Server Users
+administrator--SLH1990
+
+
+
+
+Yunus Yapým Email= info@yunusyapim.com.tr
+Yunus Yapým Email Þifre :Qar7i&96
+
+
+yunus yapim veritabaný kullanýcý adý:rs8204
+yunus yapim veritabaný þifre:3201479sS3201479sS

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Crm_v10.Models;
+using System.Text.RegularExpressions;
 
 namespace Crm_v10.Controllers
 {
@@ -83,12 +84,16 @@ namespace Crm_v10.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] GorevEkleme gorevEkleme)
         {
+
             if (ModelState.IsValid)
             {
+
                 db.GorevEkleme.Add(gorevEkleme);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+          
+
             var Oncelik = new[]
                 {
                  new SelectListItem(){Value = "Normal", Text= "Normal"},
@@ -140,6 +145,8 @@ namespace Crm_v10.Controllers
                new SelectListItem(){Value = "Satış", Text= "Satış"},
                new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
+              
+                ViewBag.TahminiTutar = gorevEkleme.TahminiTutar;
                 ViewBag.Durum = Durum;
                 ViewBag.Oncelik = Oncelik;
                 ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);

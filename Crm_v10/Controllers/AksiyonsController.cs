@@ -7,12 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Crm_v10.Models;
+using System.IO;
 
 namespace Crm_v10.Controllers
 {
     public class AksiyonsController : Controller
     {
         private Crmv10DB db = new Crmv10DB();
+        public static string strfile1 = "";
+        public static string strfile2 = "";
+        public static string strfile3 = "";
+        public static string strfile4 = "";
+        public static string strfile5 = "";
 
         // GET: Aksiyons
         public ActionResult Index()
@@ -39,6 +45,13 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
+                ViewBag.File1 = aksiyon.Ekler1 != "" ? aksiyon.Ekler1.ToString().Split('_')[1] : "";
+                ViewBag.File2 = aksiyon.Ekler2 != "" ? aksiyon.Ekler2.ToString().Split('_')[1] : "";
+                ViewBag.File3 = aksiyon.Ekler3 != "" ? aksiyon.Ekler3.ToString().Split('_')[1] : "";
+                ViewBag.File4 = aksiyon.Ekler4 != "" ? aksiyon.Ekler4.ToString().Split('_')[1] : "";
+                ViewBag.File5 = aksiyon.Ekler5 != "" ? aksiyon.Ekler5.ToString().Split('_')[1] : "";
+
+
                 return View(aksiyon);
             }
             else return RedirectToAction("LoginPage", "Home");
@@ -48,61 +61,15 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                var Saat = new[]
-                 {
-                  new SelectListItem(){Value = "08:00", Text= "08:00"},
-                  new SelectListItem(){Value = "08:15", Text= "08:15"},
-                  new SelectListItem(){Value = "08:30", Text= "08:30"},
-                  new SelectListItem(){Value = "08:45", Text= "08:45"},
-                  new SelectListItem(){Value = "09:00", Text= "09:00"},
-                  new SelectListItem(){Value = "09:15", Text= "09:15"},
-                  new SelectListItem(){Value = "09:30", Text= "08:30"},
-                  new SelectListItem(){Value = "09:45", Text= "09:45"},
-                  new SelectListItem(){Value = "10:00", Text= "10:00"},
-                  new SelectListItem(){Value = "10:15", Text= "10:15"},
-                  new SelectListItem(){Value = "10:30", Text= "10:30"},
-                  new SelectListItem(){Value = "10:45", Text= "10:45"},
-                  new SelectListItem(){Value = "11:00", Text= "11:00"},
-                  new SelectListItem(){Value = "11:15", Text= "11:15"},
-                  new SelectListItem(){Value = "11:30", Text= "11:30"},
-                  new SelectListItem(){Value = "11:45", Text= "11:45"},
-                  new SelectListItem(){Value = "12:00", Text= "12:00"},
-                  new SelectListItem(){Value = "12:15", Text= "12:15"},
-                  new SelectListItem(){Value = "12:30", Text= "12:30"},
-                  new SelectListItem(){Value = "12:45", Text= "12:45"},
-                  new SelectListItem(){Value = "13:00", Text= "13:00"},
-                  new SelectListItem(){Value = "13:15", Text= "13:15"},
-                  new SelectListItem(){Value = "13:30", Text= "13:30"},
-                  new SelectListItem(){Value = "13:45", Text= "13:45"},
-                  new SelectListItem(){Value = "14:00", Text= "14:00"},
-                  new SelectListItem(){Value = "14:15", Text= "14:15"},
-                  new SelectListItem(){Value = "14:30", Text= "14:30"},
-                  new SelectListItem(){Value = "14:45", Text= "14:45"},
-                  new SelectListItem(){Value = "15:00", Text= "15:00"},
-                  new SelectListItem(){Value = "15:15", Text= "15:15"},
-                  new SelectListItem(){Value = "15:30", Text= "15:30"},
-                  new SelectListItem(){Value = "15:45", Text= "15:45"},
-                  new SelectListItem(){Value = "16:00", Text= "16:00"},
-                  new SelectListItem(){Value = "16:15", Text= "16:15"},
-                  new SelectListItem(){Value = "16:30", Text= "16:30"},
-                  new SelectListItem(){Value = "16:45", Text= "16:45"},
-                  new SelectListItem(){Value = "17:00", Text= "17:00"},
-                  new SelectListItem(){Value = "17:15", Text= "17:15"},
-                  new SelectListItem(){Value = "17:30", Text= "17:30"},
-                  new SelectListItem(){Value = "17:45", Text= "17:45"},
-                  new SelectListItem(){Value = "18:00", Text= "18:00"},
-                  new SelectListItem(){Value = "18:15", Text= "18:15"},
-                  new SelectListItem(){Value = "18:30", Text= "18:30"},
-                  new SelectListItem(){Value = "18:45", Text= "18:45"},
-                  new SelectListItem(){Value = "19:00", Text= "19:00"},
-                 };
+               
                 var AksiyonSecim = new[]
                  {
                  new SelectListItem(){Value = "Telefon", Text= "Telefon"},
                  new SelectListItem(){Value = "Mail", Text= "Mail"},
                  new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
                  };
-                ViewBag.Saat = Saat;
+
+             
                 ViewBag.AksiyonSecim = AksiyonSecim;
                 ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama");
                 return View();
@@ -115,69 +82,78 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecim,AksiyonNot,Ekler")] Aksiyon aksiyon)
+        public ActionResult Create([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecim,AksiyonNot,Ekler1,Ekler2,Ekler3,Ekler4,Ekler5")] Aksiyon aksiyon)
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count > 0)
+                {
+                    var file1 = Request.Files[0];
+                    var file2 = Request.Files[1];
+                    var file3 = Request.Files[2];
+                    var file4 = Request.Files[3];
+                    var file5 = Request.Files[4];
+
+                    if (file1 != null && file1.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file1.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file1.SaveAs(path);
+                        aksiyon.Ekler1 = "/Content/Ekler/" + DateTime.Now.ToString() + "f1_" + fileName;
+                    }
+                    else aksiyon.Ekler1 = "";
+
+
+                    if (file2 != null && file2.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file2.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file2.SaveAs(path);
+                        aksiyon.Ekler2 = "/Content/Ekler/" + DateTime.Now.ToString() + "f2_" + fileName;
+                    }
+                    else aksiyon.Ekler2 = "";
+                    if (file3 != null && file3.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file3.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file3.SaveAs(path);
+                        aksiyon.Ekler3 = "/Content/Ekler/" + DateTime.Now.ToString() + "f3_" + fileName;
+                    }
+                    else aksiyon.Ekler3 = "";
+
+                    if (file4 != null && file4.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file4.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file4.SaveAs(path);
+                        aksiyon.Ekler4 = "/Content/Ekler/" + DateTime.Now.ToString() + "f4_" + fileName;
+                    }
+                   else aksiyon.Ekler4 = "";
+
+                    if (file5 != null && file5.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file5.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file5.SaveAs(path);
+                        aksiyon.Ekler5 = "/Content/Ekler/"+DateTime.Now.ToString() + "f5_" + fileName;
+                    }
+                    else aksiyon.Ekler5 = "";
+
+                }
+                
                 db.Aksiyon.Add(aksiyon);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var Saat = new[]
-                 {
-                  new SelectListItem(){Value = "08:00", Text= "08:00"},
-                  new SelectListItem(){Value = "08:15", Text= "08:15"},
-                  new SelectListItem(){Value = "08:30", Text= "08:30"},
-                  new SelectListItem(){Value = "08:45", Text= "08:45"},
-                  new SelectListItem(){Value = "09:00", Text= "09:00"},
-                  new SelectListItem(){Value = "09:15", Text= "09:15"},
-                  new SelectListItem(){Value = "09:30", Text= "08:30"},
-                  new SelectListItem(){Value = "09:45", Text= "09:45"},
-                  new SelectListItem(){Value = "10:00", Text= "10:00"},
-                  new SelectListItem(){Value = "10:15", Text= "10:15"},
-                  new SelectListItem(){Value = "10:30", Text= "10:30"},
-                  new SelectListItem(){Value = "10:45", Text= "10:45"},
-                  new SelectListItem(){Value = "11:00", Text= "11:00"},
-                  new SelectListItem(){Value = "11:15", Text= "11:15"},
-                  new SelectListItem(){Value = "11:30", Text= "11:30"},
-                  new SelectListItem(){Value = "11:45", Text= "11:45"},
-                  new SelectListItem(){Value = "12:00", Text= "12:00"},
-                  new SelectListItem(){Value = "12:15", Text= "12:15"},
-                  new SelectListItem(){Value = "12:30", Text= "12:30"},
-                  new SelectListItem(){Value = "12:45", Text= "12:45"},
-                  new SelectListItem(){Value = "13:00", Text= "13:00"},
-                  new SelectListItem(){Value = "13:15", Text= "13:15"},
-                  new SelectListItem(){Value = "13:30", Text= "13:30"},
-                  new SelectListItem(){Value = "13:45", Text= "13:45"},
-                  new SelectListItem(){Value = "14:00", Text= "14:00"},
-                  new SelectListItem(){Value = "14:15", Text= "14:15"},
-                  new SelectListItem(){Value = "14:30", Text= "14:30"},
-                  new SelectListItem(){Value = "14:45", Text= "14:45"},
-                  new SelectListItem(){Value = "15:00", Text= "15:00"},
-                  new SelectListItem(){Value = "15:15", Text= "15:15"},
-                  new SelectListItem(){Value = "15:30", Text= "15:30"},
-                  new SelectListItem(){Value = "15:45", Text= "15:45"},
-                  new SelectListItem(){Value = "16:00", Text= "16:00"},
-                  new SelectListItem(){Value = "16:15", Text= "16:15"},
-                  new SelectListItem(){Value = "16:30", Text= "16:30"},
-                  new SelectListItem(){Value = "16:45", Text= "16:45"},
-                  new SelectListItem(){Value = "17:00", Text= "17:00"},
-                  new SelectListItem(){Value = "17:15", Text= "17:15"},
-                  new SelectListItem(){Value = "17:30", Text= "17:30"},
-                  new SelectListItem(){Value = "17:45", Text= "17:45"},
-                  new SelectListItem(){Value = "18:00", Text= "18:00"},
-                  new SelectListItem(){Value = "18:15", Text= "18:15"},
-                  new SelectListItem(){Value = "18:30", Text= "18:30"},
-                  new SelectListItem(){Value = "18:45", Text= "18:45"},
-                  new SelectListItem(){Value = "19:00", Text= "19:00"},
-                 };
+          
             var AksiyonSecim = new[]
              {
                  new SelectListItem(){Value = "Telefon", Text= "Telefon"},
                  new SelectListItem(){Value = "Mail", Text= "Mail"},
                  new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
                  };
-            ViewBag.Saat = Saat;
+
+           
             ViewBag.AksiyonSecim = AksiyonSecim;
             ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama", aksiyon.GorevEklemeID);
             return View(aksiyon);
@@ -197,61 +173,21 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                var Saat = new[]
-                 {
-                  new SelectListItem(){Value = "08:00", Text= "08:00"},
-                  new SelectListItem(){Value = "08:15", Text= "08:15"},
-                  new SelectListItem(){Value = "08:30", Text= "08:30"},
-                  new SelectListItem(){Value = "08:45", Text= "08:45"},
-                  new SelectListItem(){Value = "09:00", Text= "09:00"},
-                  new SelectListItem(){Value = "09:15", Text= "09:15"},
-                  new SelectListItem(){Value = "09:30", Text= "08:30"},
-                  new SelectListItem(){Value = "09:45", Text= "09:45"},
-                  new SelectListItem(){Value = "10:00", Text= "10:00"},
-                  new SelectListItem(){Value = "10:15", Text= "10:15"},
-                  new SelectListItem(){Value = "10:30", Text= "10:30"},
-                  new SelectListItem(){Value = "10:45", Text= "10:45"},
-                  new SelectListItem(){Value = "11:00", Text= "11:00"},
-                  new SelectListItem(){Value = "11:15", Text= "11:15"},
-                  new SelectListItem(){Value = "11:30", Text= "11:30"},
-                  new SelectListItem(){Value = "11:45", Text= "11:45"},
-                  new SelectListItem(){Value = "12:00", Text= "12:00"},
-                  new SelectListItem(){Value = "12:15", Text= "12:15"},
-                  new SelectListItem(){Value = "12:30", Text= "12:30"},
-                  new SelectListItem(){Value = "12:45", Text= "12:45"},
-                  new SelectListItem(){Value = "13:00", Text= "13:00"},
-                  new SelectListItem(){Value = "13:15", Text= "13:15"},
-                  new SelectListItem(){Value = "13:30", Text= "13:30"},
-                  new SelectListItem(){Value = "13:45", Text= "13:45"},
-                  new SelectListItem(){Value = "14:00", Text= "14:00"},
-                  new SelectListItem(){Value = "14:15", Text= "14:15"},
-                  new SelectListItem(){Value = "14:30", Text= "14:30"},
-                  new SelectListItem(){Value = "14:45", Text= "14:45"},
-                  new SelectListItem(){Value = "15:00", Text= "15:00"},
-                  new SelectListItem(){Value = "15:15", Text= "15:15"},
-                  new SelectListItem(){Value = "15:30", Text= "15:30"},
-                  new SelectListItem(){Value = "15:45", Text= "15:45"},
-                  new SelectListItem(){Value = "16:00", Text= "16:00"},
-                  new SelectListItem(){Value = "16:15", Text= "16:15"},
-                  new SelectListItem(){Value = "16:30", Text= "16:30"},
-                  new SelectListItem(){Value = "16:45", Text= "16:45"},
-                  new SelectListItem(){Value = "17:00", Text= "17:00"},
-                  new SelectListItem(){Value = "17:15", Text= "17:15"},
-                  new SelectListItem(){Value = "17:30", Text= "17:30"},
-                  new SelectListItem(){Value = "17:45", Text= "17:45"},
-                  new SelectListItem(){Value = "18:00", Text= "18:00"},
-                  new SelectListItem(){Value = "18:15", Text= "18:15"},
-                  new SelectListItem(){Value = "18:30", Text= "18:30"},
-                  new SelectListItem(){Value = "18:45", Text= "18:45"},
-                  new SelectListItem(){Value = "19:00", Text= "19:00"},
-                 };
+                strfile1 = aksiyon.Ekler1.ToString();
+                strfile2 = aksiyon.Ekler2.ToString();
+                strfile3 = aksiyon.Ekler3.ToString();
+                strfile4 = aksiyon.Ekler4.ToString();
+                strfile5 = aksiyon.Ekler5.ToString();
+
+               
                 var AksiyonSecim = new[]
                  {
                   new SelectListItem(){Value = "Telefon", Text= "Telefon"},
                   new SelectListItem(){Value = "Mail", Text= "Mail"},
                   new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
                  };
-                ViewBag.Saat = Saat;
+              
+                ViewBag.Saat = aksiyon.Saat;
                 ViewBag.AksiyonSecim = AksiyonSecim;
                 ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama", aksiyon.GorevEklemeID);
                 return View(aksiyon);
@@ -264,69 +200,78 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecim,AksiyonNot,Ekler")] Aksiyon aksiyon)
+        public ActionResult Edit([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecim,AksiyonNot,Ekler1,Ekler2,Ekler3,Ekler4,Ekler5")] Aksiyon aksiyon)
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count > 0)
+                {
+                    var file1 = Request.Files[0];
+                    var file2 = Request.Files[1];
+                    var file3 = Request.Files[2];
+                    var file4 = Request.Files[3];
+                    var file5 = Request.Files[4];
+
+                    if (file1 != null && file1.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file1.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file1.SaveAs(path);
+                        aksiyon.Ekler1 = "/Content/Ekler/" + DateTime.Now.ToString() + "f1_" + fileName;
+                    }
+                    else aksiyon.Ekler1 = strfile1;
+
+                    if (file2 != null && file2.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file2.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file2.SaveAs(path);
+                        aksiyon.Ekler2 = "/Content/Ekler/" + DateTime.Now.ToString() + "f2_" + fileName;
+                    }
+                    else aksiyon.Ekler2 = strfile2;
+
+                    if (file3 != null && file3.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file3.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file3.SaveAs(path);
+                        aksiyon.Ekler3 = "/Content/Ekler/" + DateTime.Now.ToString() + "f3_" + fileName;
+                    }
+                    else aksiyon.Ekler3 = strfile3;
+
+                    if (file4 != null && file4.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file4.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file4.SaveAs(path);
+                        aksiyon.Ekler4 = "/Content/Ekler/" + DateTime.Now.ToString() + "f4_" + fileName;
+                    }
+                    else aksiyon.Ekler4 = strfile4;
+
+                    if (file5 != null && file5.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file5.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/Ekler/"), fileName);
+                        file5.SaveAs(path);
+                        aksiyon.Ekler5 = "/Content/Ekler/" + DateTime.Now.ToString() + "f5_" + fileName;
+                    }
+                    else aksiyon.Ekler5 = strfile5;
+
+                }
+
+                //aksiyon.Tarih = DateTime.Now;
                 db.Entry(aksiyon).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var Saat = new[]
-                 {
-                  new SelectListItem(){Value = "08:00", Text= "08:00"},
-                  new SelectListItem(){Value = "08:15", Text= "08:15"},
-                  new SelectListItem(){Value = "08:30", Text= "08:30"},
-                  new SelectListItem(){Value = "08:45", Text= "08:45"},
-                  new SelectListItem(){Value = "09:00", Text= "09:00"},
-                  new SelectListItem(){Value = "09:15", Text= "09:15"},
-                  new SelectListItem(){Value = "09:30", Text= "08:30"},
-                  new SelectListItem(){Value = "09:45", Text= "09:45"},
-                  new SelectListItem(){Value = "10:00", Text= "10:00"},
-                  new SelectListItem(){Value = "10:15", Text= "10:15"},
-                  new SelectListItem(){Value = "10:30", Text= "10:30"},
-                  new SelectListItem(){Value = "10:45", Text= "10:45"},
-                  new SelectListItem(){Value = "11:00", Text= "11:00"},
-                  new SelectListItem(){Value = "11:15", Text= "11:15"},
-                  new SelectListItem(){Value = "11:30", Text= "11:30"},
-                  new SelectListItem(){Value = "11:45", Text= "11:45"},
-                  new SelectListItem(){Value = "12:00", Text= "12:00"},
-                  new SelectListItem(){Value = "12:15", Text= "12:15"},
-                  new SelectListItem(){Value = "12:30", Text= "12:30"},
-                  new SelectListItem(){Value = "12:45", Text= "12:45"},
-                  new SelectListItem(){Value = "13:00", Text= "13:00"},
-                  new SelectListItem(){Value = "13:15", Text= "13:15"},
-                  new SelectListItem(){Value = "13:30", Text= "13:30"},
-                  new SelectListItem(){Value = "13:45", Text= "13:45"},
-                  new SelectListItem(){Value = "14:00", Text= "14:00"},
-                  new SelectListItem(){Value = "14:15", Text= "14:15"},
-                  new SelectListItem(){Value = "14:30", Text= "14:30"},
-                  new SelectListItem(){Value = "14:45", Text= "14:45"},
-                  new SelectListItem(){Value = "15:00", Text= "15:00"},
-                  new SelectListItem(){Value = "15:15", Text= "15:15"},
-                  new SelectListItem(){Value = "15:30", Text= "15:30"},
-                  new SelectListItem(){Value = "15:45", Text= "15:45"},
-                  new SelectListItem(){Value = "16:00", Text= "16:00"},
-                  new SelectListItem(){Value = "16:15", Text= "16:15"},
-                  new SelectListItem(){Value = "16:30", Text= "16:30"},
-                  new SelectListItem(){Value = "16:45", Text= "16:45"},
-                  new SelectListItem(){Value = "17:00", Text= "17:00"},
-                  new SelectListItem(){Value = "17:15", Text= "17:15"},
-                  new SelectListItem(){Value = "17:30", Text= "17:30"},
-                  new SelectListItem(){Value = "17:45", Text= "17:45"},
-                  new SelectListItem(){Value = "18:00", Text= "18:00"},
-                  new SelectListItem(){Value = "18:15", Text= "18:15"},
-                  new SelectListItem(){Value = "18:30", Text= "18:30"},
-                  new SelectListItem(){Value = "18:45", Text= "18:45"},
-                  new SelectListItem(){Value = "19:00", Text= "19:00"},
-                 };
+           
             var AksiyonSecim = new[]
              {
                  new SelectListItem(){Value = "Telefon", Text= "Telefon"},
                  new SelectListItem(){Value = "Mail", Text= "Mail"},
                  new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
                  };
-            ViewBag.Saat = Saat;
+           
             ViewBag.AksiyonSecim = AksiyonSecim;
             ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama", aksiyon.GorevEklemeID);
             return View(aksiyon);
@@ -344,6 +289,11 @@ namespace Crm_v10.Controllers
             {
                 return RedirectToAction("_404", "Home");
             }
+            ViewBag.File1 = aksiyon.Ekler1 != "" ? aksiyon.Ekler1.ToString().Split('_')[1] : "";
+            ViewBag.File2 = aksiyon.Ekler2 != "" ? aksiyon.Ekler2.ToString().Split('_')[1] : "";
+            ViewBag.File3 = aksiyon.Ekler3 != "" ? aksiyon.Ekler3.ToString().Split('_')[1] : "";
+            ViewBag.File4 = aksiyon.Ekler4 != "" ? aksiyon.Ekler4.ToString().Split('_')[1] : "";
+            ViewBag.File5 = aksiyon.Ekler5 != "" ? aksiyon.Ekler5.ToString().Split('_')[1] : "";
             return View(aksiyon);
         }
 

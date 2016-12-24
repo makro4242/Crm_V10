@@ -11,6 +11,9 @@ namespace Crm_v10.Models
     {
         public int ID { get; set; }
 
+ 
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
+            ApplyFormatInEditMode = true)]
         public DateTime Tarih { get; set; }
 
         [Required]
@@ -27,8 +30,16 @@ namespace Crm_v10.Models
         [Required]
         public string AksiyonNot { get; set; }
 
-        public string Ekler { get; set; }
-       
+        public string Ekler1 { get; set; }
+        public string Ekler2 { get; set; }
+        public string Ekler3 { get; set; }
+        public string Ekler4 { get; set; }
+        public string Ekler5 { get; set; }
+
+
+
+
+
         public virtual GorevEkleme GorevEkleme { get; set; }
     }
 }
