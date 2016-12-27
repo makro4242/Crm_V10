@@ -426,17 +426,33 @@
             }
         })
     </script>
-   
+    <script>
+        $(document).ready(function () {
+            $('.Tel1').change(function () {
+                var number = document.querySelector('.Tel1').value;
+                number = number.replace(/[()-]/g, '');
+                number = number.replace(' ','');
+                var formatted = number.substr(0, 1) + "(" + number.substr(1, 3) + ') ' + number.substr(4, 3) + '-' + number.substr(7, 4);
+                $(".Tel1").val(formatted);
+            });
+            $('.Tel2').change(function () {
+                var number = document.querySelector('.Tel2').value;
+                number = number.replace(/[()-]/g, '');
+                number = number.replace(' ', '');
+                var formatted = number.substr(0, 1) + "(" + number.substr(1, 3) + ') ' + number.substr(4, 3) + '-' + number.substr(7, 4);
+                $(".Tel2").val(formatted);
+            });
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('.para').change(function () {
                 var number = document.querySelector('.para').value,
                 dollars = number.split('.')[0],
-                cents = (number.split('.')[1] || '') + '00';
                 dollars = dollars.split('').reverse().join('')
                     .replace(/(\d{3}(?!$))/g, '$1.')
                     .split('').reverse().join('');
-                $(".para").val(dollars + '.' + cents.slice(0, 2) + '₺');
+                $(".para").val(dollars   + '₺');
                 document.querySelector('.gosterilmeyenparaformati').value = number;
             });
         });
@@ -541,29 +557,34 @@
     </script>
     <script>
         $(document).ready(function () {
-            var number = document.querySelector('.para').value;
-            document.querySelector('.editpara').value = number;
-
+            if ($("#editPara").hasClass("para")) {
+                var number = document.querySelector('.para').value;
+                document.querySelector('.editpara').value = number;
+            }
         })
     </script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var sayfa = document.getElementById("sayfa").value;
-            $.ajax({
-                type: "POST",
-                url: "/"+sayfa+"/KoduGetir",
-                data: "{}",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    if (data =="") {
 
+            if ($("#sayfa").hasClass("sayfa")) {
+                var sayfa = document.getElementById("sayfa").value;
+                $.ajax({
+                    type: "POST",
+                    url: "/" + sayfa + "/KoduGetir",
+                    data: "{}",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data == "") {
+
+                        }
+                        else { document.querySelector('.GorevEkleKodu').value = data; }
+                    },
+                    error: function () {
+                        swal('Hata', 'error');
                     }
-                    else { document.querySelector('.GorevEkleKodu').value = data; }
-                },
-                error: function () {
-                    swal('Hata', 'error');
-                }
-            });
+                });
+            }
+          
         });
     </script>
    

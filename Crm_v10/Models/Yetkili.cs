@@ -19,32 +19,40 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(20)]
+        [Display(Name = "Yetkili Kodu")]
         public string YetkiliKodu { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Yetkili Ad")]
         public string YetkiliAd { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Yetkili Soyad")]
         public string YetkiliSoyad { get; set; }
 
         [Required]
-        [StringLength(11)]
+        [StringLength(15)]
+        [Display(Name = "GSM1")]
         public string YetkiliGSM1 { get; set; }
 
-        [StringLength(11)]
+        [StringLength(15)]
+        [Display(Name = "GSM2")]
         public string YetkiliGSM2 { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Email1")]
         public string YetkiliMail1 { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Email2")]
         public string YetkiliMail2 { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
              ApplyFormatInEditMode = true)]
+        [Display(Name = "Yetkili Doðum Tarihi")]
         public DateTime? YetkiliDogumTarihi { get; set; }
 
 

@@ -18,11 +18,14 @@ namespace Crm_v10.Models
         public int ID { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Açýklama")]
         public string Aciklama { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
              ApplyFormatInEditMode = true)]
+        [Display(Name = "Tarih")]
         public DateTime Tarih { get; set; }
+
 
         public int PotansiyelID { get; set; }
 
@@ -30,20 +33,29 @@ namespace Crm_v10.Models
 
        
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
-        
+        [Display(Name = "Tahmini Tutar")]
         public decimal TahminiTutar { get; set; }
 
         [Required]
-        [StringLength(250)]
+        [Display(Name = "Görev Not")]
         public string GorevNot { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Durum")]
         public string Durum { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Öncelik")]
         public string Oncelik { get; set; }
+        public string BirlesikGorev
+        {
+            get
+            {
+                return String.Format("{0} {1} {2}", ID, SatisElemanlari.SatisElemaniAdiSoyadi, Potansiyel.PotansiyelKodu);
+            }
+        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aksiyon> Aksiyon { get; set; }

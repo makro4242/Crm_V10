@@ -90,6 +90,8 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
+                ViewBag.Tel1 = yetkili.YetkiliGSM1;
+                ViewBag.Tel2 = yetkili.YetkiliGSM2;
                 return View(yetkili);
             }
 

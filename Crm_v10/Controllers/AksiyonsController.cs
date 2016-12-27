@@ -71,7 +71,7 @@ namespace Crm_v10.Controllers
 
              
                 ViewBag.AksiyonSecim = AksiyonSecim;
-                ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama");
+                ViewBag.GorevEklemeID =  new SelectList(db.GorevEkleme, "Id", "BirlesikGorev");
                 return View();
             }
 
@@ -155,7 +155,7 @@ namespace Crm_v10.Controllers
 
            
             ViewBag.AksiyonSecim = AksiyonSecim;
-            ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama", aksiyon.GorevEklemeID);
+            ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "Id", "BirlesikGorev");
             return View(aksiyon);
         }
 
@@ -189,7 +189,7 @@ namespace Crm_v10.Controllers
               
                 ViewBag.Saat = aksiyon.Saat;
                 ViewBag.AksiyonSecim = AksiyonSecim;
-                ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama", aksiyon.GorevEklemeID);
+                ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "Id", "BirlesikGorev");
                 return View(aksiyon);
             }
 
@@ -273,7 +273,7 @@ namespace Crm_v10.Controllers
                  };
            
             ViewBag.AksiyonSecim = AksiyonSecim;
-            ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "ID", "Aciklama", aksiyon.GorevEklemeID);
+            ViewBag.GorevEklemeID = new SelectList(db.GorevEkleme, "Id", "BirlesikGorev");
             return View(aksiyon);
         }
 

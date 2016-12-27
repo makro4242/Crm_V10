@@ -17,18 +17,22 @@ namespace Crm_v10.Models
 
         public int ID { get; set; }
 
+        [Display(Name = "Ýl Kodu")]
         public int IlKodu { get; set; }
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Ýl Adý")]
         public string IlAdi { get; set; }
 
         [Required]
         [StringLength(4)]
+        [Display(Name = "Telefon Alan Kodu")]
         public string IlTelefonAlanKodu { get; set; }
 
         [Required]
         [StringLength(3)]
+        [Display(Name = "Plaka Kodu")]
         public string IlPlakaKodu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

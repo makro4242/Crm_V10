@@ -15,16 +15,21 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Tablo Adý")]
         public string TabloAdi { get; set; }
 
+        [Display(Name = "Oluþturan Kullanýcý")]
         public int OlusturanKullanici { get; set; }
 
+        [Display(Name = "Oluþturulan Tarih")]
         public DateTime? OlusturulanTarih { get; set; }
 
+        [Display(Name = "Deðiþtiren Kullanýcý")]
         public int DegistirenKullanici { get; set; }
 
+        [Display(Name = "Deðiþtirilen Tarih")]
         public DateTime? DegistirilenTarih { get; set; }
-
+        
         public virtual Kullanicilar Kullanicilar { get; set; }
 
         public virtual Kullanicilar Kullanicilar1 { get; set; }

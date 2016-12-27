@@ -18,10 +18,12 @@ namespace Crm_v10.Models
 
         public int ID { get; set; }
 
+        [Display(Name = "Satýþ Elemaný Kodu")]
         public int SatisElemaniKodu { get; set; }
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Satýþ Elemaný Adý Soyadý")]
         public string SatisElemaniAdiSoyadi { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
