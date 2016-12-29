@@ -32,6 +32,14 @@
 
     <script src="/Content/js/modernizr.min.js"></script>
 
+    <style>
+        #datatable {
+            font-size: 12px;
+        }
+    </style>
+
+
+
 </head>
 
 <body class="fixed-left">
@@ -206,27 +214,26 @@
                                 <li><a href="@Url.Action("Index", "Yetkilis")">Yetkili Tanıtım Kartı</a></li>
                                 <li><a href="@Url.Action("Index","Potansiyels")">Potansiyel Tanıtım Kartı</a></li>
                             </ul>
-                            <a href="#" class="waves-effect"><i class="ti-pencil-alt"></i> <span> Evraklar </span> </a>
+                        </li>
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="ti-pencil-alt"></i><span> Evraklar </span> </a>
                             <ul class="list-unstyled">
-                                <li><a href="@Url.Action("Index", "GorevEklemes")">Görev Ekleme</a></li>
+                                <li><a href="@Url.Action("Index", "Gorevs")">Görev Ekleme</a></li>
                                 <li><a href="@Url.Action("Index", "Aksiyons")">Aksiyon Ekleme</a></li>
                             </ul>
-                        <li class="text-muted menu-title">Ayarlar</li>
-                        <li class="has_sub">
-                            <a href="#" class="waves-effect"><i class="icon-settings"></i> <span> Ayarlar </span> </a>
-                            <ul class="list-unstyled">
-                                <li><a href="@Url.Action("Index", "SatisElemanlaris")">Satış Elemanı Tanıtım Kartı</a></li>
-                                @if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
-                                {
-
-                                    <li><a href="@Url.Action("Index", "Kullanicilars")">Kullanıcı Tanıtım Kartı</a></li>
-                                }
-
-                                <li><a href="#">Yetkilendirme</a></li>
-                                <li><a href="#">Parametreler</a></li>
-                            </ul>
                         </li>
-
+                        @if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
+                        {
+                            <li class="has_sub">
+                                <a href="#" class="waves-effect"><i class="icon-settings"></i> <span> Ayarlar </span> </a>
+                                <ul class="list-unstyled">
+                                    <li><a href="@Url.Action("Index", "SatisElemanlaris")">Satış Elemanı Tanıtım Kartı</a></li>
+                                    <li><a href="@Url.Action("Index", "Kullanicilars")">Kullanıcı Tanıtım Kartı</a></li>
+                                    <li><a href="#">Yetkilendirme</a></li>
+                                    <li><a href="#">Parametreler</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -408,9 +415,9 @@
         });
     </script>
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             jQuery('.timepicker2').timepicker({
-                showMeridian : false
+                showMeridian: false
             });
         })
     </script>
@@ -431,7 +438,7 @@
             $('.Tel1').change(function () {
                 var number = document.querySelector('.Tel1').value;
                 number = number.replace(/[()-]/g, '');
-                number = number.replace(' ','');
+                number = number.replace(' ', '');
                 var formatted = number.substr(0, 1) + "(" + number.substr(1, 3) + ') ' + number.substr(4, 3) + '-' + number.substr(7, 4);
                 $(".Tel1").val(formatted);
             });
@@ -452,7 +459,7 @@
                 dollars = dollars.split('').reverse().join('')
                     .replace(/(\d{3}(?!$))/g, '$1.')
                     .split('').reverse().join('');
-                $(".para").val(dollars   + '₺');
+                $(".para").val(dollars + '₺');
                 document.querySelector('.gosterilmeyenparaformati').value = number;
             });
         });
@@ -469,32 +476,33 @@
             }
         })
     </script>
-    <script>//Sadece Harf Girilmesini saglar
+    <script>
+        //Sadece Harf Girilmesini saglar
         $(document).ready(function () {
-            
+
             $('input.' + "harf").keypress(function (evt) {
-                
+
                 var charCode = (evt.which) ? evt.which : event.keyCode
-               
-                //Bu şartımız ile harf girildiği takdirde true olarak geri dönüş sağlıyoruz. 
-                
+
+                //Bu şartımız ile harf girildiği takdirde true olarak geri dönüş sağlıyoruz.
+
                 //(Yalnızca İngilizce karakterleri desteklemektedir. Türkçe karakterler için 2. Yöntemi kullanabilirsiniz.)
-                
+
                 if (((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97) || charCode == 8) || charCode == 350 || charCode == 351 || charCode == 304 || charCode == 286 || charCode == 287 || charCode == 231 || charCode == 199 || charCode == 305 || charCode == 214 || charCode == 246 || charCode == 220 || charCode == 252) {
-                    
+
                     return true;
-                    
+
                 }
-                
+
                 return false;
 
-                
+
             });
-            
+
         });
 
     </script>
-   
+
     <script>
         jQuery('.tarih').datepicker({
             autoclose: true,
@@ -507,21 +515,21 @@
     </script>
     <script>
         $(document).ready(function () {
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
 
-        if (dd < 10) {
-            dd = '0' + dd
-        }
+            if (dd < 10) {
+                dd = '0' + dd
+            }
 
-        if (mm < 10) {
-            mm = '0' + mm
-        }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
 
-        today = dd + '/' + mm + '/' + yyyy;
-        $(".tarihCreate").val(today);
+            today = dd + '/' + mm + '/' + yyyy;
+            $(".tarihCreate").val(today);
         })
     </script>
     <script>
@@ -535,21 +543,21 @@
             $(".koduTamamla").keydown(function (e) {
                 if ((e.which || e.keyCode) == 112) {
                     var kod = document.querySelector('.koduTamamla').value;
-                            var sayfa = document.getElementById("sayfa").value;
-                            $.ajax({
-                                type: "POST",
-                                url: "/"+sayfa+"/KoduGetir",
-                                data: "{kod:'" + kod + "'}",
-                                contentType: "application/json; charset=utf-8",
-                                success: function (data) {
-                                    if (data =="") {
+                    var sayfa = document.getElementById("sayfa").value;
+                    $.ajax({
+                        type: "POST",
+                        url: "/" + sayfa + "/KoduGetir",
+                        data: "{kod:'" + kod + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            if (data == "") {
 
-                                    }
-                                    else { document.querySelector('.koduTamamla').value = data; }
-                                },
-                                error: function () {
-                                    swal('Hata', 'error');
-                                }
+                            }
+                            else { document.querySelector('.koduTamamla').value = data; }
+                        },
+                        error: function () {
+                            swal('Hata', 'error');
+                        }
                     });
                 }
             });
@@ -584,9 +592,9 @@
                     }
                 });
             }
-          
+
         });
     </script>
-   
+
 </body>
 </html>

@@ -55,6 +55,9 @@ namespace Crm_v10.Models
         [Display(Name = "Yetkili Doðum Tarihi")]
         public DateTime? YetkiliDogumTarihi { get; set; }
 
+        [StringLength(2)]
+        public string GosterimDurumu { get; set; }
+
 
         public string FullName
         {

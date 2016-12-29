@@ -21,35 +21,33 @@
                     <div class="form-horizontal">
                         <input type="hidden" id="sayfa" name="sayfa" value="Potansiyels" />
                         <hr />
+                        <div class="form-group">
+                            <div class="col-md-7">
+                                <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
+                            </div>
+                        </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.ID)
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelKodu, htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.PotansiyelKodu, "Potansiyel Kodu" ,new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
+                                @Html.EditorFor(model => model.PotansiyelKodu, "*Potansiyel Kodu" ,new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelKodu, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelUnvani, "Unvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelUnvani, "*Unvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelUnvani, new { htmlAttributes = new { @class = "form-control", @maxlength = "150" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelUnvani, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
+                        
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresi, "Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
-                            <div class="col-md-7">
-                                @Html.EditorFor(model => model.PotansiyelAdresi, new { htmlAttributes = new { @class = "form-control", @maxlength = "150" } })
-                                @Html.ValidationMessageFor(model => model.PotansiyelAdresi, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresiUINKodu, "Adres UIN Kodu", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelAdresiUINKodu, "*Adres UIN Kodu", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresiUINKodu, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresiUINKodu, "", new { @class = "text-danger" })
@@ -57,13 +55,13 @@
                         </div>
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelYetkiliID, "Yetkili", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelYetkiliID, "*Yetkili", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelYetkiliID", (IEnumerable<SelectListItem>)ViewBag.Yetkili, new { @class = "form-control select2" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresGpsEnlem, "GPS Enlem", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelAdresGpsEnlem, "*GPS Enlem", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresGpsEnlem, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresGpsEnlem, "", new { @class = "text-danger" })
@@ -71,16 +69,23 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresGpsBoylam, "GPS Boylam", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelAdresGpsBoylam, "*GPS Boylam", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresGpsBoylam, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresGpsBoylam, "", new { @class = "text-danger" })
                             </div>
                         </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PotansiyelAdresi, "*Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <div class="col-md-7">
+                                @Html.TextAreaFor(model => model.PotansiyelAdresi, new { @class = "form-control", @cols = 80, @rows = 2, @maxlength = "150" })
+                                @Html.ValidationMessageFor(model => model.PotansiyelAdresi, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelUlkeKodu, "Ülke", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelUlkeKodu, "*Ülke", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelUlkeKodu", (IEnumerable<SelectListItem>)ViewBag.Ulke, new { @class = "form-control select2" })
                             </div>
@@ -94,7 +99,7 @@
                         </div>*@
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelIl, "İl", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelIl, "*İl", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelIl", (IEnumerable<SelectListItem>)ViewBag.Il, new { @class = "form-control select2" })
                             </div>
@@ -108,7 +113,7 @@
                         </div>*@
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelIlce, "İlçe", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelIlce, "*İlçe", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelIlce, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelIlce, "", new { @class = "text-danger" })
@@ -116,7 +121,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelVergiDairesi, "Vergi Dairesi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelVergiDairesi, "*Vergi Dairesi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelVergiDairesi, new { htmlAttributes = new { @class = "form-control",@maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiDairesi, "", new { @class = "text-danger" })
@@ -124,7 +129,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelVergiNumarasi, "Vergi Numarası", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelVergiNumarasi, "*Vergi Numarası", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelVergiNumarasi, new { htmlAttributes = new { @class = "form-control",@maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiNumarasi, "", new { @class = "text-danger" })
@@ -132,7 +137,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelWebAdresi, "Web Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelWebAdresi, "**Web Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelWebAdresi, new { htmlAttributes = new { @class = "form-control", @maxlength = "80" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelWebAdresi, "", new { @class = "text-danger" })
@@ -140,7 +145,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelIstigalBilgisi, "Sektör", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelIstigalBilgisi, "*Sektör", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelIstigalBilgisi, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelIstigalBilgisi, "", new { @class = "text-danger" })
@@ -148,15 +153,15 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelNot, "Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelNot, "*Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.PotansiyelNot, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.TextAreaFor(model => model.PotansiyelNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelNot, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelSatisElemani, "Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelSatisElemani, "*Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelSatisElemani", (IEnumerable<SelectListItem>)ViewBag.SatisElemani, new { @class = "form-control select2" })
                             </div>

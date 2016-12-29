@@ -19,7 +19,7 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                return View(db.SatisElemanlari.ToList());
+                return View(db.SatisElemanlari.Where(x=>x.GosterimDurumu!="0").ToList());
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -140,7 +140,8 @@ namespace Crm_v10.Controllers
             if (Session["KullaniciID"] != null)
             {
                 SatisElemanlari satisElemanlari = db.SatisElemanlari.Find(id);
-                db.SatisElemanlari.Remove(satisElemanlari);
+                satisElemanlari.GosterimDurumu = "0";
+                //db.SatisElemanlari.Remove(satisElemanlari);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

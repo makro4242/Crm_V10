@@ -1,12 +1,12 @@
-﻿@model IEnumerable<Crm_v10.Models.GorevEkleme>
+﻿@model IEnumerable<Crm_v10.Models.Gorev>
 
 @{
     ViewBag.Title = "Index";
 }
-<h2>Görev Ekleme</h2>
+<h2>Görev</h2>
 
 <p>
-    <a href="/GorevEklemes/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
+    <a href="/Gorevs/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
 </p>
 <div class="container">
     <div class="row">
@@ -17,7 +17,7 @@
                     <a href="#">Ana Sayfa</a>
                 </li>
                 <li>
-                    <a href="#">Görev Ekleme</a>
+                    <a href="#">Görev</a>
                 </li>
             </ol>
         </div>
@@ -67,9 +67,9 @@
                                             @Html.DisplayFor(modelItem => item.Oncelik)
                                         </td>
                                         <td>
-                                            <a href="/GorevEklemes/Edit/@item.ID" class="btn btn-default waves-effect waves-light">Düzenle</a>
-                                            <a href="/GorevEklemes/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="margin-top:5px; margin-bottom:5px; ">Detay</a>
-                                            <a href="/GorevEklemes/Delete/@item.ID" class="btn btn-default waves-effect waves-light">Sil</a><br />
+                                            <a href="/Gorevs/Edit/@item.ID" class="btn btn-default waves-effect waves-light">Düzenle</a>
+                                            <a href="/Gorevs/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="margin-top:5px; margin-bottom:5px; ">Detay</a>
+                                            <a href="/Gorevs/Delete/@item.ID" class="btn btn-default waves-effect waves-light">Sil</a><br />
                                         </td>
                                     </tr>
                                 }

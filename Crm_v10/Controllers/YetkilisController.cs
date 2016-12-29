@@ -19,7 +19,7 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                return View(db.Yetkili.ToList());
+                return View(db.Yetkili.Where(x=>x.GosterimDurumu!="0").ToList());
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -144,7 +144,7 @@ namespace Crm_v10.Controllers
             if (Session["KullaniciID"] != null)
             {
                 Yetkili yetkili = db.Yetkili.Find(id);
-                db.Yetkili.Remove(yetkili);
+                yetkili.GosterimDurumu = "0";
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

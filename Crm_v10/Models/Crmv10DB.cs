@@ -13,7 +13,7 @@ namespace Crm_v10.Models
         }
 
         public virtual DbSet<Aksiyon> Aksiyon { get; set; }
-        public virtual DbSet<GorevEkleme> GorevEkleme { get; set; }
+        public virtual DbSet<Gorev> Gorev { get; set; }
         public virtual DbSet<Iller> Iller { get; set; }
         public virtual DbSet<Kullanicilar> Kullanicilar { get; set; }
         public virtual DbSet<Log> Log { get; set; }
@@ -25,11 +25,11 @@ namespace Crm_v10.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GorevEkleme>()
+            modelBuilder.Entity<Gorev>()
                 .Property(e => e.TahminiTutar)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<GorevEkleme>()
+            modelBuilder.Entity<Gorev>()
                 .HasMany(e => e.Aksiyon)
                 .WithRequired(e => e.GorevEkleme)
                 .WillCascadeOnDelete(false);

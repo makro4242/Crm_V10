@@ -6,11 +6,11 @@ namespace Crm_v10.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("GorevEkleme")]
-    public partial class GorevEkleme
+    [Table("Gorev")]
+    public partial class Gorev
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GorevEkleme()
+        public Gorev()
         {
             Aksiyon = new HashSet<Aksiyon>();
         }
@@ -31,7 +31,11 @@ namespace Crm_v10.Models
 
         public int SatisElemaniID { get; set; }
 
-       
+     
+        [StringLength(10)]
+        [Display(Name = "Para Birimi")]
+        public string ParaBirimi { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
         [Display(Name = "Tahmini Tutar")]
         public decimal TahminiTutar { get; set; }
@@ -49,6 +53,8 @@ namespace Crm_v10.Models
         [StringLength(50)]
         [Display(Name = "Öncelik")]
         public string Oncelik { get; set; }
+        [StringLength(2)]
+        public string GosterimDurumu { get; set; }
         public string BirlesikGorev
         {
             get

@@ -44,6 +44,6 @@ namespace Crm_v10.Models
 
 
 
-        public virtual GorevEkleme GorevEkleme { get; set; }
+        public virtual Gorev GorevEkleme { get; set; }
     }
 }

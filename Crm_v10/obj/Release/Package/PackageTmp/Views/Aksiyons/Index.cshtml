@@ -33,7 +33,7 @@
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Tarih</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Saat</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Görev Açıklama</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Görev Kodu|Satış Elemanı|Potansiyel Kodu</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Aksiyon</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Aksiyon Not</th>
                                     <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 200.4px;">İşlemler</th>
@@ -51,7 +51,7 @@
                                             @Html.DisplayFor(modelItem => item.Saat)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.GorevEkleme.Aciklama)
+                                            @Html.DisplayFor(modelItem => item.GorevEkleme.ID ) @Html.DisplayFor(modelItem => item.GorevEkleme.SatisElemanlari.SatisElemaniAdiSoyadi) @Html.DisplayFor(modelItem => item.GorevEkleme.Potansiyel.PotansiyelKodu)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.AksiyonSecim)

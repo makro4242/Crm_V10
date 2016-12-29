@@ -10,12 +10,15 @@ namespace Crm_v10
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static string connection = "";
         protected void Application_Start()
         {
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+           
         }
         public void Session_Start(object sender, EventArgs e)
         {

@@ -21,7 +21,7 @@ namespace Crm_v10.Controllers
             {
                 if(Session["KullaniciID"].ToString()=="0")
                 {
-                    return View(db.Kullanicilar.ToList());
+                    return View(db.Kullanicilar.Where(x=>x.GosterimDurumu!="0").ToList());
                 }
                 else return RedirectToAction("Index", "Home");
 
@@ -160,7 +160,8 @@ namespace Crm_v10.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Kullanicilar kullanicilar = db.Kullanicilar.Find(id);
-            db.Kullanicilar.Remove(kullanicilar);
+            kullanicilar.GosterimDurumu="0";
+            //db.Kullanicilar.Remove(kullanicilar);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

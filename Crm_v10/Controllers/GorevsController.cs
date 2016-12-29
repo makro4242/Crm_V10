@@ -11,17 +11,16 @@ using System.Text.RegularExpressions;
 
 namespace Crm_v10.Controllers
 {
-    public class GorevEklemesController : Controller
+    public class GorevsController : Controller
     {
         private Crmv10DB db = new Crmv10DB();
-
         // GET: GorevEklemes
         public ActionResult Index()
         {
             if (Session["KullaniciID"] != null)
             {
-                var gorevEkleme = db.GorevEkleme.Include(g => g.Potansiyel).Include(g => g.SatisElemanlari);
-                return View(gorevEkleme.ToList());
+                var gorev = db.Gorev.Include(g => g.Potansiyel).Include(g => g.SatisElemanlari).Where(x=>x.GosterimDurumu!="0");
+                return View(gorev.ToList());
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -36,12 +35,12 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-                if (gorevEkleme == null)
+                Gorev gorev = db.Gorev.Find(id);
+                if (gorev == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                return View(gorevEkleme);
+                return View(gorev);
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -52,6 +51,12 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
+                var ParaBirimi = new[]
+               {
+                 new SelectListItem(){Value = "TL", Text= "TL"},
+                 new SelectListItem(){Value = "DOLAR", Text= "DOLAR"},
+                 new SelectListItem(){Value = "EURO", Text= "EURO"},
+               };
                 var Oncelik = new[]
                 {
                  new SelectListItem(){Value = "Normal", Text= "Normal"},
@@ -67,10 +72,11 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Satış", Text= "Satış"},
                  new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
+                ViewBag.ParaBirimi = ParaBirimi;
                 ViewBag.Durum = Durum;
                 ViewBag.Oncelik = Oncelik;
-                ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani");
-                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi");
+                ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani");
+                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi");
                 return View();
             }
 
@@ -82,17 +88,22 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] GorevEkleme gorevEkleme)
+        public ActionResult Create([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] Gorev gorev)
         {
 
             if (ModelState.IsValid)
             {
 
-                db.GorevEkleme.Add(gorevEkleme);
+                db.Gorev.Add(gorev);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-          
+            var ParaBirimi = new[]
+               {
+                 new SelectListItem(){Value = "TL", Text= "TL"},
+                 new SelectListItem(){Value = "DOLAR", Text= "DOLAR"},
+                 new SelectListItem(){Value = "EURO", Text= "EURO"},
+               };
 
             var Oncelik = new[]
                 {
@@ -109,11 +120,12 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Satış", Text= "Satış"},
                  new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
+            ViewBag.ParaBirimi = ParaBirimi;
             ViewBag.Durum = Durum;
             ViewBag.Oncelik = Oncelik;
-            ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
-            ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
-            return View(gorevEkleme);
+            ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
+            ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
+            return View(gorev);
         }
 
         // GET: GorevEklemes/Edit/5
@@ -125,18 +137,19 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-                if (gorevEkleme == null)
+                Gorev gorev = db.Gorev.Find(id);
+                if (gorev == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
+               
                 var Oncelik = new[]
-                {
+               {
                new SelectListItem(){Value = "Normal", Text= "Normal"},
                new SelectListItem(){Value = "Düşük", Text= "Düşük"},
                new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
                new SelectListItem(){Value = "Acil", Text= "Acil"},
-            };
+               };
                 var Durum = new[]
                   {
                new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
@@ -145,13 +158,20 @@ namespace Crm_v10.Controllers
                new SelectListItem(){Value = "Satış", Text= "Satış"},
                new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
-              
-                ViewBag.TahminiTutar = gorevEkleme.TahminiTutar;
+                var ParaBirimi = new[]
+                 {
+                 new SelectListItem(){Value = "TL", Text= "TL", Selected=(gorev.ParaBirimi=="TL" ? true : false)},
+                 new SelectListItem(){Value = "DOLAR", Text= "DOLAR", Selected=(gorev.ParaBirimi=="DOLAR" ? true : false)},
+                 new SelectListItem(){Value = "EURO", Text= "EURO", Selected=(gorev.ParaBirimi=="EURO" ? true : false)},
+                };
+                ViewBag.ParaBirimi = ParaBirimi;
+                ViewBag.TahminiTutar = gorev.TahminiTutar;
                 ViewBag.Durum = Durum;
                 ViewBag.Oncelik = Oncelik;
-                ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
-                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
-                return View(gorevEkleme);
+                ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
+                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
+                
+                return View(gorev);
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -163,14 +183,20 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] GorevEkleme gorevEkleme)
+        public ActionResult Edit([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] Gorev gorev)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(gorevEkleme).State = EntityState.Modified;
+                db.Entry(gorev).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var ParaBirimi = new[]
+             {
+                 new SelectListItem(){Value = "TL", Text= "TL"},
+                 new SelectListItem(){Value = "DOLAR", Text= "DOLAR"},
+                 new SelectListItem(){Value = "EURO", Text= "EURO"},
+               };
             var Oncelik = new[]
                 {
                  new SelectListItem(){Value = "Normal", Text= "Normal"},
@@ -186,11 +212,12 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Satış", Text= "Satış"},
                  new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
+            ViewBag.ParaBirimi = ParaBirimi;
             ViewBag.Durum = Durum;
             ViewBag.Oncelik = Oncelik;
-            ViewBag.PotansiyelID = new SelectList(db.Potansiyel, "ID", "PotansiyelUnvani", gorevEkleme.PotansiyelID);
-            ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari, "ID", "SatisElemaniAdiSoyadi", gorevEkleme.SatisElemaniID);
-            return View(gorevEkleme);
+            ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
+            ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
+            return View(gorev);
         }
 
         // GET: GorevEklemes/Delete/5
@@ -202,12 +229,12 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-                if (gorevEkleme == null)
+                Gorev gorev = db.Gorev.Find(id);
+                if (gorev == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                return View(gorevEkleme);
+                return View(gorev);
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -220,8 +247,9 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                GorevEkleme gorevEkleme = db.GorevEkleme.Find(id);
-                db.GorevEkleme.Remove(gorevEkleme);
+                Gorev gorev = db.Gorev.Find(id);
+                gorev.GosterimDurumu = "0";
+                //db.Gorev.Remove(gorev);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -232,7 +260,7 @@ namespace Crm_v10.Controllers
         {
             string veri = "";
 
-            var Sonuc = (from p in ctx.GorevEkleme
+            var Sonuc = (from p in ctx.Gorev
                          orderby p.ID
                          select p.ID).ToList();
             if(Sonuc.Count==0)

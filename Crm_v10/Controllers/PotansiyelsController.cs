@@ -19,7 +19,7 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                return View(db.Potansiyel.ToList());
+                return View(db.Potansiyel.Where(x=>x.GosterimDurumu!="0").ToList());
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -56,10 +56,10 @@ namespace Crm_v10.Controllers
             if (Session["KullaniciID"] != null)
             {
 
-                ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+                ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x=>x.GosterimDurumu!="0"), "Id", "FullName");
                 ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
                 ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
+                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
                 return View();
             }
 
@@ -83,10 +83,10 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+            ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x => x.GosterimDurumu != "0"), "Id", "FullName");
             ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
             ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
             return View(potansiyel);
         }
 
@@ -104,10 +104,10 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+                ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x => x.GosterimDurumu != "0"), "Id", "FullName");
                 ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
                 ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
+                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
                 return View(potansiyel);
             }
 
@@ -131,10 +131,10 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Yetkili = new SelectList(db.Yetkili, "Id", "FullName");
+            ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x => x.GosterimDurumu != "0"), "Id", "FullName");
             ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
             ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari, "Id", "SatisElemaniAdiSoyadi");
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
             return View(potansiyel);
         }
 
@@ -166,7 +166,8 @@ namespace Crm_v10.Controllers
             if (Session["KullaniciID"] != null)
             {
                 Potansiyel potansiyel = db.Potansiyel.Find(id);
-                db.Potansiyel.Remove(potansiyel);
+                potansiyel.GosterimDurumu = "0";
+                //db.Potansiyel.Remove(potansiyel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -12,7 +12,7 @@ namespace Crm_v10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SatisElemanlari()
         {
-            GorevEkleme = new HashSet<GorevEkleme>();
+            GorevEkleme = new HashSet<Gorev>();
             Potansiyel = new HashSet<Potansiyel>();
         }
 
@@ -25,9 +25,11 @@ namespace Crm_v10.Models
         [StringLength(100)]
         [Display(Name = "Satýþ Elemaný Adý Soyadý")]
         public string SatisElemaniAdiSoyadi { get; set; }
+        [StringLength(2)]
+        public string GosterimDurumu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GorevEkleme> GorevEkleme { get; set; }
+        public virtual ICollection<Gorev> GorevEkleme { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Potansiyel> Potansiyel { get; set; }

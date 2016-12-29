@@ -31,7 +31,11 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(50)]
         [Display(Name = "Kullanýcý Þifresi")]
+
         public string KullaniciSifresi { get; set; }
+
+        [StringLength(2)]
+        public string GosterimDurumu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log> Log { get; set; }
