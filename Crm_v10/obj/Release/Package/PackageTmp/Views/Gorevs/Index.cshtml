@@ -58,7 +58,9 @@
                                             @Html.DisplayFor(modelItem => item.Tarih)
                                         </td>
                                         <td style="text-align:right">
-                                            @Html.DisplayFor(modelItem => item.TahminiTutar)
+                                            @Html.DisplayFor(modelItem => @item.TahminiTutar)
+                                               
+                                            
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Durum)

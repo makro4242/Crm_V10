@@ -189,7 +189,7 @@ namespace Crm_v10.Controllers
               
                 ViewBag.Saat = aksiyon.Saat;
                 ViewBag.AksiyonSecim = AksiyonSecim;
-                ViewBag.GorevEklemeID = new SelectList(db.Gorev, "Id", "BirlesikGorev");
+                ViewBag.GorevEklemeID = new SelectList(db.Gorev.Where(x=>x.GosterimDurumu!="0"), "Id", "BirlesikGorev");
                 return View(aksiyon);
             }
 
