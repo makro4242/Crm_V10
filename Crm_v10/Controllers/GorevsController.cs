@@ -51,20 +51,20 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                var ParaBirimi = new[]
+                var ParaGosterim = new[]
                {
                  new SelectListItem(){Value = "TL", Text= "TL"},
                  new SelectListItem(){Value = "DOLAR", Text= "DOLAR"},
                  new SelectListItem(){Value = "EURO", Text= "EURO"},
                };
-                var Oncelik = new[]
+                var OncelikGosterim = new[]
                 {
                  new SelectListItem(){Value = "Normal", Text= "Normal"},
                  new SelectListItem(){Value = "Düşük", Text= "Düşük"},
-                 new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
+                 new SelectListItem(){Value = "Yüksek", Text= "Yüksek"},
                  new SelectListItem(){Value = "Acil", Text= "Acil"},
                };
-                var Durum = new[]
+                var DurumGosterim = new[]
                 {
                  new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
                  new SelectListItem(){Value = "Teklif", Text= "Teklif"},
@@ -72,9 +72,9 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Satış", Text= "Satış"},
                  new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
-                ViewBag.ParaBirimi = ParaBirimi;
-                ViewBag.Durum = Durum;
-                ViewBag.Oncelik = Oncelik;
+                ViewBag.ParaBirimi = ParaGosterim;
+                ViewBag.DurumGosterim = DurumGosterim;
+                ViewBag.OncelikGosterim = OncelikGosterim;
                 ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani");
                 ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi");
                 return View();
@@ -88,7 +88,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] Gorev gorev)
+        public ActionResult Create([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,ParaBirimi,TahminiTutar,GorevNot,Durum,Oncelik")] Gorev gorev)
         {
 
             if (ModelState.IsValid)
@@ -98,21 +98,21 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var ParaBirimi = new[]
+            var ParaGosterim = new[]
                {
                  new SelectListItem(){Value = "TL", Text= "TL"},
                  new SelectListItem(){Value = "DOLAR", Text= "DOLAR"},
                  new SelectListItem(){Value = "EURO", Text= "EURO"},
                };
 
-            var Oncelik = new[]
+            var OncelikGosterim = new[]
                 {
                  new SelectListItem(){Value = "Normal", Text= "Normal"},
                  new SelectListItem(){Value = "Düşük", Text= "Düşük"},
-                 new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
+                 new SelectListItem(){Value = "Yüksek", Text= "Yüksek"},
                  new SelectListItem(){Value = "Acil", Text= "Acil"},
                };
-            var Durum = new[]
+            var DurumGosterim = new[]
             {
                  new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
                  new SelectListItem(){Value = "Teklif", Text= "Teklif"},
@@ -120,9 +120,9 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Satış", Text= "Satış"},
                  new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
-            ViewBag.ParaBirimi = ParaBirimi;
-            ViewBag.Durum = Durum;
-            ViewBag.Oncelik = Oncelik;
+            ViewBag.ParaGosterim = ParaGosterim;
+            ViewBag.DurumGosterim = DurumGosterim;
+            ViewBag.OncelikGosterim = OncelikGosterim;
             ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
             ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
             return View(gorev);
@@ -143,31 +143,31 @@ namespace Crm_v10.Controllers
                     return RedirectToAction("_404", "Home");
                 }
                
-                var Oncelik = new[]
+                var OncelikGosterim = new[]
                {
-               new SelectListItem(){Value = "Normal", Text= "Normal"},
-               new SelectListItem(){Value = "Düşük", Text= "Düşük"},
-               new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
-               new SelectListItem(){Value = "Acil", Text= "Acil"},
+               new SelectListItem(){Value = "Normal", Text= "Normal",Selected=(gorev.Durum=="Normal" ? true : false)},
+               new SelectListItem(){Value = "Düşük", Text= "Düşük",Selected=(gorev.Durum=="Düşük" ? true : false)},
+               new SelectListItem(){Value = "Yüksek", Text= "Yüksek",Selected=(gorev.Durum=="Yüksek" ? true : false)},
+               new SelectListItem(){Value = "Acil", Text= "Acil",Selected=(gorev.Durum=="Acil" ? true : false)},
                };
-                var Durum = new[]
+                var DurumGosterim = new[]
                   {
-               new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
-               new SelectListItem(){Value = "Teklif", Text= "Teklif"},
-               new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif"},
-               new SelectListItem(){Value = "Satış", Text= "Satış"},
-               new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
+               new SelectListItem(){Value = "Görüşme", Text= "Görüşme",Selected=(gorev.Durum=="Görüşme" ? true : false)},
+               new SelectListItem(){Value = "Teklif", Text= "Teklif",Selected=(gorev.Durum=="Teklif" ? true : false)},
+               new SelectListItem(){Value = "Revize Teklif", Text= "Revize Teklif",Selected=(gorev.Durum=="Revize Teklif" ? true : false)},
+               new SelectListItem(){Value = "Satış", Text= "Satış",Selected=(gorev.Durum=="Satış" ? true : false)},
+               new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi",Selected=(gorev.Durum=="Reddedildi" ? true : false)},
               };
-                var ParaBirimi = new[]
+                var ParaGosterim = new[]
                  {
                  new SelectListItem(){Value = "TL", Text= "TL", Selected=(gorev.ParaBirimi=="TL" ? true : false)},
                  new SelectListItem(){Value = "DOLAR", Text= "DOLAR", Selected=(gorev.ParaBirimi=="DOLAR" ? true : false)},
                  new SelectListItem(){Value = "EURO", Text= "EURO", Selected=(gorev.ParaBirimi=="EURO" ? true : false)},
                 };
-                ViewBag.ParaBirimi = ParaBirimi;
+                ViewBag.ParaGosterim = ParaGosterim;
                 ViewBag.TahminiTutar = gorev.TahminiTutar;
-                ViewBag.Durum = Durum;
-                ViewBag.Oncelik = Oncelik;
+                ViewBag.DurumGosterim = DurumGosterim;
+                ViewBag.OncelikGosterim = OncelikGosterim;
                 ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
                 ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
                 
@@ -183,7 +183,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,TahminiTutar,GorevNot,Durum,Oncelik")] Gorev gorev)
+        public ActionResult Edit([Bind(Include = "ID,Aciklama,Tarih,PotansiyelID,SatisElemaniID,ParaBirimi,TahminiTutar,GorevNot,Durum,Oncelik")] Gorev gorev)
         {
             if (ModelState.IsValid)
             {
@@ -191,20 +191,20 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var ParaBirimi = new[]
+            var ParaGosterim = new[]
              {
                  new SelectListItem(){Value = "TL", Text= "TL"},
                  new SelectListItem(){Value = "DOLAR", Text= "DOLAR"},
                  new SelectListItem(){Value = "EURO", Text= "EURO"},
                };
-            var Oncelik = new[]
+            var OncelikGosterim = new[]
                 {
                  new SelectListItem(){Value = "Normal", Text= "Normal"},
                  new SelectListItem(){Value = "Düşük", Text= "Düşük"},
-                 new SelectListItem(){Value = "Yuksek", Text= "Yuksek"},
+                 new SelectListItem(){Value = "Yüksek", Text= "Yüksek"},
                  new SelectListItem(){Value = "Acil", Text= "Acil"},
                };
-            var Durum = new[]
+            var DurumGosterim = new[]
             {
                  new SelectListItem(){Value = "Görüşme", Text= "Görüşme"},
                  new SelectListItem(){Value = "Teklif", Text= "Teklif"},
@@ -212,9 +212,9 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Satış", Text= "Satış"},
                  new SelectListItem(){Value = "Reddedildi", Text= "Reddedildi"},
               };
-            ViewBag.ParaBirimi = ParaBirimi;
-            ViewBag.Durum = Durum;
-            ViewBag.Oncelik = Oncelik;
+            ViewBag.ParaGosterim = ParaGosterim;
+            ViewBag.DurumGosterim = DurumGosterim;
+            ViewBag.OncelikGosterim = OncelikGosterim;
             ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
             ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
             return View(gorev);

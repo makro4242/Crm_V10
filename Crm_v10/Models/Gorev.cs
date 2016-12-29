@@ -36,7 +36,7 @@ namespace Crm_v10.Models
         [Display(Name = "Para Birimi")]
         public string ParaBirimi { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         [Display(Name = "Tahmini Tutar")]
         public decimal TahminiTutar { get; set; }
 

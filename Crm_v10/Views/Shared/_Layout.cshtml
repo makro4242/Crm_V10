@@ -455,13 +455,16 @@
         $(document).ready(function () {
             $('.para').change(function () {
                 var number = document.querySelector('.para').value,
-                dollars = number.split('.')[0],
+                    dollars = number.split(',')[0],
+                    cents = (number.split(',')[1] || '') + '00';
                 dollars = dollars.split('').reverse().join('')
                     .replace(/(\d{3}(?!$))/g, '$1.')
                     .split('').reverse().join('');
-                $(".para").val(dollars + '₺');
+                $(".para").val(dollars + ',' + cents.slice(0, 2));
                 document.querySelector('.gosterilmeyenparaformati').value = number;
             });
+
+
         });
     </script>
     <script>
@@ -564,9 +567,16 @@
         })
     </script>
     <script>
+ // Edit Sayfasındaki Para değeri sayısal olarak bir degerde tutulur
         $(document).ready(function () {
             if ($("#editPara").hasClass("para")) {
-                var number = document.querySelector('.para').value;
+                var number = document.querySelector('.para').value,
+                   dollars = number.split(',')[0],
+                   cents = (number.split(',')[1] || '') + '00';
+                dollars = dollars.split('').reverse().join('')
+                    .replace(/(\d{3}(?!$))/g, '$1.')
+                    .split('').reverse().join('');
+                $(".para").val(dollars + ',' + cents.slice(0, 2));
                 document.querySelector('.editpara').value = number;
             }
         })
@@ -595,6 +605,5 @@
 
         });
     </script>
-
 </body>
 </html>
