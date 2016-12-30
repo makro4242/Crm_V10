@@ -3,12 +3,27 @@
 @{
     ViewBag.Title = "Create";
 }
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="container">
+        <div class="row col-sm-10">
+            <h2>Görev</h2>
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Evraklar</a>
+                    </li>
+                    <li>
+                        <a href="/Gorevs/Index">Gorev Tanıtım Kartı</a>
+                    </li>
+                    <li>
+                        <a href="#">Görev Bilgileri Yeni Kayıt</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-8">
                 <div class="card-box">
