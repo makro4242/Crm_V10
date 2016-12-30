@@ -203,6 +203,7 @@
     <Compile Include="Controllers\KullanicilarsController.cs" />
     <Compile Include="Controllers\PotansiyelsController.cs" />
     <Compile Include="Controllers\SatisElemanlarisController.cs" />
+    <Compile Include="Controllers\SektorsController.cs" />
     <Compile Include="Controllers\YetkilisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,6 +219,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Potansiyel.cs" />
     <Compile Include="Models\SatisElemanlari.cs" />
+    <Compile Include="Models\Sektor.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\Ulkeler.cs" />
     <Compile Include="Models\Yetkili.cs" />
@@ -2969,6 +2971,11 @@
     <Content Include="Views\Aksiyons\Details.cshtml" />
     <Content Include="Views\Aksiyons\Edit.cshtml" />
     <Content Include="Views\Aksiyons\Index.cshtml" />
+    <Content Include="Views\Sektors\Create.cshtml" />
+    <Content Include="Views\Sektors\Delete.cshtml" />
+    <Content Include="Views\Sektors\Details.cshtml" />
+    <Content Include="Views\Sektors\Edit.cshtml" />
+    <Content Include="Views\Sektors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

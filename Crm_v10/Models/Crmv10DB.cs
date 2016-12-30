@@ -19,6 +19,7 @@ namespace Crm_v10.Models
         public virtual DbSet<Log> Log { get; set; }
         public virtual DbSet<Potansiyel> Potansiyel { get; set; }
         public virtual DbSet<SatisElemanlari> SatisElemanlari { get; set; }
+        public virtual DbSet<Sektor> Sektor { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Ulkeler> Ulkeler { get; set; }
         public virtual DbSet<Yetkili> Yetkili { get; set; }
@@ -27,11 +28,12 @@ namespace Crm_v10.Models
         {
             modelBuilder.Entity<Gorev>()
                 .Property(e => e.TahminiTutar)
-                .HasPrecision(19, 4);
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Gorev>()
                 .HasMany(e => e.Aksiyon)
-                .WithRequired(e => e.GorevEkleme)
+                .WithRequired(e => e.Gorev)
+                .HasForeignKey(e => e.GorevEklemeID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Iller>()
@@ -57,12 +59,12 @@ namespace Crm_v10.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Potansiyel>()
-                .HasMany(e => e.GorevEkleme)
+                .HasMany(e => e.Gorev)
                 .WithRequired(e => e.Potansiyel)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SatisElemanlari>()
-                .HasMany(e => e.GorevEkleme)
+                .HasMany(e => e.Gorev)
                 .WithRequired(e => e.SatisElemanlari)
                 .HasForeignKey(e => e.SatisElemaniID)
                 .WillCascadeOnDelete(false);
@@ -71,6 +73,12 @@ namespace Crm_v10.Models
                 .HasMany(e => e.Potansiyel)
                 .WithRequired(e => e.SatisElemanlari)
                 .HasForeignKey(e => e.PotansiyelSatisElemani)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Sektor>()
+                .HasMany(e => e.Potansiyel)
+                .WithRequired(e => e.Sektor)
+                .HasForeignKey(e => e.PotansiyelSektorID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Ulkeler>()

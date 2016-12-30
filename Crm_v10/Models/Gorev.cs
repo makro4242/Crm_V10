@@ -19,40 +19,42 @@ namespace Crm_v10.Models
 
         [StringLength(500)]
         [Display(Name = "Açýklama")]
-        public string Aciklama { get; set; }
 
+        public string Aciklama { get; set; }
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
-             ApplyFormatInEditMode = true)]
+            ApplyFormatInEditMode = true)]
         [Display(Name = "Tarih")]
         public DateTime Tarih { get; set; }
-
 
         public int PotansiyelID { get; set; }
 
         public int SatisElemaniID { get; set; }
 
-     
         [StringLength(10)]
         [Display(Name = "Para Birimi")]
+
         public string ParaBirimi { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         [Display(Name = "Tahmini Tutar")]
         public decimal TahminiTutar { get; set; }
 
         [Required]
         [Display(Name = "Görev Not")]
+
         public string GorevNot { get; set; }
 
         [Required]
         [StringLength(50)]
         [Display(Name = "Durum")]
+
         public string Durum { get; set; }
 
         [Required]
         [StringLength(50)]
         [Display(Name = "Öncelik")]
+
         public string Oncelik { get; set; }
+
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
         public string BirlesikGorev

@@ -19,8 +19,9 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                var gorev = db.Gorev.Include(g => g.Potansiyel).Include(g => g.SatisElemanlari).Where(x=>x.GosterimDurumu!="0");
+                var gorev = db.Gorev.Include(g => g.Potansiyel).Include(g => g.SatisElemanlari).Where(x => x.GosterimDurumu != "0");
                 return View(gorev.ToList());
+
             }
 
             else return RedirectToAction("LoginPage", "Home");

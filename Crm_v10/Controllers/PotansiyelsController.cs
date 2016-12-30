@@ -57,6 +57,7 @@ namespace Crm_v10.Controllers
             {
 
                 ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x=>x.GosterimDurumu!="0"), "Id", "FullName");
+                ViewBag.Sektor = new SelectList(db.Sektor.Where(x=>x.GosterimDurumu!="0"), "Id", "SektorAd");
                 ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
                 ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
                 ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
@@ -75,7 +76,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelYetkiliID,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
+        public ActionResult Create([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelYetkiliID,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelSektorID,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
         {
             if (ModelState.IsValid)
             {
@@ -84,6 +85,7 @@ namespace Crm_v10.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x => x.GosterimDurumu != "0"), "Id", "FullName");
+            ViewBag.Sektor = new SelectList(db.Sektor.Where(x => x.GosterimDurumu != "0"), "Id", "SektorAd");
             ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
             ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
             ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
@@ -105,6 +107,7 @@ namespace Crm_v10.Controllers
                     return RedirectToAction("_404", "Home");
                 }
                 ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x => x.GosterimDurumu != "0"), "Id", "FullName");
+                ViewBag.Sektor = new SelectList(db.Sektor.Where(x => x.GosterimDurumu != "0"), "Id", "SektorAd");
                 ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
                 ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
                 ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
@@ -123,7 +126,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelYetkiliID,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelIstigalBilgisi,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
+        public ActionResult Edit([Bind(Include = "ID,PotansiyelKodu,PotansiyelUnvani,PotansiyelAdresi,PotansiyelAdresiUINKodu,PotansiyelYetkiliID,PotansiyelAdresGpsEnlem,PotansiyelAdresGpsBoylam,PotansiyelUlkeKodu,PotansiyelIl,PotansiyelIlce,PotansiyelVergiDairesi,PotansiyelVergiNumarasi,PotansiyelWebAdresi,PotansiyelSektorID,PotansiyelNot,PotansiyelSatisElemani")] Potansiyel potansiyel)
         {
             if (ModelState.IsValid)
             {
@@ -132,6 +135,7 @@ namespace Crm_v10.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x => x.GosterimDurumu != "0"), "Id", "FullName");
+            ViewBag.Sektor = new SelectList(db.Sektor.Where(x => x.GosterimDurumu != "0"), "Id", "SektorAd");
             ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
             ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
             ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");

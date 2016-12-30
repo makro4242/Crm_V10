@@ -12,7 +12,7 @@ namespace Crm_v10.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Potansiyel()
         {
-            GorevEkleme = new HashSet<Gorev>();
+            Gorev = new HashSet<Gorev>();
         }
 
         public int ID { get; set; }
@@ -24,7 +24,7 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(150)]
-        [Display(Name = "Potansiyel Unvaný")]
+        [Display(Name = "Potansiyel Ünvaný")]
         public string PotansiyelUnvani { get; set; }
 
         [Required]
@@ -35,6 +35,7 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(20)]
         [Display(Name = "Adres UIN Kodu")]
+
         public string PotansiyelAdresiUINKodu { get; set; }
 
         public int PotansiyelYetkiliID { get; set; }
@@ -42,11 +43,13 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(20)]
         [Display(Name = "GPS Enlem")]
+
         public string PotansiyelAdresGpsEnlem { get; set; }
 
         [Required]
         [StringLength(20)]
         [Display(Name = "GPS Boylam")]
+
         public string PotansiyelAdresGpsBoylam { get; set; }
 
         [Display(Name = "Ülke Kodu")]
@@ -57,28 +60,28 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Ýlçe")]
+        [Display(Name = "Ýlce")]
         public string PotansiyelIlce { get; set; }
 
         [Required]
         [StringLength(50)]
         [Display(Name = "Vergi Dairesi")]
+
         public string PotansiyelVergiDairesi { get; set; }
 
         [Required]
         [StringLength(50)]
         [Display(Name = "Vergi Numarasý")]
+
         public string PotansiyelVergiNumarasi { get; set; }
 
         [Required]
         [StringLength(80)]
         [Display(Name = "Web Adresi")]
+
         public string PotansiyelWebAdresi { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        [Display(Name = "Sektör")]
-        public string PotansiyelIstigalBilgisi { get; set; }
+        public int PotansiyelSektorID { get; set; }
 
         [Column(TypeName = "text")]
         [Required]
@@ -87,15 +90,18 @@ namespace Crm_v10.Models
 
         [Display(Name = "Satýþ Elemaný")]
         public int PotansiyelSatisElemani { get; set; }
+
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gorev> GorevEkleme { get; set; }
+        public virtual ICollection<Gorev> Gorev { get; set; }
 
         public virtual Iller Iller { get; set; }
 
         public virtual SatisElemanlari SatisElemanlari { get; set; }
+
+        public virtual Sektor Sektor { get; set; }
 
         public virtual Ulkeler Ulkeler { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model Crm_v10.Models.SatisElemanlari
+﻿@model Crm_v10.Models.Sektor
 
 @{
     ViewBag.Title = "Delete";
@@ -11,31 +11,22 @@
             <div class="card-box">
                 <h2>Sil</h2>
                 <h4 class="m-t-0 header-title">
-                    <b> SATIŞ ELEMANI SİL</b>
+                    <b> SEKTÖR SİL</b>
                 </h4>
-               <b>Bu Kayıtı Silmek İstediğinizden Emin misiniz?</b>
+                <b>Bu Kayıtı Silmek İstediğinizden Emin misiniz?</b>
 
                 <div class="form-horizontal">
-                    <hr />   
-                     <dl class="dl-horizontal">
+                    <hr />
+                    <dl class="dl-horizontal">
                         <dt>
-                          Satış Elemanı Kodu :
+                           Sektör Adı :
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.SatisElemaniKodu)
-                        </dd>
-
-                        <dt>
-                           Ad Soyad :
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.SatisElemaniAdiSoyadi)
+                            @Html.DisplayFor(model => model.SektorAd)
                         </dd>
 
                     </dl>
-
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()

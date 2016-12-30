@@ -25,7 +25,7 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-                var aksiyon = db.Aksiyon.Include(a => a.GorevEkleme);
+                var aksiyon = db.Aksiyon.Include(a => a.Gorev);
                 return View(aksiyon.ToList());
             }
 
