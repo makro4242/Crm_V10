@@ -4,25 +4,26 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Yetkili</h2>
-
-<p>
-    <a href="/Yetkilis/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
-</p>
 <div class="container">
-    <div class="row">
+    <div class="row col-sm-10">
+        <h2>Yetkili Tanıtım Kartı</h2>
+
         <div class="col-sm-12">
-            <h4 class="page-title">Liste</h4>
             <ol class="breadcrumb">
                 <li>
-                    <a href="#">Ana Sayfa</a>
+                    <a href="#">Kartlar</a>
                 </li>
                 <li>
-                    <a href="#">Yetkili</a>
+                    <a href="/Yetkilis/Index">Yetkili Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Index</a>
                 </li>
             </ol>
         </div>
+        <p>
+            <a href="/Yetkilis/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
+        </p>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -68,9 +69,9 @@
                                             @Html.DisplayFor(modelItem => item.YetkiliMail2)
                                         </td>
                                         <td>
-                                            <a href="/Yetkilis/Edit/@item.ID" class="btn btn-default waves-effect waves-light" >Düzenle</a>
-                                            <a href="/Yetkilis/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="margin-top:5px; margin-bottom:5px; ">Detay</a>
-                                            <a href="/Yetkilis/Delete/@item.ID" class="btn btn-default waves-effect waves-light">Sil</a><br />
+                                            <a href="/Yetkilis/Edit/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%" >Düzenle</a>
+                                            <a href="/Yetkilis/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73% ">Detay</a>
+                                            <a href="/Yetkilis/Delete/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Sil</a><br />
                                         </td>
                                     </tr>
                                 }

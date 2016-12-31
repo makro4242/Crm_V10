@@ -3,25 +3,26 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Aksiyon Ekleme</h2>
-
-<p>
-    <a href="/Aksiyons/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
-</p>
 <div class="container">
-    <div class="row">
+    <div class="row col-sm-10">
+        <h2>Aksiyon</h2>
         <div class="col-sm-12">
-            <h4 class="page-title">Liste</h4>
             <ol class="breadcrumb">
                 <li>
-                    <a href="#">Ana Sayfa</a>
+                    <a href="#">Evraklar</a>
                 </li>
                 <li>
-                    <a href="#">Aksiyon Ekleme</a>
+                    <a href="/Aksiyons/Index">Aksiyon Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Index</a>
                 </li>
             </ol>
         </div>
+        <p>
+            <a href="/Aksiyons/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
+        </p>
+
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -60,9 +61,9 @@
                                             @Html.DisplayFor(modelItem => item.AksiyonNot)
                                         </td>
                                         <td>
-                                            <a href="/Aksiyons/Edit/@item.ID" class="btn btn-default waves-effect waves-light">Düzenle</a>
-                                            <a href="/Aksiyons/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="margin-top:5px; margin-bottom:5px; ">Detay</a>
-                                            <a href="/Aksiyons/Delete/@item.ID" class="btn btn-default waves-effect waves-light">Sil</a><br />
+                                            <a href="/Aksiyons/Edit/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%" >Düzenle</a>
+                                            <a href="/Aksiyons/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%" >Detay</a>
+                                            <a href="/Aksiyons/Delete/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%" >Sil</a><br />
                                         </td>
                                     </tr>
                                 }

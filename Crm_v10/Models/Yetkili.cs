@@ -33,7 +33,6 @@ namespace Crm_v10.Models
 
         public string YetkiliSoyad { get; set; }
 
-        [Required]
         [StringLength(15)]
         [Display(Name = "GSM1")]
 
@@ -43,7 +42,6 @@ namespace Crm_v10.Models
         [Display(Name = "GSM2")]
         public string YetkiliGSM2 { get; set; }
 
-        [Required]
         [StringLength(50)]
         [Display(Name = "Email1")]
 

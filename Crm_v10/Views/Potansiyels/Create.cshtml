@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="row col-sm-2">
-            <input type="button" class="col-lg-8 btn btn-primary col-lg-push-4" value="Kısayollar" data-toggle="modal" data-target="#myModal">
+            <a href="javascript;" class="col-lg-2 btn btn-primary col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
         </div>
 
         <div class="row">
@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelUnvani, "*Unvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelUnvani, "*Ünvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelUnvani, new { htmlAttributes = new { @class = "form-control", @maxlength = "150" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelUnvani, "", new { @class = "text-danger" })
@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresiUINKodu, "*Adres UIN Kodu", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelAdresiUINKodu, "Adres UIN Kodu", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresiUINKodu, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresiUINKodu, "", new { @class = "text-danger" })
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresGpsEnlem,"*GPS Enlem",htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.PotansiyelAdresGpsEnlem,"GPS Enlem",htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresGpsEnlem, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresGpsEnlem, "", new { @class = "text-danger" })
@@ -122,14 +122,14 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresGpsBoylam, "*GPS Boylam", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelAdresGpsBoylam, "GPS Boylam", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresGpsBoylam, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresGpsBoylam, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelAdresi, "*Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelAdresi, "Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.TextAreaFor(model => model.PotansiyelAdresi, new { @class = "form-control", @cols = 80, @rows = 2, @maxlength = "150" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresi, "", new { @class = "text-danger" })
@@ -166,7 +166,7 @@
 
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelIlce, "*İlçe", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelIlce, "İlçe", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelIlce, new { htmlAttributes = new { @class = "form-control" ,@maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelIlce, "", new { @class = "text-danger" })
@@ -174,7 +174,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelVergiDairesi,"*Vergi Dairesi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelVergiDairesi,"Vergi Dairesi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelVergiDairesi, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiDairesi, "", new { @class = "text-danger" })
@@ -182,7 +182,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelVergiNumarasi, "*Vergi Numarası",htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelVergiNumarasi, "Vergi Numarası",htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelVergiNumarasi, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiNumarasi, "", new { @class = "text-danger" })
@@ -190,7 +190,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelWebAdresi, "*Web Adresi",htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelWebAdresi, "Web Adresi",htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelWebAdresi, new { htmlAttributes = new { @class = "form-control", @maxlength = "80" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelWebAdresi, "", new { @class = "text-danger" })
@@ -206,7 +206,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelNot,"*Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelNot,"Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.TextAreaFor(model => model.PotansiyelNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelNot, "", new { @class = "text-danger" })

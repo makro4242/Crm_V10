@@ -33,8 +33,15 @@
     <script src="/Content/js/modernizr.min.js"></script>
 
     <style>
-        #datatable {
-            font-size: 14px;
+      table{
+            font-size:12px;
+        }
+        table td{
+            height:20px;
+            vertical-align:middle;
+            display:table-cell;
+            white-space:nowrap;
+            overflow:hidden
         }
     </style>
 
@@ -180,10 +187,12 @@
                             <li class="hidden-xs">
                                 <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="icon-size-fullscreen"></i></a>
                             </li>
-                            <!--GELİŞTİRME-->
-                            @*<li class="hidden-xs">
+                            @if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
+                            {
+                                <li>
                                     <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>
-                                </li>*@
+                                </li>
+                            }
                             <li class="dropdown">
                                 <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="/Content/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                 <ul class="dropdown-menu">
@@ -213,6 +222,8 @@
                             <ul class="list-unstyled">
                                 <li><a href="@Url.Action("Index", "Yetkilis")">Yetkili Tanıtım Kartı</a></li>
                                 <li><a href="@Url.Action("Index","Potansiyels")">Potansiyel Tanıtım Kartı</a></li>
+                                <li> <a href="@Url.Action("Index", "SatisElemanlaris")">Satış Elemanı Tanıtım Kartı</a></li>
+                                <li><a href="@Url.Action("Index", "Sektors")">Sektör Tanıtım Kartı</a></li>
                             </ul>
                         </li>
                         <li class="has_sub">
@@ -222,20 +233,20 @@
                                 <li><a href="@Url.Action("Index", "Aksiyons")">Aksiyon Ekleme</a></li>
                             </ul>
                         </li>
-                        @if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
-                        {
-                            <li class="has_sub">
-                                <a href="#" class="waves-effect"><i class="icon-settings"></i> <span> Ayarlar </span> </a>
-                                <ul class="list-unstyled">
-                                    <li><a href="@Url.Action("Index", "SatisElemanlaris")">Satış Elemanı Tanıtım Kartı</a></li>
-                                    <li><a href="@Url.Action("Index", "Kullanicilars")">Kullanıcı Tanıtım Kartı</a></li>
-                                    <li><a href="@Url.Action("Index", "Sektors")">Sektör Tanıtım Kartı</a></li>
+                        @*@if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
+                            {
+                                <li class="has_sub">
+                                    <a href="#" class="waves-effect"><i class="icon-settings"></i> <span> Ayarlar </span> </a>
+                                    <ul class="list-unstyled">
+                                        <li><a href="@Url.Action("Index", "SatisElemanlaris")">Satış Elemanı Tanıtım Kartı</a></li>
+                                        <li><a href="@Url.Action("Index", "Kullanicilars")">Kullanıcı Tanıtım Kartı</a></li>
+                                        <li><a href="@Url.Action("Index", "Sektors")">Sektör Tanıtım Kartı</a></li>
 
-                                    <li><a href="#">Yetkilendirme</a></li>
-                                    <li><a href="#">Parametreler</a></li>
-                                </ul>
-                            </li>
-                        }
+                                        <li><a href="#">Yetkilendirme</a></li>
+                                        <li><a href="#">Parametreler</a></li>
+                                    </ul>
+                                </li>
+                            }*@
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -248,7 +259,7 @@
         <!-- ============================================================== -->
         <div class="content-page">
             <div class="content">
-              
+
                 <!-- Start content -->
                 @RenderBody()
                 <!-- content -->
@@ -262,113 +273,30 @@
         <!-- ============================================================== -->
         <!-- Right Sidebar -->
         <!--GELİŞTİRME-->
-        @*<div class="side-bar right-bar nicescroll">
-                <h4 class="text-center">Chat</h4>
+        @if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
+        {
+            <div class="side-bar right-bar nicescroll">
+                <h4 class="text-center">Ayarlar</h4>
                 <div class="contact-list nicescroll">
                     <ul class="list-group contacts-list">
+                       
                         <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-1.jpg" alt="">
-                                </div>
-                                <span class="name">Chadengle</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
+                            <a href="@Url.Action("Index", "Kullanicilars")">Kullanıcı Tanıtım Kartı</a>
+                            <span class="clearfix"></span>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="#">Yetkilendirme</a>
                             <span class="clearfix"></span>
                         </li>
                         <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <span class="name">Tomaslau</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-3.jpg" alt="">
-                                </div>
-                                <span class="name">Stillnotdavid</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-4.jpg" alt="">
-                                </div>
-                                <span class="name">Kurafire</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-5.jpg" alt="">
-                                </div>
-                                <span class="name">Shahedk</span>
-                                <i class="fa fa-circle away"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-6.jpg" alt="">
-                                </div>
-                                <span class="name">Adhamdannaway</span>
-                                <i class="fa fa-circle away"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-7.jpg" alt="">
-                                </div>
-                                <span class="name">Ok</span>
-                                <i class="fa fa-circle away"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-8.jpg" alt="">
-                                </div>
-                                <span class="name">Arashasghari</span>
-                                <i class="fa fa-circle offline"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-9.jpg" alt="">
-                                </div>
-                                <span class="name">Joshaustin</span>
-                                <i class="fa fa-circle offline"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="/Content/images/users/avatar-10.jpg" alt="">
-                                </div>
-                                <span class="name">Sortino</span>
-                                <i class="fa fa-circle offline"></i>
-                            </a>
+                            <a href="#">Parametreler</a>
                             <span class="clearfix"></span>
                         </li>
                     </ul>
                 </div>
-            </div>*@
+            </div>
+        }
         <!-- /Right-bar -->
     </div>
     <!-- END wrapper -->
@@ -570,7 +498,7 @@
         })
     </script>
     <script>
- // Edit Sayfasındaki Para değeri sayısal olarak bir degerde tutulur
+        // Edit Sayfasındaki Para değeri sayısal olarak bir degerde tutulur
         $(document).ready(function () {
             if ($("#editPara").hasClass("para")) {
                 var number = document.querySelector('.para').value,

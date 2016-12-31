@@ -5,6 +5,61 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
+        <div class="row col-sm-10">
+            <h2>Satış Elemanları Tanıtım Kartı</h2>
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Ayarlar</a>
+                    </li>
+                    <li>
+                        <a href="/SatisElemanlaris/Index">Satış Elemanları Tanıtım Kartı</a>
+                    </li>
+                    <li>
+                        <a href="#">Satış Elemanları Bilgilerini Düzenle</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Kısayollar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="kisayol">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            İşlevi
+                                        </th>
+                                        <th>
+                                            Kısayolu
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Otomatik Satış Elemanları Kodu Tanımla</td>
+                                        <td><kbd title="Satış Elemanları kodunu girerken otomatik tamamlamak için Shift ve F1'e basınız">Shift + F1</kbd></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-sm-2">
+            <a href="#" class="col-lg-2 btn btn-primary col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+        </div>
         <div class="row">
             <div class="col-lg-8">
                 <div class="card-box">

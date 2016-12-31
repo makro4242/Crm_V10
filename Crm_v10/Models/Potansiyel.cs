@@ -27,12 +27,10 @@ namespace Crm_v10.Models
         [Display(Name = "Potansiyel Ünvaný")]
         public string PotansiyelUnvani { get; set; }
 
-        [Required]
         [StringLength(150)]
         [Display(Name = "Potansiyel Adresi")]
         public string PotansiyelAdresi { get; set; }
 
-        [Required]
         [StringLength(20)]
         [Display(Name = "Adres UIN Kodu")]
 
@@ -40,13 +38,11 @@ namespace Crm_v10.Models
 
         public int PotansiyelYetkiliID { get; set; }
 
-        [Required]
         [StringLength(20)]
         [Display(Name = "GPS Enlem")]
 
         public string PotansiyelAdresGpsEnlem { get; set; }
 
-        [Required]
         [StringLength(20)]
         [Display(Name = "GPS Boylam")]
 
@@ -58,24 +54,20 @@ namespace Crm_v10.Models
         [Display(Name = "Ýl")]
         public int PotansiyelIl { get; set; }
 
-        [Required]
         [StringLength(50)]
         [Display(Name = "Ýlce")]
         public string PotansiyelIlce { get; set; }
 
-        [Required]
         [StringLength(50)]
         [Display(Name = "Vergi Dairesi")]
 
         public string PotansiyelVergiDairesi { get; set; }
 
-        [Required]
         [StringLength(50)]
         [Display(Name = "Vergi Numarasý")]
 
         public string PotansiyelVergiNumarasi { get; set; }
 
-        [Required]
         [StringLength(80)]
         [Display(Name = "Web Adresi")]
 
@@ -84,7 +76,6 @@ namespace Crm_v10.Models
         public int PotansiyelSektorID { get; set; }
 
         [Column(TypeName = "text")]
-        [Required]
         [Display(Name = "Not")]
         public string PotansiyelNot { get; set; }
 

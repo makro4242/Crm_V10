@@ -4,25 +4,27 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Sektörler</h2>
-
-<p>
-    <a href="/Sektors/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
-</p>
 <div class="container">
-    <div class="row">
+    <div class="row col-sm-10">
+        <h2>Sektör Tanıtım Kartı</h2>
+
         <div class="col-sm-12">
-            <h4 class="page-title">Liste</h4>
             <ol class="breadcrumb">
                 <li>
-                    <a href="#">Ana Sayfa</a>
+                    <a href="#">Ayarlar</a>
                 </li>
                 <li>
-                    <a href="#">Sektör</a>
+                    <a href="/Sektors/Index">Sektör Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Index</a>
                 </li>
             </ol>
         </div>
+        <p>
+            <a href="/Sektors/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
+        </p>
+
     </div>
     <div class="row">
         <div class="col-sm-6">
@@ -43,9 +45,9 @@
                                             @Html.DisplayFor(modelItem => item.SektorAd)
                                         </td>
                                         <td style="text-align:right">
-                                            <a href="/Sektors/Edit/@item.ID" class="btn btn-default waves-effect waves-light">Düzenle</a>
-                                            <a href="/Sektors/Details/@item.ID" class="btn btn-default waves-effect waves-light">Detay</a>
-                                            <a href="/Sektors/Delete/@item.ID" class="btn btn-default waves-effect waves-light">Sil</a>
+                                            <a href="/Sektors/Edit/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Düzenle</a>
+                                            <a href="/Sektors/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Detay</a>
+                                            <a href="/Sektors/Delete/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Sil</a>
                                         </td>
                                     </tr>
                                 }
