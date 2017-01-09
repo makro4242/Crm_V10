@@ -1,26 +1,24 @@
-﻿@model Crm_v10.Models.Sektor
+﻿@model Crm_v10.Models.AksiyonSecim
 
 @{
     ViewBag.Title = "Create";
 }
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
     <div class="container">
         <div class="row col-sm-10">
-            <h2>Sektör Tanıtım Kartı</h2>
+            <h2>Durum</h2>
             <div class="col-sm-12">
                 <ol class="breadcrumb">
                     <li>
-                        <a href="#">Ayarlar</a>
+                        <a href="#">Kartlar</a>
                     </li>
                     <li>
-                        <a href="/Sektors/Index">Sektör Tanıtım Kartı</a>
+                        <a href="/AksiyonSecims/Index">Aksiyon Tanıtım Kartı</a>
                     </li>
                     <li>
-                        <a href="#">Sektör Yeni Kayıt</a>
+                        <a href="#">Aksiyon Tanıtım Kartı Yeni Kayıt</a>
                     </li>
                 </ol>
             </div>
@@ -65,11 +63,11 @@
             <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="card-box">
                     <h2>Yeni Kayıt</h2>
                     <h4 class="m-t-0 header-title">
-                        <b>SEKTÖR YENİ KAYIT</b>
+                        <b>AKSİYON TANITIM KARTI YENİ KAYIT</b>
                     </h4>
                     <div class="form-horizontal">
                         <hr />
@@ -77,16 +75,15 @@
                             <div class="col-md-7">
                                 <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
                             </div>
-                        </div>        
+                        </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SektorAd, "*Sektör Adı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.AksiyonAdi, "Aksiyon Adı", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.SektorAd, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.SektorAd, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.AksiyonAdi, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AksiyonAdi, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
                         <div class="form-actions no-color">
                             <input type="submit" value="Kaydet" class="btn btn-default" /> |
                             @Html.ActionLink("Listeye Dön", "Index")

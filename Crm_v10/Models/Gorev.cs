@@ -22,7 +22,6 @@ namespace Crm_v10.Models
 
         public string Aciklama { get; set; }
 
-       
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
             ApplyFormatInEditMode = true)]
         [Display(Name = "Tarih")]
@@ -34,6 +33,7 @@ namespace Crm_v10.Models
 
         [StringLength(10)]
         [Display(Name = "Para Birimi")]
+
         public string ParaBirimi { get; set; }
 
         [Display(Name = "Tahmini Tutar")]
@@ -54,6 +54,7 @@ namespace Crm_v10.Models
 
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
+
         public string BirlesikGorev
         {
             get

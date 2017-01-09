@@ -56,7 +56,7 @@ namespace Crm_v10.Models
         public string YetkiliMail2 { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
-          ApplyFormatInEditMode = true)]
+         ApplyFormatInEditMode = true)]
         [Display(Name = "Yetkili Doðum Tarihi")]
         public DateTime? YetkiliDogumTarihi { get; set; }
 
@@ -69,7 +69,6 @@ namespace Crm_v10.Models
                 return String.Format("{0} {1}", YetkiliAd, YetkiliSoyad);
             }
         }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Potansiyel> Potansiyel { get; set; }
     }

@@ -52,9 +52,11 @@ namespace Crm_v10.Models
         public string PotansiyelAdresGpsBoylam { get; set; }
 
         [Display(Name = "Ülke Kodu")]
+
         public int PotansiyelUlkeKodu { get; set; }
 
         [Display(Name = "Ýl")]
+
         public int PotansiyelIl { get; set; }
 
         [StringLength(50)]
@@ -80,11 +82,10 @@ namespace Crm_v10.Models
         public int PotansiyelSektorID { get; set; }
 
         [Column(TypeName = "text")]
-        [Display(Name = "Not")]
-
         public string PotansiyelNot { get; set; }
 
         [Display(Name = "Satýþ Elemaný")]
+
         public int PotansiyelSatisElemani { get; set; }
 
         [StringLength(2)]

@@ -18,6 +18,8 @@ namespace Crm_v10.Models
         public int ID { get; set; }
 
         [StringLength(150)]
+        [Display(Name = "Durum Adý")]
+
         public string DurumAdi { get; set; }
 
         [StringLength(2)]

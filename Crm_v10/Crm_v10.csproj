@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AksiyonsController.cs" />
+    <Compile Include="Controllers\AksiyonSecimsController.cs" />
     <Compile Include="Controllers\DurumsController.cs" />
     <Compile Include="Controllers\GorevsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,6 +213,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aksiyon.cs" />
+    <Compile Include="Models\AksiyonSecim.cs" />
     <Compile Include="Models\Crmv10DB.cs" />
     <Compile Include="Models\Durum.cs" />
     <Compile Include="Models\Gorev.cs" />
@@ -2985,6 +2987,11 @@
     <Content Include="Views\Durums\Edit.cshtml" />
     <Content Include="Views\Durums\Index.cshtml" />
     <Content Include="Views\VeritabaniAyars\Index.cshtml" />
+    <Content Include="Views\AksiyonSecims\Create.cshtml" />
+    <Content Include="Views\AksiyonSecims\Delete.cshtml" />
+    <Content Include="Views\AksiyonSecims\Details.cshtml" />
+    <Content Include="Views\AksiyonSecims\Edit.cshtml" />
+    <Content Include="Views\AksiyonSecims\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

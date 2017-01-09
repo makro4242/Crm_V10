@@ -10,17 +10,17 @@ using Crm_v10.Models;
 
 namespace Crm_v10.Controllers
 {
-    public class DurumsController : Controller
+    public class AksiyonSecimsController : Controller
     {
         private Crmv10DB db = new Crmv10DB();
 
-        // GET: Durums
+        // GET: AksiyonSecims
         public ActionResult Index()
         {
-            return View(db.Durum.Where(x => x.GosterimDurumu != "0").ToList());
+            return View(db.AksiyonSecim.Where(x => x.GosterimDurumu != "0").ToList());
         }
 
-        // GET: Durums/Details/5
+        // GET: AksiyonSecims/Details/5
         public ActionResult Details(int? id)
         {
             if (Session["KullaniciID"] != null)
@@ -29,18 +29,17 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                Durum durum = db.Durum.Find(id);
-                if (durum == null)
+                AksiyonSecim aksiyonSecim = db.AksiyonSecim.Find(id);
+                if (aksiyonSecim == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                return View(durum);
+                return View(aksiyonSecim);
             }
 
             else return RedirectToAction("LoginPage", "Home");
         }
-
-        // GET: Durums/Create
+        // GET: AksiyonSecims/Create
         public ActionResult Create()
         {
             if (Session["KullaniciID"] != null)
@@ -51,24 +50,24 @@ namespace Crm_v10.Controllers
             else return RedirectToAction("LoginPage", "Home");
         }
 
-        // POST: Durums/Create
+        // POST: AksiyonSecims/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DurumAdi,GosterimDurumu")] Durum durum)
+        public ActionResult Create([Bind(Include = "ID,AksiyonAdi,GosterimDurumu")] AksiyonSecim aksiyonSecim)
         {
             if (ModelState.IsValid)
             {
-                db.Durum.Add(durum);
+                db.AksiyonSecim.Add(aksiyonSecim);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(durum);
+            return View(aksiyonSecim);
         }
 
-        // GET: Durums/Edit/5
+        // GET: AksiyonSecims/Edit/5
         public ActionResult Edit(int? id)
         {
             if (Session["KullaniciID"] != null)
@@ -77,34 +76,34 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                Durum durum = db.Durum.Find(id);
-                if (durum == null)
+                AksiyonSecim aksiyonSecim = db.AksiyonSecim.Find(id);
+                if (aksiyonSecim == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                return View(durum);
+                return View(aksiyonSecim);
             }
 
             else return RedirectToAction("LoginPage", "Home");
         }
 
-        // POST: Durums/Edit/5
+        // POST: AksiyonSecims/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DurumAdi,GosterimDurumu")] Durum durum)
+        public ActionResult Edit([Bind(Include = "ID,AksiyonAdi,GosterimDurumu")] AksiyonSecim aksiyonSecim)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(durum).State = EntityState.Modified;
+                db.Entry(aksiyonSecim).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(durum);
+            return View(aksiyonSecim);
         }
 
-        // GET: Durums/Delete/5
+        // GET: AksiyonSecims/Delete/5
         public ActionResult Delete(int? id)
         {
             if (Session["KullaniciID"] != null)
@@ -113,24 +112,24 @@ namespace Crm_v10.Controllers
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                Durum durum = db.Durum.Find(id);
-                if (durum == null)
+                AksiyonSecim aksiyonSecim = db.AksiyonSecim.Find(id);
+                if (aksiyonSecim == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
-                return View(durum);
+                return View(aksiyonSecim);
             }
 
             else return RedirectToAction("LoginPage", "Home");
         }
 
-        // POST: Durums/Delete/5
+        // POST: AksiyonSecims/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Durum durum = db.Durum.Find(id);
-            durum.GosterimDurumu = "0";
+            AksiyonSecim aksiyonSecim = db.AksiyonSecim.Find(id);
+            aksiyonSecim.GosterimDurumu = "0";
             db.SaveChanges();
             return RedirectToAction("Index");
         }

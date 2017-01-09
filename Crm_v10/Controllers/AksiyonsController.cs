@@ -61,16 +61,7 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
-               
-                var AksiyonSecim = new[]
-                 {
-                 new SelectListItem(){Value = "Telefon", Text= "Telefon"},
-                 new SelectListItem(){Value = "Mail", Text= "Mail"},
-                 new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
-                 };
-
-             
-                ViewBag.AksiyonSecim = AksiyonSecim;
+                ViewBag.AksiyonSecim = new SelectList(db.AksiyonSecim.Where(x => x.GosterimDurumu != "0"), "Id", "AksiyonAdi");
                 ViewBag.GorevEklemeID =  new SelectList(db.Gorev.Where(x => x.GosterimDurumu != "0"), "Id", "BirlesikGorev");
                 return View();
             }
@@ -82,7 +73,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecim,AksiyonNot,Ekler1,Ekler2,Ekler3,Ekler4,Ekler5")] Aksiyon aksiyon)
+        public ActionResult Create([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecimID,AksiyonNot,Ekler1,Ekler2,Ekler3,Ekler4,Ekler5")] Aksiyon aksiyon)
         {
             if (ModelState.IsValid)
             {
@@ -145,16 +136,8 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-          
-            var AksiyonSecim = new[]
-             {
-                 new SelectListItem(){Value = "Telefon", Text= "Telefon"},
-                 new SelectListItem(){Value = "Mail", Text= "Mail"},
-                 new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
-                 };
 
-           
-            ViewBag.AksiyonSecim = AksiyonSecim;
+            ViewBag.AksiyonSecim = new SelectList(db.AksiyonSecim.Where(x => x.GosterimDurumu != "0"), "Id", "AksiyonAdi");
             ViewBag.GorevEklemeID = new SelectList(db.Gorev.Where(x => x.GosterimDurumu != "0"), "Id", "BirlesikGorev");
             return View(aksiyon);
         }
@@ -179,16 +162,8 @@ namespace Crm_v10.Controllers
                 strfile4 = aksiyon.Ekler4.ToString();
                 strfile5 = aksiyon.Ekler5.ToString();
 
-               
-                var AksiyonSecim = new[]
-                 {
-                  new SelectListItem(){Value = "Telefon", Text= "Telefon"},
-                  new SelectListItem(){Value = "Mail", Text= "Mail"},
-                  new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
-                 };
-              
                 ViewBag.Saat = aksiyon.Saat;
-                ViewBag.AksiyonSecim = AksiyonSecim;
+                ViewBag.AksiyonSecim = new SelectList(db.AksiyonSecim.Where(x => x.GosterimDurumu != "0"), "Id", "AksiyonAdi");
                 ViewBag.GorevEklemeID = new SelectList(db.Gorev.Where(x=>x.GosterimDurumu!="0"), "Id", "BirlesikGorev");
                 return View(aksiyon);
             }
@@ -200,7 +175,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecim,AksiyonNot,Ekler1,Ekler2,Ekler3,Ekler4,Ekler5")] Aksiyon aksiyon)
+        public ActionResult Edit([Bind(Include = "ID,Tarih,Saat,GorevEklemeID,AksiyonSecimID,AksiyonNot,Ekler1,Ekler2,Ekler3,Ekler4,Ekler5")] Aksiyon aksiyon)
         {
             if (ModelState.IsValid)
             {
@@ -264,15 +239,8 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-           
-            var AksiyonSecim = new[]
-             {
-                 new SelectListItem(){Value = "Telefon", Text= "Telefon"},
-                 new SelectListItem(){Value = "Mail", Text= "Mail"},
-                 new SelectListItem(){Value = "Yüzyüze Görüşme", Text= "Yüzyüze Görüşme"},
-                 };
-           
-            ViewBag.AksiyonSecim = AksiyonSecim;
+
+            ViewBag.AksiyonSecim = new SelectList(db.AksiyonSecim.Where(x => x.GosterimDurumu != "0"), "Id", "AksiyonAdi");
             ViewBag.GorevEklemeID = new SelectList(db.Gorev.Where(x => x.GosterimDurumu != "0"), "Id", "BirlesikGorev");
             return View(aksiyon);
         }

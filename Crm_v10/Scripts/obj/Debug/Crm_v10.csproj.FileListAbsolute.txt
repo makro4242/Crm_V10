@@ -1,0 +1,246 @@
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\ApplicationInsights.config
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\csc.exe
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\Microsoft.CSharp.Core.targets
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\Microsoft.VisualBasic.Core.targets
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\System.Collections.Immutable.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\System.Reflection.Metadata.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\vbc.exe
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\VBCSCompiler.exe
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\roslyn\VBCSCompiler.exe.config
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Crm_v10.dll.config
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Crm_v10.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Crm_v10.pdb
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Antlr3.Runtime.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\EntityFramework.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\EntityFramework.SqlServer.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.Agent.Intercept.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.DependencyCollector.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.PerfCounterCollector.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.ServerTelemetryChannel.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.Web.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.WindowsServer.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.ApplicationInsights.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AspNet.Identity.Core.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AspNet.Identity.Owin.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Host.SystemWeb.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Cookies.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Facebook.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Google.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.OAuth.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Twitter.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Web.Infrastructure.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Newtonsoft.Json.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Owin.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Helpers.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Mvc.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Optimization.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Razor.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.WebPages.Deployment.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.WebPages.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.WebPages.Razor.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\WebGrease.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.DependencyCollector.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.ServerTelemetryChannel.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.Web.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AI.WindowsServer.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.ApplicationInsights.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Helpers.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Mvc.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Optimization.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.Razor.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.WebPages.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.WebPages.Deployment.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\System.Web.WebPages.Razor.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Antlr3.Runtime.pdb
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Newtonsoft.Json.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\EntityFramework.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\EntityFramework.SqlServer.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AspNet.Identity.Core.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AspNet.Identity.Owin.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Host.SystemWeb.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Facebook.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Cookies.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.OAuth.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Google.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.Twitter.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\obj\Debug\Crm_v10.dll
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\obj\Debug\Crm_v10.pdb
+d:\Users\Admin\documents\visual studio 2015\Projects\Crm_v10\Crm_v10\obj\Debug\Crm_v10.csprojResolveAssemblyReference.cache
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\ApplicationInsights.config
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\csc.exe
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\vbc.exe
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\VBCSCompiler.exe
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Crm_v10.dll.config
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Crm_v10.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Crm_v10.pdb
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Antlr3.Runtime.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\EntityFramework.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\EntityFramework.SqlServer.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.Web.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Newtonsoft.Json.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Owin.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Helpers.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Mvc.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Optimization.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Razor.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.WebPages.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.WebPages.Razor.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\WebGrease.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.Web.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Helpers.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Mvc.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Optimization.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.Razor.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.WebPages.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\System.Web.WebPages.Razor.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Antlr3.Runtime.pdb
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Newtonsoft.Json.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\EntityFramework.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\EntityFramework.SqlServer.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\obj\Debug\Crm_v10.csprojResolveAssemblyReference.cache
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\obj\Debug\Crm_v10.dll
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\obj\Debug\Crm_v10.pdb
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\ApplicationInsights.config
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\csc.exe
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\vbc.exe
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\VBCSCompiler.exe
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Crm_v10.dll.config
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Crm_v10.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Crm_v10.pdb
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Antlr3.Runtime.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\EntityFramework.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\EntityFramework.SqlServer.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.Web.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Newtonsoft.Json.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Owin.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Helpers.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Mvc.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Optimization.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Razor.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.WebPages.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.WebPages.Razor.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\WebGrease.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.Web.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Helpers.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Mvc.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Optimization.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.Razor.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.WebPages.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\System.Web.WebPages.Razor.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Antlr3.Runtime.pdb
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Newtonsoft.Json.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\EntityFramework.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\EntityFramework.SqlServer.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\obj\Debug\Crm_v10.csprojResolveAssemblyReference.cache
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\obj\Debug\Crm_v10.dll
+C:\Users\Sema-Seda\Desktop\Crm_V10\Crm_v10\obj\Debug\Crm_v10.pdb

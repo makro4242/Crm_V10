@@ -114,7 +114,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.AksiyonSecim,"*Aksiyon", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                @Html.DropDownList("AksiyonSecim", null, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.DropDownList("AksiyonSecimID", (IEnumerable<SelectListItem>)ViewBag.AksiyonSecim, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.AksiyonSecim, "", new { @class = "text-danger" })
                             </div>
                         </div>

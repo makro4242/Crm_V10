@@ -1,0 +1,48 @@
+﻿@model Crm_v10.Models.AksiyonSecim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row col-sm-10">
+        <h2>Aksiyon Tanıtım Kartı</h2>
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Kartlar</a>
+                </li>
+                <li>
+                    <a href="/AksiyonSecims/Index">Aksiyon Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Aksiyon Tanıtım Kartı İncele</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h2>İncele</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>AKSİYON TANITIM KARTI İNCELE</b>
+                </h4>
+                <div class="form-horizontal">
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                           Aksiyon Adı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.AksiyonAdi)
+                        </dd>
+                    </dl>
+                </div>
+                @Html.ActionLink("Listeye Dön", "Index")
+            </div>
+        </div>
+    </div>
+</div>
+

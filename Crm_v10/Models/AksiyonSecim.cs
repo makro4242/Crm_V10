@@ -6,26 +6,24 @@ namespace Crm_v10.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Sektor")]
-    public partial class Sektor
+    [Table("AksiyonSecim")]
+    public partial class AksiyonSecim
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sektor()
+        public AksiyonSecim()
         {
-            Potansiyel = new HashSet<Potansiyel>();
+            Aksiyon = new HashSet<Aksiyon>();
         }
 
         public int ID { get; set; }
 
         [StringLength(150)]
-        [Display(Name = "Sektör")]
-
-        public string SektorAd { get; set; }
+        public string AksiyonAdi { get; set; }
 
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Potansiyel> Potansiyel { get; set; }
+        public virtual ICollection<Aksiyon> Aksiyon { get; set; }
     }
 }

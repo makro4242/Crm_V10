@@ -18,7 +18,6 @@ namespace Crm_v10.Models
         public int ID { get; set; }
 
         [Display(Name = "Ülke Kodu")]
-
         public int? UlkeKodu { get; set; }
 
         [StringLength(5)]

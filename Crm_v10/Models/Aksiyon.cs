@@ -14,7 +14,6 @@ namespace Crm_v10.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
    ApplyFormatInEditMode = true)]
         [Display(Name = "Tarih")]
-
         public DateTime Tarih { get; set; }
 
         [Required]
@@ -24,15 +23,11 @@ namespace Crm_v10.Models
 
         public int GorevEklemeID { get; set; }
 
-
-        [Required]
-        [StringLength(50)]
-        [Display(Name = "Aksiyon")]
-        public string AksiyonSecim { get; set; }
-
+        public int AksiyonSecimID { get; set; }
 
         [Required]
         [Display(Name = "Aksiyon Not")]
+
         public string AksiyonNot { get; set; }
 
         public string Ekler1 { get; set; }
@@ -44,6 +39,8 @@ namespace Crm_v10.Models
         public string Ekler4 { get; set; }
 
         public string Ekler5 { get; set; }
+
+        public virtual AksiyonSecim AksiyonSecim { get; set; }
 
         public virtual Gorev Gorev { get; set; }
     }

@@ -26,10 +26,10 @@ namespace Crm_v10.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult LoginPage(string kullaniciAd, string sifre)
+        public ActionResult LoginPage(string kullaniciKodu, string sifre)
         {
 
-            if (kullaniciAd == "Crm" && sifre == "Makrosoft")
+            if (kullaniciKodu == "Crm" && sifre == "Makrosoft")
             {
 
                 Session["KullaniciID"] = 0;
@@ -40,7 +40,7 @@ namespace Crm_v10.Controllers
             }
             else
             {
-                infoKullanicilar = db.Kullanicilar.SingleOrDefault(x => x.KullaniciAdi == kullaniciAd && x.KullaniciSifresi == sifre);
+                infoKullanicilar = db.Kullanicilar.SingleOrDefault(x => x.KullaniciKodu == kullaniciKodu && x.KullaniciSifresi == sifre && x.GosterimDurumu!="0");
 
                 if (infoKullanicilar != null)
                 {
@@ -65,8 +65,6 @@ namespace Crm_v10.Controllers
         public ActionResult _404()
         {
             return View();
-        }
-
-        
+        }        
     }
 }
