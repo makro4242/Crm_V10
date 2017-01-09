@@ -15,7 +15,6 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tablo Adý")]
         public string TabloAdi { get; set; }
 
         [Display(Name = "Oluþturan Kullanýcý")]

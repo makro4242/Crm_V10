@@ -64,7 +64,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,SatisElemaniKodu,SatisElemaniAdiSoyadi")] SatisElemanlari satisElemanlari)
+        public ActionResult Create([Bind(Include = "ID,SatisElemaniKodu,SatisElemaniAdiSoyadi,SatisElemaniEmail")] SatisElemanlari satisElemanlari)
         {
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,SatisElemaniKodu,SatisElemaniAdiSoyadi")] SatisElemanlari satisElemanlari)
+        public ActionResult Edit([Bind(Include = "ID,SatisElemaniKodu,SatisElemaniAdiSoyadi,SatisElemaniEmail")] SatisElemanlari satisElemanlari)
         {
             if (ModelState.IsValid)
             {

@@ -21,6 +21,8 @@ namespace Crm_v10.Models
         [Display(Name = "Açýklama")]
 
         public string Aciklama { get; set; }
+
+       
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
             ApplyFormatInEditMode = true)]
         [Display(Name = "Tarih")]
@@ -32,7 +34,6 @@ namespace Crm_v10.Models
 
         [StringLength(10)]
         [Display(Name = "Para Birimi")]
-
         public string ParaBirimi { get; set; }
 
         [Display(Name = "Tahmini Tutar")]
@@ -43,11 +44,7 @@ namespace Crm_v10.Models
 
         public string GorevNot { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        [Display(Name = "Durum")]
-
-        public string Durum { get; set; }
+        public int DurumID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -67,6 +64,8 @@ namespace Crm_v10.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aksiyon> Aksiyon { get; set; }
+
+        public virtual Durum Durum { get; set; }
 
         public virtual Potansiyel Potansiyel { get; set; }
 

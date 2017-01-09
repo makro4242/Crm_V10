@@ -20,15 +20,18 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(20)]
         [Display(Name = "Potansiyel Kodu")]
+
         public string PotansiyelKodu { get; set; }
 
         [Required]
         [StringLength(150)]
         [Display(Name = "Potansiyel Ünvaný")]
+
         public string PotansiyelUnvani { get; set; }
 
         [StringLength(150)]
         [Display(Name = "Potansiyel Adresi")]
+
         public string PotansiyelAdresi { get; set; }
 
         [StringLength(20)]
@@ -56,6 +59,7 @@ namespace Crm_v10.Models
 
         [StringLength(50)]
         [Display(Name = "Ýlce")]
+
         public string PotansiyelIlce { get; set; }
 
         [StringLength(50)]
@@ -77,6 +81,7 @@ namespace Crm_v10.Models
 
         [Column(TypeName = "text")]
         [Display(Name = "Not")]
+
         public string PotansiyelNot { get; set; }
 
         [Display(Name = "Satýþ Elemaný")]

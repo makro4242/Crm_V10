@@ -23,6 +23,7 @@ namespace Crm_v10
         public void Session_Start(object sender, EventArgs e)
         {
             Session.Add(" KullaniciID", new int());
+            Session.Add(" KullaniciAd", "");
         }
     }
 }

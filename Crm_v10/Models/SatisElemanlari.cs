@@ -26,6 +26,11 @@ namespace Crm_v10.Models
         [Display(Name = "Satýþ Elemaný Adý Soyadý")]
         public string SatisElemaniAdiSoyadi { get; set; }
 
+        
+        [StringLength(50)]
+        [Display(Name = "Satýþ Elemaný Email")]
+        public string SatisElemaniEmail { get; set; }
+
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
 

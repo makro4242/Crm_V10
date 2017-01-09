@@ -161,7 +161,7 @@ namespace Crm_v10.Controllers
             string sayisalDeger = "";
             bool sifirdanFarkli = false;
             var Sonuc = (from p in ctx.Yetkili
-                         where p.YetkiliKodu.StartsWith(kod)
+                         where p.GosterimDurumu != "0" && p.YetkiliKodu.StartsWith(kod)
                          orderby p.YetkiliKodu
                          select p.YetkiliKodu).ToList();
             veri = Sonuc[Sonuc.Count - 1];

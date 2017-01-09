@@ -198,12 +198,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AksiyonsController.cs" />
+    <Compile Include="Controllers\DurumsController.cs" />
     <Compile Include="Controllers\GorevsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullanicilarsController.cs" />
     <Compile Include="Controllers\PotansiyelsController.cs" />
     <Compile Include="Controllers\SatisElemanlarisController.cs" />
     <Compile Include="Controllers\SektorsController.cs" />
+    <Compile Include="Controllers\VeritabaniAyarsController.cs" />
     <Compile Include="Controllers\YetkilisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +213,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aksiyon.cs" />
     <Compile Include="Models\Crmv10DB.cs" />
+    <Compile Include="Models\Durum.cs" />
     <Compile Include="Models\Gorev.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Iller.cs" />
@@ -2976,6 +2979,12 @@
     <Content Include="Views\Sektors\Details.cshtml" />
     <Content Include="Views\Sektors\Edit.cshtml" />
     <Content Include="Views\Sektors\Index.cshtml" />
+    <Content Include="Views\Durums\Create.cshtml" />
+    <Content Include="Views\Durums\Delete.cshtml" />
+    <Content Include="Views\Durums\Details.cshtml" />
+    <Content Include="Views\Durums\Edit.cshtml" />
+    <Content Include="Views\Durums\Index.cshtml" />
+    <Content Include="Views\VeritabaniAyars\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

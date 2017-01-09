@@ -18,6 +18,7 @@ namespace Crm_v10.Models
         public int ID { get; set; }
 
         [StringLength(150)]
+        [Display(Name = "Sektör")]
         public string SektorAd { get; set; }
 
         [StringLength(2)]

@@ -33,6 +33,7 @@ namespace Crm_v10.Controllers
             {
 
                 Session["KullaniciID"] = 0;
+                Session["KullaniciAd"] ="Crm";
                 return RedirectToAction("Index", "Home");
 
 
@@ -40,9 +41,11 @@ namespace Crm_v10.Controllers
             else
             {
                 infoKullanicilar = db.Kullanicilar.SingleOrDefault(x => x.KullaniciAdi == kullaniciAd && x.KullaniciSifresi == sifre);
+
                 if (infoKullanicilar != null)
                 {
                     Session["KullaniciID"] = infoKullanicilar.ID;
+                    Session["KullaniciAd"] = infoKullanicilar.KullaniciAdi;
                     return RedirectToAction("Index", "Home");
 
                 }

@@ -186,7 +186,7 @@ namespace Crm_v10.Controllers
             string sayisalDeger = "";
             bool sifirdanFarkli = false;
             var Sonuc = (from p in ctx.Potansiyel
-                         where p.PotansiyelKodu.StartsWith(kod)
+                         where p.GosterimDurumu != "0" && p.PotansiyelKodu.StartsWith(kod)
                          orderby p.PotansiyelKodu
                          select p.PotansiyelKodu).ToList();
             veri = Sonuc[Sonuc.Count - 1];

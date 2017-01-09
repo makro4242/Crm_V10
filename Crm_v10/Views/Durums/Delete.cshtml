@@ -1,0 +1,58 @@
+﻿@model Crm_v10.Models.Durum
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container">
+    <div class="row col-sm-10">
+        <h2>Durum</h2>
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Kartlar</a>
+                </li>
+                <li>
+                    <a href="/Durums/Index">Durum Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Durum Sil</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h2>Sil</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>DURUM SİL</b>
+                </h4>
+                <b>Bu Kayıtı Silmek İstediğinizden Emin misiniz?</b>
+
+                <div class="form-horizontal">
+                    <hr />   
+                     <dl class="dl-horizontal">
+                        <dt>
+                          Durum Adı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DurumAdi)
+                        </dd>
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Sil" class="btn btn-default" /> |
+                            @Html.ActionLink("Listeye Dön", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

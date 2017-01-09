@@ -193,6 +193,7 @@
                                     <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>
                                 </li>
                             }
+                            <li style="color:#ffffff; margin-top:10%">@Session["KullaniciAd"]</li>
                             <li class="dropdown">
                                 <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="/Content/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                 <ul class="dropdown-menu">
@@ -224,6 +225,7 @@
                                 <li><a href="@Url.Action("Index","Potansiyels")">Potansiyel Tanıtım Kartı</a></li>
                                 <li> <a href="@Url.Action("Index", "SatisElemanlaris")">Satış Elemanı Tanıtım Kartı</a></li>
                                 <li><a href="@Url.Action("Index", "Sektors")">Sektör Tanıtım Kartı</a></li>
+                                <li><a href="@Url.Action("Index", "Durums")">Durum Tanıtım Kartı</a></li>
                             </ul>
                         </li>
                         <li class="has_sub">
@@ -233,6 +235,14 @@
                                 <li><a href="@Url.Action("Index", "Aksiyons")">Aksiyon Ekleme</a></li>
                             </ul>
                         </li>
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="ion-pricetags"></i><span> Raporlar </span> </a>
+                            <ul class="list-unstyled">
+                                @*<li><a href="@Url.Action("Index", "Gorevs")">Görev Ekleme</a></li>
+                                <li><a href="@Url.Action("Index", "Aksiyons")">Aksiyon Ekleme</a></li>*@
+                            </ul>
+                        </li>
+                        
                         @*@if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
                             {
                                 <li class="has_sub">
@@ -419,10 +429,7 @@
                 var charCode = (evt.which) ? evt.which : event.keyCode
 
                 //Bu şartımız ile harf girildiği takdirde true olarak geri dönüş sağlıyoruz.
-
-                //(Yalnızca İngilizce karakterleri desteklemektedir. Türkçe karakterler için 2. Yöntemi kullanabilirsiniz.)
-
-                if (((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97) || charCode == 8) || charCode == 350 || charCode == 351 || charCode == 304 || charCode == 286 || charCode == 287 || charCode == 231 || charCode == 199 || charCode == 305 || charCode == 214 || charCode == 246 || charCode == 220 || charCode == 252) {
+                if (((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97) || charCode == 8) || charCode == 350 || charCode == 351 || charCode == 304 || charCode == 286 || charCode == 287 || charCode == 231 || charCode == 199 || charCode == 305 || charCode == 214 || charCode == 246 || charCode == 220 || charCode == 252 || charCode==32) {
 
                     return true;
 

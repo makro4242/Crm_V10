@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="row col-sm-2">
-            <a href="javascript;" class="col-lg-2 btn btn-primary col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
         </div>
         <div class="row">
             <div class="col-lg-8">
@@ -144,7 +144,7 @@
                             @Html.LabelFor(model => model.Durum,"*Durum", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @*@Html.EditorFor(model => model.Durum, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })*@
-                                @Html.DropDownList("Durum", (IEnumerable<SelectListItem>)ViewBag.DurumGosterim, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.DropDownList("DurumID", (IEnumerable<SelectListItem>)ViewBag.DurumGosterim, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.Durum, "", new { @class = "text-danger" })
                             </div>
                         </div>
