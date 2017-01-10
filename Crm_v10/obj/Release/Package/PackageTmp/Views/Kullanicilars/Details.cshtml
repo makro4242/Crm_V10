@@ -54,6 +54,13 @@
                         <dd>
                             @Html.DisplayFor(model => model.KullaniciSifresi)
                         </dd>
+                        <dt>
+                            Satış Elemanı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SatisElemanlari.SatisElemaniAdiSoyadi)
+                        </dd>
                     </dl>
                 </div>
                 @Html.ActionLink("Listeye Dön", "Index")

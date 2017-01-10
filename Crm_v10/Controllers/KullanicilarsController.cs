@@ -64,6 +64,7 @@ namespace Crm_v10.Controllers
             {
                 if (Session["KullaniciID"].ToString() == "0")
                 {
+                    ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
                     return View();
                 }
                 else return RedirectToAction("Index", "Home");
@@ -77,7 +78,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,KullaniciKodu,KullaniciAdi,KullaniciSifresi")] Kullanicilar kullanicilar)
+        public ActionResult Create([Bind(Include = "ID,KullaniciKodu,KullaniciAdi,KullaniciSifresi,SatisElemaniID")] Kullanicilar kullanicilar)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +86,7 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
             return View(kullanicilar);
         }
 
@@ -104,7 +105,8 @@ namespace Crm_v10.Controllers
                     {
                         return RedirectToAction("_404", "Home");
                     }
-                    return View(kullanicilar);
+                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
+                return View(kullanicilar);
             }
 
             else return RedirectToAction("LoginPage", "Home");
@@ -117,7 +119,7 @@ namespace Crm_v10.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,KullaniciKodu,KullaniciAdi,KullaniciSifresi")] Kullanicilar kullanicilar)
+        public ActionResult Edit([Bind(Include = "ID,KullaniciKodu,KullaniciAdi,KullaniciSifresi,SatisElemaniID")] Kullanicilar kullanicilar)
         {
             if (ModelState.IsValid)
             {
@@ -125,6 +127,7 @@ namespace Crm_v10.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
             return View(kullanicilar);
         }
 
