@@ -82,6 +82,11 @@ namespace Crm_v10.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SatisElemanlari>()
+                .HasMany(e => e.Kullanicilar)
+                .WithOptional(e => e.SatisElemanlari)
+                .HasForeignKey(e => e.SatisElemaniID);
+
+            modelBuilder.Entity<SatisElemanlari>()
                 .HasMany(e => e.Potansiyel)
                 .WithRequired(e => e.SatisElemanlari)
                 .HasForeignKey(e => e.PotansiyelSatisElemani)

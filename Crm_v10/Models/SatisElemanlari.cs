@@ -13,24 +13,19 @@ namespace Crm_v10.Models
         public SatisElemanlari()
         {
             Gorev = new HashSet<Gorev>();
+            Kullanicilar = new HashSet<Kullanicilar>();
             Potansiyel = new HashSet<Potansiyel>();
         }
 
         public int ID { get; set; }
 
-        [Display(Name = "Satýþ Elemaný Kodu")]
-
         public int SatisElemaniKodu { get; set; }
 
         [Required]
         [StringLength(100)]
-        [Display(Name = "Satýþ Elemaný Adý Soyadý")]
-
         public string SatisElemaniAdiSoyadi { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Satýþ Elemaný Email")]
-
         public string SatisElemaniEmail { get; set; }
 
         [StringLength(2)]
@@ -38,6 +33,9 @@ namespace Crm_v10.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gorev> Gorev { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kullanicilar> Kullanicilar { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Potansiyel> Potansiyel { get; set; }

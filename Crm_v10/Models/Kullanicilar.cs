@@ -20,24 +20,22 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(5)]
-        [Display(Name = "Kullanýcý Kodu")]
-
         public string KullaniciKodu { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Kullanýcý Adý")]
-
         public string KullaniciAdi { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Kullanýcý Þifresi")]
-
         public string KullaniciSifresi { get; set; }
+
+        public int? SatisElemaniID { get; set; }
 
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
+
+        public virtual SatisElemanlari SatisElemanlari { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log> Log { get; set; }
