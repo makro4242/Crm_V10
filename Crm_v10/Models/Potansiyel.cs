@@ -79,6 +79,10 @@ namespace Crm_v10.Models
 
         public string PotansiyelWebAdresi { get; set; }
 
+        [StringLength(50)]
+        [Display(Name = "Potansiyel Email")]
+        public string PotansiyelEmail { get; set; }
+
         public int PotansiyelSektorID { get; set; }
 
         [Column(TypeName = "text")]

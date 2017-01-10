@@ -188,7 +188,13 @@
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiNumarasi, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PotansiyelEmail, "Potansiyel Email", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.PotansiyelEmail, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.PotansiyelEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelWebAdresi, "Web Adresi",htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
