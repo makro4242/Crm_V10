@@ -19,43 +19,58 @@ namespace Crm_v10.Models
 
         [Required]
         [StringLength(20)]
+        [Display(Name = "Potansiyel Kodu")]
+
         public string PotansiyelKodu { get; set; }
 
         [Required]
         [StringLength(150)]
+        [Display(Name = "Potansiyel Ünvaný")]
         public string PotansiyelUnvani { get; set; }
 
         [StringLength(150)]
+        [Display(Name = "Potansiyel Adresi")]
         public string PotansiyelAdresi { get; set; }
 
         [StringLength(20)]
+        [Display(Name = "Adres UIN Kodu")]
         public string PotansiyelAdresiUINKodu { get; set; }
 
         public int PotansiyelYetkiliID { get; set; }
 
         [StringLength(20)]
+        [Display(Name = "GPS Enlem")]
         public string PotansiyelAdresGpsEnlem { get; set; }
 
         [StringLength(20)]
+        [Display(Name = "GPS Boylam")]
         public string PotansiyelAdresGpsBoylam { get; set; }
 
+        [Display(Name = "Ülke Kodu")]
         public int PotansiyelUlkeKodu { get; set; }
 
+        [Display(Name = "Ýl")]
         public int PotansiyelIl { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Ýlce")]
+
         public string PotansiyelIlce { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Vergi Dairesi")]
         public string PotansiyelVergiDairesi { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Vergi Numarasý")]
         public string PotansiyelVergiNumarasi { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Potansiyel Email")]
         public string PotansiyelEmail { get; set; }
 
         [StringLength(80)]
+        [Display(Name = "Web Adresi")]
         public string PotansiyelWebAdresi { get; set; }
 
         public int PotansiyelSektorID { get; set; }
@@ -63,6 +78,7 @@ namespace Crm_v10.Models
         [Column(TypeName = "text")]
         public string PotansiyelNot { get; set; }
 
+        [Display(Name = "Satýþ Elemaný")]
         public int PotansiyelSatisElemani { get; set; }
 
         [StringLength(2)]

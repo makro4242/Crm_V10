@@ -18,14 +18,17 @@ namespace Crm_v10.Models
         }
 
         public int ID { get; set; }
+        [Display(Name = "Satýþ Elemaný Kodu")]
 
         public int SatisElemaniKodu { get; set; }
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Satýþ Elemaný Adý Soyadý")]
         public string SatisElemaniAdiSoyadi { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Satýþ Elemaný Email")]
         public string SatisElemaniEmail { get; set; }
 
         [StringLength(2)]

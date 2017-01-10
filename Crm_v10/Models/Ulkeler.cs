@@ -17,12 +17,15 @@ namespace Crm_v10.Models
 
         public int ID { get; set; }
 
+        [Display(Name = "Ülke Kodu")]
         public int? UlkeKodu { get; set; }
 
         [StringLength(5)]
+        [Display(Name = "Ülke Kýsa Adý")]
         public string UlkeKisaAdi { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Ülke Adý")]
         public string UlkeAdi { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
