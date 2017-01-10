@@ -1,0 +1,172 @@
+﻿@model Crm_v10.Models.Gorev
+
+@{
+    ViewBag.Title = "Edit";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row col-sm-10">
+            <h2>Görev</h2>
+
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Evraklar</a>
+                    </li>
+                    <li>
+                        <a href="/Gorevs/Index">Görev Tanıtım Kartı</a>
+                    </li>
+                    <li>
+                        <a href="#">Görev Bilgilerini Düzenle</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Kısayollar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="kisayol">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            İşlevi
+                                        </th>
+                                        <th>
+                                            Kısayolu
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Şimdilik Kısayol Atanmamıştır</td>
+                                        <td>@*<kbd title="Şimdilik Kısayol Atanmamıştır">Shift + F1</kbd>*@</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-sm-2">
+            <a href="#" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card-box">
+                    <h2>Düzenle</h2>
+                    <h4 class="m-t-0 header-title">
+                        <b>GÖREV BİLGİLERİNİ DÜZENLE</b>
+                    </h4>
+                    <div class="form-horizontal">
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-7">
+                                <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ID, "*Görev Kodu", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                <input type="text" name="GorevKodu" id="GorevKodu" disabled class="form-control" value="@Model.ID" />
+                            </div>
+                        </div>      
+                     
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Tarih, "*Tarih", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Tarih, new { htmlAttributes = new { @class = "form-control tarih", @maxlength = "10" } })
+                                @Html.ValidationMessageFor(model => model.Tarih, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PotansiyelID, "*Potansiyel Unvanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("PotansiyelID", (IEnumerable<SelectListItem>)ViewBag.PotansiyelID, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.ValidationMessageFor(model => model.PotansiyelID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SatisElemaniID, "*Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("SatisElemaniID", (IEnumerable<SelectListItem>)ViewBag.SatisElemani, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.ValidationMessageFor(model => model.SatisElemaniID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ParaBirimi, "*Para Birimi", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("ParaBirimi", (IEnumerable<SelectListItem>)ViewBag.ParaGosterim, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.ValidationMessageFor(model => model.ParaBirimi, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TahminiTutar, "*Tahmini Tutar", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                <input type="text" id="editPara" class="form-control para sayi" style="text-align:right" value="@ViewBag.TahminiTutar" />
+                                @Html.EditorFor(model => model.TahminiTutar, new { htmlAttributes = new { @class = "form-control gosterilmeyenparaformati editpara", @style = "text-align:right; display:none" } })
+                                @Html.ValidationMessageFor(model => model.TahminiTutar, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Aciklama, "Açıklama", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Aciklama, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Aciklama, "", new { @class = "text-danger", @maxlength = "500" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GorevNot, "*Görev Not", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.TextAreaFor(model => model.GorevNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
+                                @Html.ValidationMessageFor(model => model.GorevNot, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Durum, "*Durum", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @*@Html.EditorFor(model => model.Durum, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("DurumID", (IEnumerable<SelectListItem>)ViewBag.DurumGosterim, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.ValidationMessageFor(model => model.Durum, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Oncelik, "*Öncelik", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @*@Html.EditorFor(model => model.Oncelik, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("Oncelik", (IEnumerable<SelectListItem>)ViewBag.OncelikGosterim, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.ValidationMessageFor(model => model.Oncelik, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-default" /> |
+                            @Html.ActionLink("Listeye Dön", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

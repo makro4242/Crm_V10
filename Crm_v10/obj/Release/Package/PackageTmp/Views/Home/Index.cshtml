@@ -1,0 +1,253 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Patron Ekranı</h4>
+            <p class="text-muted page-title-alt">Emek Gıda Limited Şirketi Crm Sistemine Hoşgeldiniz</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-bg-color-icon card-box fadeInDown animated">
+                <div class="bg-icon bg-icon-info pull-left">
+                    <i class="md md-attach text-info">₺</i>
+                </div>
+                <div class="text-right">
+                    <h3 class="text-dark"><b class="counter">31,570</b></h3>
+                    <p class="text-muted">Toplam Bağlantı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-bg-color-icon card-box">
+                <div class="bg-icon bg-icon-pink pull-left">
+                    <i class="md md-add-shopping-cart text-pink"></i>
+                </div>
+                <div class="text-right">
+                    <h3 class="text-dark"><b class="counter">280</b></h3>
+                    <p class="text-muted">Toplam Kontak</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-bg-color-icon card-box">
+                <div class="bg-icon bg-icon-purple pull-left">
+                    <i class="md md-equalizer text-purple"></i>
+                </div>
+                <div class="text-right">
+                    <h3 class="text-dark"><b class="counter">0.16</b>%</h3>
+                    <p class="text-muted">Hedefler</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-bg-color-icon card-box">
+                <div class="bg-icon bg-icon-success pull-left">
+                    <i class="md md-remove-red-eye text-success"></i>
+                </div>
+                <div class="text-right">
+                    <h3 class="text-dark"><b class="counter">64,570</b></h3>
+                    <p class="text-muted">Toplam Potansiyel</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-4">
+            <div class="card-box">
+                <h4 class="text-dark header-title m-t-0 m-b-30">Toplam Satış</h4>
+
+                <div class="widget-chart text-center">
+                    <div style="display:inline;width:150px;height:150px;"><canvas width="187" height="187" style="width: 150px; height: 150px;"></canvas><input class="knob" data-width="150" data-height="150" data-linecap="round" data-fgcolor="#fb6d9d" value="80" data-skin="tron" data-angleoffset="180" data-readonly="true" data-thickness=".15" readonly="readonly" style="width: 79px; height: 50px; position: absolute; vertical-align: middle; margin-top: 50px; margin-left: -114px; border: 0px; background: none; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 30px; line-height: normal; font-family: Arial; text-align: center; color: rgb(251, 109, 157); padding: 0px; -webkit-appearance: none;"></div>
+                    <h5 class="text-muted m-t-20">Bugün</h5>
+                    <h2 class="font-600">₺75</h2>
+                    <ul class="list-inline m-t-15">
+                        <li>
+                            <h5 class="text-muted m-t-20">Hedef</h5>
+                            <h4 class="m-b-0">₺1000</h4>
+                        </li>
+                        <li>
+                            <h5 class="text-muted m-t-20">Son Hafta</h5>
+                            <h4 class="m-b-0">₺523</h4>
+                        </li>
+                        <li>
+                            <h5 class="text-muted m-t-20">Son Ay</h5>
+                            <h4 class="m-b-0">₺965</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card-box">
+                <h4 class="text-dark header-title m-t-0">Satış Analitiği</h4>
+                <div class="text-center">
+                    <ul class="list-inline chart-detail-list">
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #5fbeaa;"></i>Tahin</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #5d9cec;"></i>Pekmez</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #dcdcdc;"></i>Reçel</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #dcdcdc;"></i>Helva</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #dcdcdc;"></i>Çikolata</h5>
+                        </li>
+                    </ul>
+                </div>
+                <div id="morris-bar-stacked" style="height: 303px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <svg height="302" version="1.1" width="778" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.525024px; top: -0.399994px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="31.6875" y="263.40625" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#eeeeee" d="M44.1875,263.40625H753" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="203.8046875" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.3984375" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#eeeeee" d="M44.1875,203.8046875H753" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="144.203125" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">200</tspan></text><path fill="none" stroke="#eeeeee" d="M44.1875,144.203125H753" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="84.60156249999997" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.398437499999972" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">300</tspan></text><path fill="none" stroke="#eeeeee" d="M44.1875,84.60156249999997H753" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="24.99999999999997" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.390624999999972" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">400</tspan></text><path fill="none" stroke="#eeeeee" d="M44.1875,24.99999999999997H753" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="720.78125" y="275.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015</tspan></text><text x="591.90625" y="275.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan></text><text x="463.03125" y="275.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011</tspan></text><text x="334.15625" y="275.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2009</tspan></text><text x="205.28125" y="275.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2007</tspan></text><text x="76.40625" y="275.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2005</tspan></text><rect x="52.2421875" y="236.585546875" width="48.328125" height="26.820703124999994" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="52.2421875" y="129.302734375" width="48.328125" height="107.2828125" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="52.2421875" y="69.701171875" width="48.328125" height="59.6015625" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="116.6796875" y="218.705078125" width="48.328125" height="44.701171875" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="116.6796875" y="179.9640625" width="48.328125" height="38.74101562499999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="116.6796875" y="132.2828125" width="48.328125" height="47.681250000000006" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="181.1171875" y="203.8046875" width="48.328125" height="59.6015625" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="181.1171875" y="150.16328125" width="48.328125" height="53.64140624999999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="181.1171875" y="116.78640625" width="48.328125" height="33.37687500000001" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="245.5546875" y="218.705078125" width="48.328125" height="44.701171875" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="245.5546875" y="179.9640625" width="48.328125" height="38.74101562499999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="245.5546875" y="126.918671875" width="48.328125" height="53.04539062500001" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="309.9921875" y="203.8046875" width="48.328125" height="59.6015625" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="309.9921875" y="150.16328125" width="48.328125" height="53.64140624999999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="309.9921875" y="78.64140624999999" width="48.328125" height="71.52187500000002" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="374.4296875" y="218.705078125" width="48.328125" height="44.701171875" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="374.4296875" y="179.9640625" width="48.328125" height="38.74101562499999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="374.4296875" y="114.40234375" width="48.328125" height="65.56171875000001" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="438.8671875" y="233.60546875" width="48.328125" height="29.80078125" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="438.8671875" y="209.76484375" width="48.328125" height="23.84062499999999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="438.8671875" y="159.103515625" width="48.328125" height="50.66132812500001" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="503.3046875" y="218.705078125" width="48.328125" height="44.701171875" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="503.3046875" y="179.9640625" width="48.328125" height="38.74101562499999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="503.3046875" y="148.97125" width="48.328125" height="30.992812500000014" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="567.7421875" y="233.60546875" width="48.328125" height="29.80078125" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="567.7421875" y="209.76484375" width="48.328125" height="23.84062499999999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="567.7421875" y="163.871640625" width="48.328125" height="45.893203125000014" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="632.1796875" y="218.705078125" width="48.328125" height="44.701171875" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="632.1796875" y="179.9640625" width="48.328125" height="38.74101562499999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="632.1796875" y="126.32265625000002" width="48.328125" height="53.64140624999999" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="696.6171875" y="203.8046875" width="48.328125" height="59.6015625" rx="0" ry="0" fill="#5fbeaa" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="696.6171875" y="150.16328125" width="48.328125" height="53.64140624999999" rx="0" ry="0" fill="#5d9cec" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="696.6171875" y="72.68125" width="48.328125" height="77.48203125" rx="0" ry="0" fill="#ebeff2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect></svg><div class="morris-hover morris-default-style" style="left: 670.781px; top: 102px; display: none;">
+                        <div class="morris-hover-row-label">2015</div><div class="morris-hover-point" style="color: #5fbeaa">
+                            Desktops:
+                            100
+                        </div><div class="morris-hover-point" style="color: #5d9cec">
+                            Tablets:
+                            90
+                        </div><div class="morris-hover-point" style="color: #ebeff2">
+                            Mobiles:
+                            130
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- end row -->
+
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h4 class="text-dark header-title m-t-0">TOPLAM SATIŞ GRAFİĞİ</h4>
+
+                <div class="text-center">
+                    <ul class="list-inline chart-detail-list">
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #5fbeaa;"></i>Tahin</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #5d9cec;"></i>Pekmez</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #ebeff2;"></i>Reçel</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #ebeff2;"></i>Helva</h5>
+                        </li>
+                        <li>
+                            <h5><i class="fa fa-circle m-r-5" style="color: #ebeff2;"></i>Çikolata</h5>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="morris-area-with-dotted" style="height: 300px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="300" version="1.1" width="568" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.800018px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="31.6875" y="261.40625" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#eef0f2" d="M44.1875,261.40625H543" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="202.3046875" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.3984375" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text><path fill="none" stroke="#eef0f2" d="M44.1875,202.3046875H543" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="143.203125" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#eef0f2" d="M44.1875,143.203125H543" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="84.1015625" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.3984375" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">150</tspan></text><path fill="none" stroke="#eef0f2" d="M44.1875,84.1015625H543" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="31.6875" y="24.99999999999997" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4.390624999999972" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">200</tspan></text><path fill="none" stroke="#eef0f2" d="M44.1875,24.99999999999997H543" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="543" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015</tspan></text><text x="459.9025273847558" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2014</tspan></text><text x="376.8050547695116" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan></text><text x="293.47991784573253" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan></text><text x="210.38244523048834" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2011</tspan></text><text x="127.28497261524417" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010</tspan></text><text x="44.1875" y="273.90625" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,6.7969)"><tspan dy="4.390625" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2009</tspan></text><path fill="#f9fafa" stroke="none" d="M44.1875,190.484375C64.96186815381104,157.978515625,106.51060446143313,69.32617187499997,127.28497261524417,60.46093749999997C148.0593407690552,51.59570312499997,189.6080770766773,119.5625,210.38244523048834,119.5625C231.1568133842994,119.5625,272.7055496919215,60.46093749999997,293.47991784573253,60.46093749999997C314.3112020766773,60.46093749999997,355.97377053856684,119.5625,376.8050547695116,119.5625C397.5794229233227,119.5625,439.12815923094473,69.32617187499997,459.9025273847558,60.46093749999997C480.67689553856684,51.595703124999964,522.2256318461889,51.59570312499997,543,48.64062499999997L543,261.40625L44.1875,261.40625Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#ebeff2" d="M44.1875,190.484375C64.96186815381104,157.978515625,106.51060446143313,69.32617187499997,127.28497261524417,60.46093749999997C148.0593407690552,51.59570312499997,189.6080770766773,119.5625,210.38244523048834,119.5625C231.1568133842994,119.5625,272.7055496919215,60.46093749999997,293.47991784573253,60.46093749999997C314.3112020766773,60.46093749999997,355.97377053856684,119.5625,376.8050547695116,119.5625C397.5794229233227,119.5625,439.12815923094473,69.32617187499997,459.9025273847558,60.46093749999997C480.67689553856684,51.595703124999964,522.2256318461889,51.59570312499997,543,48.64062499999997" stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="44.1875" cy="190.484375" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="127.28497261524417" cy="60.46093749999997" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="210.38244523048834" cy="119.5625" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="293.47991784573253" cy="60.46093749999997" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="376.8050547695116" cy="119.5625" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="459.9025273847558" cy="60.46093749999997" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="543" cy="48.64062499999997" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#b0caea" stroke="none" d="M44.1875,225.9453125C64.96186815381104,193.439453125,106.51060446143313,104.787109375,127.28497261524417,95.921875C148.0593407690552,87.056640625,189.6080770766773,155.0234375,210.38244523048834,155.0234375C231.1568133842994,155.0234375,272.7055496919215,95.921875,293.47991784573253,95.921875C314.3112020766773,95.921875,355.97377053856684,155.0234375,376.8050547695116,155.0234375C397.5794229233227,155.0234375,439.12815923094473,104.787109375,459.9025273847558,95.921875C480.67689553856684,87.056640625,522.2256318461889,87.056640625,543,84.1015625L543,261.40625L44.1875,261.40625Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#5d9cec" d="M44.1875,225.9453125C64.96186815381104,193.439453125,106.51060446143313,104.787109375,127.28497261524417,95.921875C148.0593407690552,87.056640625,189.6080770766773,155.0234375,210.38244523048834,155.0234375C231.1568133842994,155.0234375,272.7055496919215,95.921875,293.47991784573253,95.921875C314.3112020766773,95.921875,355.97377053856684,155.0234375,376.8050547695116,155.0234375C397.5794229233227,155.0234375,439.12815923094473,104.787109375,459.9025273847558,95.921875C480.67689553856684,87.056640625,522.2256318461889,87.056640625,543,84.1015625" stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="44.1875" cy="225.9453125" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="127.28497261524417" cy="95.921875" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="210.38244523048834" cy="155.0234375" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="293.47991784573253" cy="95.921875" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="376.8050547695116" cy="155.0234375" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="459.9025273847558" cy="95.921875" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="543" cy="84.1015625" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#99cac0" stroke="none" d="M44.1875,249.5859375C64.96186815381104,230.3779296875,106.51060446143313,178.6640625,127.28497261524417,172.75390625C148.0593407690552,166.84375,189.6080770766773,202.3046875,210.38244523048834,202.3046875C231.1568133842994,202.3046875,272.7055496919215,172.75390625,293.47991784573253,172.75390625C314.3112020766773,172.75390625,355.97377053856684,202.3046875,376.8050547695116,202.3046875C397.5794229233227,202.3046875,439.12815923094473,178.6640625,459.9025273847558,172.75390625C480.67689553856684,166.84375,522.2256318461889,159.4560546875,543,155.0234375L543,261.40625L44.1875,261.40625Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#5fbeaa" d="M44.1875,249.5859375C64.96186815381104,230.3779296875,106.51060446143313,178.6640625,127.28497261524417,172.75390625C148.0593407690552,166.84375,189.6080770766773,202.3046875,210.38244523048834,202.3046875C231.1568133842994,202.3046875,272.7055496919215,172.75390625,293.47991784573253,172.75390625C314.3112020766773,172.75390625,355.97377053856684,202.3046875,376.8050547695116,202.3046875C397.5794229233227,202.3046875,439.12815923094473,178.6640625,459.9025273847558,172.75390625C480.67689553856684,166.84375,522.2256318461889,159.4560546875,543,155.0234375" stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="44.1875" cy="249.5859375" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="127.28497261524417" cy="172.75390625" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="210.38244523048834" cy="202.3046875" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="293.47991784573253" cy="172.75390625" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="376.8050547695116" cy="202.3046875" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="459.9025273847558" cy="172.75390625" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="543" cy="155.0234375" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="display: none;"></div></div>
+
+            </div>
+
+        </div>
+
+        <!-- col -->
+
+        <div class="col-lg-6">
+            <div class="card-box">
+                <a href="#" class="pull-right btn btn-default btn-sm waves-effect waves-light">Hepsini Listele</a>
+                <h4 class="text-dark header-title m-t-0">Son Satışlar</h4>
+                <p class="text-muted m-b-30 font-13">
+                    Grafiksel Sıralamada Satış Listesi
+                </p>
+
+                <div class="table-responsive">
+                    <table class="table table-actions-bar m-b-0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Ürün</th>
+                                <th>Yukarı-Aşağı</th>
+                                <th style="min-width: 80px;">Yönet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span data-plugin="peity-bar" data-colors="#5fbeaa,#5fbeaa" data-width="80" data-height="30" style="display: none;">5,3,9,6,5,9,7,3,5,2</span><svg class="peity" height="30" width="80"><rect fill="#5fbeaa" x="0.8" y="13.333333333333332" width="6.4" height="16.666666666666668"></rect><rect fill="#5fbeaa" x="8.8" y="20" width="6.399999999999999" height="10"></rect><rect fill="#5fbeaa" x="16.8" y="0" width="6.399999999999999" height="30"></rect><rect fill="#5fbeaa" x="24.8" y="10" width="6.399999999999999" height="20"></rect><rect fill="#5fbeaa" x="32.8" y="13.333333333333332" width="6.400000000000006" height="16.666666666666668"></rect><rect fill="#5fbeaa" x="40.8" y="0" width="6.400000000000006" height="30"></rect><rect fill="#5fbeaa" x="48.8" y="6.666666666666668" width="6.400000000000006" height="23.333333333333332"></rect><rect fill="#5fbeaa" x="56.8" y="20" width="6.400000000000006" height="10"></rect><rect fill="#5fbeaa" x="64.8" y="13.333333333333332" width="6.400000000000006" height="16.666666666666668"></rect><rect fill="#5fbeaa" x="72.8" y="23.333333333333336" width="6.400000000000006" height="6.666666666666664"></rect></svg></td>
+                                <td><img src="/Content/images/products/iphone.jpg" class="thumb-sm pull-left m-r-10" alt=""> 5 kg.Helva </td>
+                                <td><span class="text-custom">+₺230</span></td>
+                                <td>
+                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><span data-plugin="peity-line" data-fill="#5fbeaa" data-stroke="#5fbeaa" data-width="80" data-height="30" style="display: none;">0,-3,-6,-4,-5,-4,-7,-3,-5,-2</span><svg class="peity" height="30" width="80"><polygon fill="#5fbeaa" points="0 0.5 0 0.5 8.88888888888889 12.92857142857143 17.77777777777778 25.357142857142858 26.666666666666668 17.071428571428573 35.55555555555556 21.214285714285715 44.44444444444444 17.071428571428573 53.333333333333336 29.5 62.22222222222223 12.92857142857143 71.11111111111111 21.214285714285715 80 8.785714285714285 80 0.5"></polygon><polyline fill="none" points="0 0.5 8.88888888888889 12.92857142857143 17.77777777777778 25.357142857142858 26.666666666666668 17.071428571428573 35.55555555555556 21.214285714285715 44.44444444444444 17.071428571428573 53.333333333333336 29.5 62.22222222222223 12.92857142857143 71.11111111111111 21.214285714285715 80 8.785714285714285" stroke="#5fbeaa" stroke-width="1" stroke-linecap="square"></polyline></svg></td>
+                                <td><img src="/Content/images/products/samsung.jpg" class="thumb-sm pull-left m-r-10" alt=""> 3 kg Pekmez </td>
+                                <td><span class="text-danger">-₺154</span></td>
+                                <td>
+                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <span data-plugin="peity-line" data-fill="#fff" data-stroke="#5fbeaa" data-width="80" data-height="30" style="display: none;">5,3,9,6,5,9,7,3,5,2</span><svg class="peity" height="30" width="80"><polygon fill="#fff" points="0 29.5 0 13.38888888888889 8.88888888888889 19.833333333333336 17.77777777777778 0.5 26.666666666666668 10.166666666666668 35.55555555555556 13.38888888888889 44.44444444444444 0.5 53.333333333333336 6.944444444444443 62.22222222222223 19.833333333333336 71.11111111111111 13.38888888888889 80 23.055555555555557 80 29.5"></polygon><polyline fill="none" points="0 13.38888888888889 8.88888888888889 19.833333333333336 17.77777777777778 0.5 26.666666666666668 10.166666666666668 35.55555555555556 13.38888888888889 44.44444444444444 0.5 53.333333333333336 6.944444444444443 62.22222222222223 19.833333333333336 71.11111111111111 13.38888888888889 80 23.055555555555557" stroke="#5fbeaa" stroke-width="1" stroke-linecap="square"></polyline></svg>
+                                </td>
+                                <td><img src="/Content/images/products/imac.jpg" class="thumb-sm pull-left m-r-10" alt=""> 1 kg.Fabilem Çikolata </td>
+                                <td><span class="text-custom">+₺1850</span></td>
+                                <td>
+                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><span data-plugin="peity-pie" data-colors="#5fbeaa,#ebeff2" data-width="30" data-height="30" style="display: none;">1/5</span><svg class="peity" height="30" width="30"><path d="M 15.000000000000002 0 A 15 15 0 0 1 29.265847744427305 10.36474508437579 L 15 15" fill="#5fbeaa"></path><path d="M 29.265847744427305 10.36474508437579 A 15 15 0 1 1 14.999999999999996 0 L 15 15" fill="#ebeff2"></path></svg></td>
+                                <td><img src="/Content/images/products/macbook.jpg" class="thumb-sm pull-left m-r-10" alt=""> 0,5 kg çilekli reçel </td>
+                                <td><span class="text-danger">-₺560</span></td>
+                                <td>
+                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><span data-plugin="peity-bar" data-colors="#5fbeaa,#ebeff2" data-width="80" data-height="30" style="display: none;">5,3,9,6,5,9,7,3,5,2</span><svg class="peity" height="30" width="80"><rect fill="#5fbeaa" x="0.8" y="13.333333333333332" width="6.4" height="16.666666666666668"></rect><rect fill="#ebeff2" x="8.8" y="20" width="6.399999999999999" height="10"></rect><rect fill="#5fbeaa" x="16.8" y="0" width="6.399999999999999" height="30"></rect><rect fill="#ebeff2" x="24.8" y="10" width="6.399999999999999" height="20"></rect><rect fill="#5fbeaa" x="32.8" y="13.333333333333332" width="6.400000000000006" height="16.666666666666668"></rect><rect fill="#ebeff2" x="40.8" y="0" width="6.400000000000006" height="30"></rect><rect fill="#5fbeaa" x="48.8" y="6.666666666666668" width="6.400000000000006" height="23.333333333333332"></rect><rect fill="#ebeff2" x="56.8" y="20" width="6.400000000000006" height="10"></rect><rect fill="#5fbeaa" x="64.8" y="13.333333333333332" width="6.400000000000006" height="16.666666666666668"></rect><rect fill="#ebeff2" x="72.8" y="23.333333333333336" width="6.400000000000006" height="6.666666666666664"></rect></svg></td>
+                                <td><img src="/Content/images/products/lumia.jpg" class="thumb-sm pull-left m-r-10" alt=""> 5 kg Reçel Çilekli </td>
+                                <td><span class="text-custom">+₺230</span></td>
+                                <td>
+                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->

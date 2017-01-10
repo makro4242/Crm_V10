@@ -8,12 +8,16 @@ using System.Web;
 using System.Web.Mvc;
 using Crm_v10.Models;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace Crm_v10.Controllers
 {
     public class GorevsController : Controller
     {
         private Crmv10DB db = new Crmv10DB();
+        public static string gecerliSatisElemani = "";
+        public static string gecerliSatisElemaniEmail = "";
+        public static int gecerliSatisElemaniID = 0;
         // GET: GorevEklemes
         public ActionResult Index()
         {
@@ -65,7 +69,7 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Yüksek", Text= "Yüksek"},
                  new SelectListItem(){Value = "Acil", Text= "Acil"},
                };
-              
+
                 ViewBag.ParaBirimi = ParaGosterim;
                 ViewBag.DurumGosterim = new SelectList(db.Durum.Where(x => x.GosterimDurumu != "0"), "ID", "DurumAdi");
                 ViewBag.OncelikGosterim = OncelikGosterim;
@@ -87,9 +91,42 @@ namespace Crm_v10.Controllers
 
             if (ModelState.IsValid)
             {
+                try
+                {
+                    db.Gorev.Add(gorev);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Mesaj = "Hata:" + ex;
+                }
+                finally
+                {
+                    try
+                    {
+                        int sonKaydedilenGorevID = gorev.ID;
+                        string saticiEmail = db.SatisElemanlari.SingleOrDefault(x => x.ID == gorev.SatisElemaniID).SatisElemaniEmail;
+                        MailMessage mesaj = new MailMessage();
+                        mesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                        mesaj.To.Add(saticiEmail);
+                        mesaj.Subject = "Emek Crm Görev Ataması";
+                        mesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev ataması yapmıştır. Görev No:" + sonKaydedilenGorevID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
+                        mesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
+                        SmtpClient client = new SmtpClient("smtp.yandex.com.tr", 587);
+                        client.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                        client.EnableSsl = true;
+                        client.Send(mesaj);
 
-                db.Gorev.Add(gorev);
-                db.SaveChanges();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Mesaj = "Hata:" + ex;
+                    }
+                }
+
+
+
                 return RedirectToAction("Index");
             }
             var ParaGosterim = new[]
@@ -106,7 +143,7 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Yüksek", Text= "Yüksek"},
                  new SelectListItem(){Value = "Acil", Text= "Acil"},
                };
-         
+
             ViewBag.ParaGosterim = ParaGosterim;
             ViewBag.DurumGosterim = new SelectList(db.Durum.Where(x => x.GosterimDurumu != "0"), "ID", "DurumAdi", gorev.DurumID);
             ViewBag.OncelikGosterim = OncelikGosterim;
@@ -125,11 +162,14 @@ namespace Crm_v10.Controllers
                     return RedirectToAction("_404", "Home");
                 }
                 Gorev gorev = db.Gorev.Find(id);
+                gecerliSatisElemaniID = gorev.SatisElemanlari.ID;
+                gecerliSatisElemani = gorev.SatisElemanlari.SatisElemaniAdiSoyadi;
+                gecerliSatisElemaniEmail = gorev.SatisElemanlari.SatisElemaniEmail;
                 if (gorev == null)
                 {
                     return RedirectToAction("_404", "Home");
                 }
-               
+
                 var OncelikGosterim = new[]
                {
                new SelectListItem(){Value = "Normal", Text= "Normal",Selected=(gorev.Oncelik=="Normal" ? true : false)},
@@ -137,7 +177,7 @@ namespace Crm_v10.Controllers
                new SelectListItem(){Value = "Yüksek", Text= "Yüksek",Selected=(gorev.Oncelik=="Yüksek" ? true : false)},
                new SelectListItem(){Value = "Acil", Text= "Acil",Selected=(gorev.Oncelik=="Acil" ? true : false)},
                };
-               
+
                 var ParaGosterim = new[]
                  {
                  new SelectListItem(){Value = "TL", Text= "TL", Selected=(gorev.ParaBirimi=="TL" ? true : false)},
@@ -146,11 +186,11 @@ namespace Crm_v10.Controllers
                 };
                 ViewBag.ParaGosterim = ParaGosterim;
                 ViewBag.TahminiTutar = gorev.TahminiTutar;
-                ViewBag.DurumGosterim = new SelectList(db.Durum.Where(x => x.GosterimDurumu != "0"), "ID", "DurumAdi",gorev.DurumID);
+                ViewBag.DurumGosterim = new SelectList(db.Durum.Where(x => x.GosterimDurumu != "0"), "ID", "DurumAdi", gorev.DurumID);
                 ViewBag.OncelikGosterim = OncelikGosterim;
                 ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani", gorev.PotansiyelID);
                 ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi", gorev.SatisElemaniID);
-                
+
                 return View(gorev);
             }
 
@@ -167,8 +207,67 @@ namespace Crm_v10.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(gorev).State = EntityState.Modified;
-                db.SaveChanges();
+                try
+                {
+                    db.Entry(gorev).State = EntityState.Modified;
+                    db.SaveChanges();
+                    if (gecerliSatisElemaniID == gorev.SatisElemaniID) // Satış Elemanı Değiştirilmedi Kayıt Güncellendi. Satış Elemanına Güncelleme Mesajı Gidecek
+                    {
+
+                        MailMessage GuncelemeMesaj = new MailMessage();
+                        GuncelemeMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                        GuncelemeMesaj.To.Add(gecerliSatisElemaniEmail);
+                        GuncelemeMesaj.Subject = "Emek Crm Görev Güncelleme";
+                        GuncelemeMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev atamasında güncelleme yaptı. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
+                        GuncelemeMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
+                        SmtpClient GuncellemeClient = new SmtpClient("smtp.yandex.com.tr", 587);
+                        GuncellemeClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                        GuncellemeClient.EnableSsl = true;
+                        GuncellemeClient.Send(GuncelemeMesaj);
+                    }
+                    else // Satış Elemanı Seçimi Değiştirildi. Kayıt Güncellendi. Önceki Satış Elemanının Görev İptal Oldu. İptal mili ve yeni görev maili gönderilecek.
+                    {
+                        try
+                        {
+                            //--------GÖREV İPTAL MALİ-------------------------
+
+                            MailMessage GorevIptalMesaj = new MailMessage();
+                            GorevIptalMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                            GorevIptalMesaj.To.Add(gecerliSatisElemaniEmail);
+                            GorevIptalMesaj.Subject = "Emek Crm Görev İptali";
+                            GorevIptalMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev atamasında iptal işlemi gerçekleşti. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
+                            GorevIptalMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
+                            SmtpClient GorevIptalClient = new SmtpClient("smtp.yandex.com.tr", 587);
+                            GorevIptalClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                            GorevIptalClient.EnableSsl = true;
+                            GorevIptalClient.Send(GorevIptalMesaj);
+
+                            //-----------YENİ SATIS ELEMANI GÖREV ATAMASI----------------------------
+                            string saticiEmail = db.SatisElemanlari.SingleOrDefault(x => x.ID == gorev.SatisElemaniID).SatisElemaniEmail;
+                            MailMessage YeniGorevMesaj = new MailMessage();
+                            YeniGorevMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                            YeniGorevMesaj.To.Add(saticiEmail);
+                            YeniGorevMesaj.Subject = "Emek Crm Görev Ataması";
+                            YeniGorevMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev ataması yapmıştır. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
+                            YeniGorevMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
+                            SmtpClient YeniGorevClient = new SmtpClient("smtp.yandex.com.tr", 587);
+                            YeniGorevClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                            YeniGorevClient.EnableSsl = true;
+                            YeniGorevClient.Send(YeniGorevMesaj);
+                        }
+                        catch (Exception ex)
+                        {
+                            ViewBag.Mesaj = "Hata:" + ex;
+                        }
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Mesaj = "Hata :" + ex;
+
+                }
                 return RedirectToAction("Index");
             }
             var ParaGosterim = new[]
@@ -184,7 +283,7 @@ namespace Crm_v10.Controllers
                  new SelectListItem(){Value = "Yüksek", Text= "Yüksek"},
                  new SelectListItem(){Value = "Acil", Text= "Acil"},
                };
-          
+
             ViewBag.ParaGosterim = ParaGosterim;
             ViewBag.DurumGosterim = new SelectList(db.Durum.Where(x => x.GosterimDurumu != "0"), "ID", "DurumAdi", gorev.DurumID);
             ViewBag.OncelikGosterim = OncelikGosterim;
@@ -224,23 +323,43 @@ namespace Crm_v10.Controllers
                 gorev.GosterimDurumu = "0";
                 //db.Gorev.Remove(gorev);
                 db.SaveChanges();
+
+                //--------GÖREV İPTAL MALİ-------------------------
+                try
+                {
+                    gecerliSatisElemaniEmail = gorev.SatisElemanlari.SatisElemaniEmail;
+                    MailMessage GorevIptalMesaj = new MailMessage();
+                    GorevIptalMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                    GorevIptalMesaj.To.Add(gecerliSatisElemaniEmail);
+                    GorevIptalMesaj.Subject = "Emek Crm Görev İptali";
+                    GorevIptalMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev atamasında iptal işlemi gerçekleşti. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
+                    GorevIptalMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
+                    SmtpClient GorevIptalClient = new SmtpClient("smtp.yandex.com.tr", 587);
+                    GorevIptalClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                    GorevIptalClient.EnableSsl = true;
+                    GorevIptalClient.Send(GorevIptalMesaj);
+
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Mesaj = "Hata:" + ex;
+                }
+
                 return RedirectToAction("Index");
             }
             else return RedirectToAction("LoginPage", "Home");
         }
         Crmv10DB ctx = new Crmv10DB();
-        public JsonResult KoduGetir()
+        public JsonResult KoduGetir() // Görev kodunun otomatik son olan kayıta 1 ekleyip donduruyor
         {
             string veri = "";
+            var id = db.Gorev.Max(p => p.ID);
 
-            var Sonuc = (from p in ctx.Gorev
-                         orderby p.ID
-                         select p.ID).ToList();
-            if(Sonuc.Count==0)
+            if (id == 0)
             {
                 veri = "1";
             }
-            else veri = ((Sonuc[Sonuc.Count - 1]) + 1).ToString();
+            else veri = (id + 1).ToString();
 
 
             return Json(veri, JsonRequestBehavior.AllowGet);

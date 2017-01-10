@@ -1,0 +1,116 @@
+﻿@model Crm_v10.Models.Gorev
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="container">
+    <div class="row col-sm-10">
+        <h2>Görev</h2>
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Evraklar</a>
+                </li>
+                <li>
+                    <a href="/Gorevs/Index">Gorev Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Görev Bilgilerini İncele</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h2>İncele</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>GÖREV BİLGİLERİNİ İNCELE</b>
+                </h4>
+                <div class="form-horizontal">
+                    <hr />    
+                    <dl class="dl-horizontal">
+                        <dt>
+                           Görev Kodu :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ID)
+                        </dd>
+                        <dt>
+                            Potansiyel Unvanı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Potansiyel.PotansiyelUnvani)
+                        </dd>
+
+                        <dt>
+                            Satış Elemanı :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SatisElemanlari.SatisElemaniAdiSoyadi)
+                        </dd>
+
+                     
+
+                        <dt>
+                            Tarih :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Tarih)
+                        </dd>
+                        <dt>
+                            Para Birimi :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ParaBirimi)
+                        </dd>
+                        <dt>
+                            Tahmini Tutar :
+                        </dt>
+
+                        <dd >
+                            @Html.DisplayFor(model => model.TahminiTutar)
+                        </dd>
+                        <dt>
+                            Açıklama :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Aciklama)
+                        </dd>
+                        <dt>
+                            Not :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.GorevNot)
+                        </dd>
+
+                        <dt>
+                            Durum :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Durum.DurumAdi)
+                        </dd>
+
+                        <dt>
+                            Öncelik :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Oncelik)
+                        </dd>
+
+                    </dl>
+                </div>
+                @Html.ActionLink("Listeye Dön", "Index")
+            </div>
+        </div>
+    </div>
+</div>

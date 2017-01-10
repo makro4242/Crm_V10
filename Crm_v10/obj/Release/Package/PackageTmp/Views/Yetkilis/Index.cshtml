@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Crm_v10.Models.Yetkili>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row col-sm-10">
+        <h2>Yetkili Tanıtım Kartı</h2>
+
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Kartlar</a>
+                </li>
+                <li>
+                    <a href="/Yetkilis/Index">Yetkili Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Index</a>
+                </li>
+            </ol>
+        </div>
+        <p>
+            <a href="/Yetkilis/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="row">
+                        <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Yetkili Kodu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Adı</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Soyadı</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">GSM1</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >GSM2</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Mail1</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Mail2</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 200.4px;">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliKodu)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliAd)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliSoyad)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliGSM1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliGSM2)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliMail1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.YetkiliMail2)
+                                        </td>
+                                        <td>
+                                            <a href="/Yetkilis/Edit/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%" >Düzenle</a>
+                                            <a href="/Yetkilis/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73% ">Detay</a>
+                                            <a href="/Yetkilis/Delete/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Sil</a><br />
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

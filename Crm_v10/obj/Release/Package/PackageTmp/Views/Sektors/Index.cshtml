@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Crm_v10.Models.Sektor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row col-sm-10">
+        <h2>Sektör Tanıtım Kartı</h2>
+
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Ayarlar</a>
+                </li>
+                <li>
+                    <a href="/Sektors/Index">Sektör Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Index</a>
+                </li>
+            </ol>
+        </div>
+        <p>
+            <a href="/Sektors/Create" class="btn btn-default waves-effect waves-light">Yeni Kayıt</a>
+        </p>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card-box">
+                <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="row">
+                        <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                            <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100.4px;">Sektör Adı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr >
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SektorAd)
+                                        </td>
+                                        <td style="text-align:right">
+                                            <a href="/Sektors/Edit/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Düzenle</a>
+                                            <a href="/Sektors/Details/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Detay</a>
+                                            <a href="/Sektors/Delete/@item.ID" class="btn btn-default waves-effect waves-light" style="font-size:73%">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

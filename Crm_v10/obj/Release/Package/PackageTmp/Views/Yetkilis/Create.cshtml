@@ -1,0 +1,162 @@
+﻿@model Crm_v10.Models.Yetkili
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row col-sm-10">
+            <h2>Yetkili Tanıtım Kartı</h2>
+            <div class="col-sm-12">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Kartlar</a>
+                    </li>
+                    <li>
+                        <a href="/Yetkilis/Index">Yetkili Tanıtım Kartı</a>
+                    </li>
+                    <li>
+                        <a href="#">Yetkili Yeni Kayıt</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Kısayollar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="kisayol">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            İşlevi
+                                        </th>
+                                        <th>
+                                            Kısayolu
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Otomatik Yetkili Kodu Tanımla</td>
+                                        <td><kbd title="Yetkili kodunu girerken otomatik tamamlamak için Shift ve F1'e basınız">Shift + F1</kbd></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-sm-2">
+            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+               
+                <div class="card-box">
+                    <h2>Yeni Kayıt</h2>
+                    <h4 class="m-t-0 header-title">
+                        <b>YETKİLİ BİLGİLERİ YENİ KAYIT</b>
+                    </h4>
+                    
+                   
+                    <div class="form-horizontal">
+                        <input type="hidden" id="sayfa" name="sayfa" value="Yetkilis" />
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-md-7">
+                                <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliKodu, "*Yetkili Kodu", htmlAttributes: new { @class = "control-label col-md-4 ", @required = "" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliKodu, new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliKodu, "", new { @class = "text-danger" })
+                                @ViewBag.YetkiliKodu
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliAd, "*Yetkili Ad", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliAd, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliAd, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliSoyad, "*Yetkili Soyad", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliSoyad, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliSoyad, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliGSM1, "GSM 1 (0*)", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliGSM1, new { htmlAttributes = new { @class = "form-control sayi Tel1", @maxlength = "15" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliGSM1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliGSM2, "GSM 2 (0*)", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliGSM2, new { htmlAttributes = new { @class = "form-control sayi Tel2", @maxlength = "15" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliGSM2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliMail1, "Email 1", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliMail1, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliMail1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliMail2, "Email 2", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliMail2, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliMail2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.YetkiliDogumTarihi, "Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.YetkiliDogumTarihi, new { htmlAttributes = new { @class = "form-control tarih tarihCreate" } })
+                                @Html.ValidationMessageFor(model => model.YetkiliDogumTarihi, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Kaydet" class="btn btn-default" /> |
+                            @Html.ActionLink("Listeye Dön", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+

@@ -1,0 +1,107 @@
+﻿@model Crm_v10.Models.Yetkili
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row col-sm-10">
+        <h2>Yetkili Tanıtım Kartı</h2>
+
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Kartlar</a>
+                </li>
+                <li>
+                    <a href="/Yetkilis/Index">Yetkili Tanıtım Kartı</a>
+                </li>
+                <li>
+                    <a href="#">Yetkili Bilgilerini İncele</a>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card-box">
+                <h2>İncele</h2>
+                <h4 class="m-t-0 header-title">
+                    <b>YETLİKİ BİLGİLERİNİ İNCELE</b>
+                </h4>
+                <div class="form-horizontal">
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                           Yetkili Kodu :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliKodu)
+                        </dd>
+
+                        <dt>
+                           Yetkili Ad :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliAd)
+                        </dd>
+
+                        <dt>
+                            Yetkili Soyad :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliSoyad)
+                        </dd>
+
+                        <dt>
+                           GSM 1 :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliGSM1)
+                        </dd>
+
+                        <dt>
+                            GSM 2 :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliGSM2)
+                        </dd>
+
+                        <dt>
+                          Mail 1:
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliMail1)
+                        </dd>
+
+                        <dt>
+                          Mail 2 :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliMail2)
+                        </dd>
+
+                        <dt>
+                           Doğum Tarihi :
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.YetkiliDogumTarihi)
+                        </dd>
+
+                    </dl>
+                </div>
+                @Html.ActionLink("Listeye Dön", "Index")
+            </div>
+        </div>
+    </div>
+</div>
+
