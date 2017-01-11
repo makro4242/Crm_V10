@@ -9,16 +9,24 @@ namespace Crm_v10.Controllers
 {
     public class VeritabaniAyarsController : Controller
     {
-        string mesaj = "";
         // GET: VeritabaniAyars
         public ActionResult Index()
         {
-            Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
-            ViewBag.SunucuAd = config.AppSettings.Settings["sqlserver"].Value;
-            ViewBag.VeritabaniAd = config.AppSettings.Settings["database"].Value;
-            ViewBag.KullaniciAd = config.AppSettings.Settings["kullanici"].Value;
-            ViewBag.Sifre = config.AppSettings.Settings["sifre"].Value;
-            return View();
+            if (Session["KullaniciID"] != null)
+            {
+                if (Session["KullaniciID"].ToString() == "0")
+                {
+                    Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+                    ViewBag.SunucuAd = config.AppSettings.Settings["sqlserver"].Value;
+                    ViewBag.VeritabaniAd = config.AppSettings.Settings["database"].Value;
+                    ViewBag.KullaniciAd = config.AppSettings.Settings["kullanici"].Value;
+                    ViewBag.Sifre = config.AppSettings.Settings["sifre"].Value;
+                    return View();
+                }
+                else return RedirectToAction("Index", "Home");
+            }
+            else return RedirectToAction("LoginPage", "Home");
+           
         }
         [HttpPost]
         public ActionResult Index(FormCollection frm)

@@ -14,6 +14,7 @@ namespace Crm_v10.Models
         {
             Log = new HashSet<Log>();
             Log1 = new HashSet<Log>();
+            MailYedeklemeLog = new HashSet<MailYedeklemeLog>();
         }
 
         public int ID { get; set; }
@@ -48,5 +49,8 @@ namespace Crm_v10.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Log> Log1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MailYedeklemeLog> MailYedeklemeLog { get; set; }
     }
 }

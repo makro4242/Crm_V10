@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Crm_v10.Models;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace Crm_v10.Controllers
 {
@@ -18,6 +19,8 @@ namespace Crm_v10.Controllers
         public static string gecerliSatisElemani = "";
         public static string gecerliSatisElemaniEmail = "";
         public static int gecerliSatisElemaniID = 0;
+        public Configuration config = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+
         // GET: GorevEklemes
         public ActionResult Index()
         {
@@ -107,13 +110,13 @@ namespace Crm_v10.Controllers
                         int sonKaydedilenGorevID = gorev.ID;
                         string saticiEmail = db.SatisElemanlari.SingleOrDefault(x => x.ID == gorev.SatisElemaniID).SatisElemaniEmail;
                         MailMessage mesaj = new MailMessage();
-                        mesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                        mesaj.From = new MailAddress(config.AppSettings.Settings["email"].Value);
                         mesaj.To.Add(saticiEmail);
                         mesaj.Subject = "Emek Crm Görev Ataması";
                         mesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev ataması yapmıştır. Görev No:" + sonKaydedilenGorevID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
                         mesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
                         SmtpClient client = new SmtpClient("smtp.yandex.com.tr", 587);
-                        client.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                        client.Credentials = new NetworkCredential(config.AppSettings.Settings["email"].Value, config.AppSettings.Settings["emailSifre"].Value);
                         client.EnableSsl = true;
                         client.Send(mesaj);
 
@@ -215,13 +218,13 @@ namespace Crm_v10.Controllers
                     {
 
                         MailMessage GuncelemeMesaj = new MailMessage();
-                        GuncelemeMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                        GuncelemeMesaj.From = new MailAddress(config.AppSettings.Settings["email"].Value);
                         GuncelemeMesaj.To.Add(gecerliSatisElemaniEmail);
                         GuncelemeMesaj.Subject = "Emek Crm Görev Güncelleme";
                         GuncelemeMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev atamasında güncelleme yaptı. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
                         GuncelemeMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
                         SmtpClient GuncellemeClient = new SmtpClient("smtp.yandex.com.tr", 587);
-                        GuncellemeClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                        GuncellemeClient.Credentials = new NetworkCredential(config.AppSettings.Settings["email"].Value, config.AppSettings.Settings["emailSifre"].Value);
                         GuncellemeClient.EnableSsl = true;
                         GuncellemeClient.Send(GuncelemeMesaj);
                     }
@@ -232,7 +235,7 @@ namespace Crm_v10.Controllers
                             //--------GÖREV İPTAL MALİ-------------------------
 
                             MailMessage GorevIptalMesaj = new MailMessage();
-                            GorevIptalMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                            GorevIptalMesaj.From = new MailAddress(config.AppSettings.Settings["email"].Value);
                             GorevIptalMesaj.To.Add(gecerliSatisElemaniEmail);
                             GorevIptalMesaj.Subject = "Emek Crm Görev İptali";
                             GorevIptalMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev atamasında iptal işlemi gerçekleşti. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
@@ -245,13 +248,13 @@ namespace Crm_v10.Controllers
                             //-----------YENİ SATIS ELEMANI GÖREV ATAMASI----------------------------
                             string saticiEmail = db.SatisElemanlari.SingleOrDefault(x => x.ID == gorev.SatisElemaniID).SatisElemaniEmail;
                             MailMessage YeniGorevMesaj = new MailMessage();
-                            YeniGorevMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                            YeniGorevMesaj.From = new MailAddress(config.AppSettings.Settings["email"].Value);
                             YeniGorevMesaj.To.Add(saticiEmail);
                             YeniGorevMesaj.Subject = "Emek Crm Görev Ataması";
                             YeniGorevMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev ataması yapmıştır. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
                             YeniGorevMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
                             SmtpClient YeniGorevClient = new SmtpClient("smtp.yandex.com.tr", 587);
-                            YeniGorevClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                            YeniGorevClient.Credentials = new NetworkCredential(config.AppSettings.Settings["email"].Value, config.AppSettings.Settings["emailSifre"].Value);
                             YeniGorevClient.EnableSsl = true;
                             YeniGorevClient.Send(YeniGorevMesaj);
                         }
@@ -329,13 +332,13 @@ namespace Crm_v10.Controllers
                 {
                     gecerliSatisElemaniEmail = gorev.SatisElemanlari.SatisElemaniEmail;
                     MailMessage GorevIptalMesaj = new MailMessage();
-                    GorevIptalMesaj.From = new MailAddress("sema@makrosoftbilisim.com");
+                    GorevIptalMesaj.From = new MailAddress(config.AppSettings.Settings["email"].Value);
                     GorevIptalMesaj.To.Add(gecerliSatisElemaniEmail);
                     GorevIptalMesaj.Subject = "Emek Crm Görev İptali";
                     GorevIptalMesaj.Body = Session["KullaniciAd"] + " adlı kullanıcı size görev atamasında iptal işlemi gerçekleşti. Görev No:" + gorev.ID + "   Görev Açıklama:" + (gorev.Aciklama == null ? "Açıklama Yapılmamış." : gorev.Aciklama) + " Görev Not:" + gorev.GorevNot;
                     GorevIptalMesaj.IsBodyHtml = true; // giden mailin içeriği html olmasını istiyorsak true kalması lazım
                     SmtpClient GorevIptalClient = new SmtpClient("smtp.yandex.com.tr", 587);
-                    GorevIptalClient.Credentials = new NetworkCredential("sema@makrosoftbilisim.com", "sema12");
+                    GorevIptalClient.Credentials = new NetworkCredential(config.AppSettings.Settings["email"].Value, config.AppSettings.Settings["emailSifre"].Value);
                     GorevIptalClient.EnableSsl = true;
                     GorevIptalClient.Send(GorevIptalMesaj);
 

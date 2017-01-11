@@ -24,6 +24,7 @@ namespace Crm_v10
         {
             Session.Add(" KullaniciID", new int());
             Session.Add(" KullaniciAd", "");
+            Session.Add(" MailSayac", "");
         }
     }
 }

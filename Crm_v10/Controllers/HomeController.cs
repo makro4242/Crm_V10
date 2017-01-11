@@ -34,6 +34,7 @@ namespace Crm_v10.Controllers
 
                 Session["KullaniciID"] = 0;
                 Session["KullaniciAd"] ="Crm";
+                Session["MailSayac"] = "0";
                 return RedirectToAction("Index", "Home");
 
 
@@ -46,6 +47,7 @@ namespace Crm_v10.Controllers
                 {
                     Session["KullaniciID"] = infoKullanicilar.ID;
                     Session["KullaniciAd"] = infoKullanicilar.KullaniciAdi;
+                    Session["MailSayac"] = "0";
                     return RedirectToAction("Index", "Home");
 
                 }

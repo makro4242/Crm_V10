@@ -203,6 +203,8 @@
     <Compile Include="Controllers\GorevsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullanicilarsController.cs" />
+    <Compile Include="Controllers\MailGondermesController.cs" />
+    <Compile Include="Controllers\MailYedeklemeLogsController.cs" />
     <Compile Include="Controllers\PotansiyelsController.cs" />
     <Compile Include="Controllers\SatisElemanlarisController.cs" />
     <Compile Include="Controllers\SektorsController.cs" />
@@ -221,6 +223,7 @@
     <Compile Include="Models\Iller.cs" />
     <Compile Include="Models\Kullanicilar.cs" />
     <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\MailYedeklemeLog.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Potansiyel.cs" />
     <Compile Include="Models\SatisElemanlari.cs" />
@@ -2575,6 +2578,18 @@
     <Content Include="Content\plugins\jquery-validation\src\localization\methods_fi.js" />
     <Content Include="Content\plugins\jquery-validation\src\localization\methods_nl.js" />
     <Content Include="Content\plugins\jquery-validation\src\localization\methods_pt.js" />
+    <Content Include="Content\plugins\magnific-popup\dist\jquery.magnific-popup.js" />
+    <Content Include="Content\plugins\magnific-popup\dist\jquery.magnific-popup.min.js" />
+    <Content Include="Content\plugins\magnific-popup\dist\magnific-popup.css" />
+    <Content Include="Content\plugins\magnific-popup\src\js\ajax.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\core.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\fastclick.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\gallery.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\iframe.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\image.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\inline.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\retina.js" />
+    <Content Include="Content\plugins\magnific-popup\src\js\zoom.js" />
     <Content Include="Content\plugins\parsleyjs\dist\parsley.js" />
     <Content Include="Content\plugins\parsleyjs\dist\parsley.min.js" />
     <Content Include="Content\plugins\parsleyjs\dist\parsley.remote.js" />
@@ -2916,6 +2931,8 @@
     <Content Include="Content\less\pages.less" />
     <Content Include="Content\less\responsive.less" />
     <Content Include="Content\less\variables.less" />
+    <Content Include="Content\plugins\magnific-popup\src\css\main.scss" />
+    <Content Include="Content\plugins\magnific-popup\src\css\_settings.scss" />
     <None Include="Properties\PublishProfiles\CRMv10.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -2992,6 +3009,8 @@
     <Content Include="Views\AksiyonSecims\Details.cshtml" />
     <Content Include="Views\AksiyonSecims\Edit.cshtml" />
     <Content Include="Views\AksiyonSecims\Index.cshtml" />
+    <Content Include="Views\MailYedeklemeLogs\Index.cshtml" />
+    <Content Include="Views\MailGondermes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

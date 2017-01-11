@@ -14,7 +14,6 @@ namespace Crm_v10.Models
         {
             Potansiyel = new HashSet<Potansiyel>();
         }
-
         public int ID { get; set; }
 
         [Display(Name = "Ülke Kodu")]

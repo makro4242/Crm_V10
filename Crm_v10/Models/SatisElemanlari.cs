@@ -30,7 +30,6 @@ namespace Crm_v10.Models
         [StringLength(50)]
         [Display(Name = "Satýþ Elemaný Email")]
         public string SatisElemaniEmail { get; set; }
-
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
 

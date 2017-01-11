@@ -19,6 +19,7 @@ namespace Crm_v10.Models
         public virtual DbSet<Iller> Iller { get; set; }
         public virtual DbSet<Kullanicilar> Kullanicilar { get; set; }
         public virtual DbSet<Log> Log { get; set; }
+        public virtual DbSet<MailYedeklemeLog> MailYedeklemeLog { get; set; }
         public virtual DbSet<Potansiyel> Potansiyel { get; set; }
         public virtual DbSet<SatisElemanlari> SatisElemanlari { get; set; }
         public virtual DbSet<Sektor> Sektor { get; set; }
@@ -65,6 +66,11 @@ namespace Crm_v10.Models
                 .WithRequired(e => e.Kullanicilar1)
                 .HasForeignKey(e => e.DegistirenKullanici)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Kullanicilar>()
+                .HasMany(e => e.MailYedeklemeLog)
+                .WithOptional(e => e.Kullanicilar)
+                .HasForeignKey(e => e.KullaniciID);
 
             modelBuilder.Entity<Potansiyel>()
                 .Property(e => e.PotansiyelNot)

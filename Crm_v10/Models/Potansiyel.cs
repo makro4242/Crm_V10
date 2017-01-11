@@ -20,16 +20,17 @@ namespace Crm_v10.Models
         [Required]
         [StringLength(20)]
         [Display(Name = "Potansiyel Kodu")]
-
         public string PotansiyelKodu { get; set; }
 
         [Required]
         [StringLength(150)]
         [Display(Name = "Potansiyel Ünvaný")]
+
         public string PotansiyelUnvani { get; set; }
 
         [StringLength(150)]
         [Display(Name = "Potansiyel Adresi")]
+
         public string PotansiyelAdresi { get; set; }
 
         [StringLength(20)]

@@ -23,7 +23,7 @@ namespace Crm_v10.Models
         public string Aciklama { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
-            ApplyFormatInEditMode = true)]
+           ApplyFormatInEditMode = true)]
         [Display(Name = "Tarih")]
         public DateTime Tarih { get; set; }
 
@@ -61,7 +61,6 @@ namespace Crm_v10.Models
                 return String.Format("{0} {1} {2}", ID, SatisElemanlari.SatisElemaniAdiSoyadi, Potansiyel.PotansiyelKodu);
             }
         }
-
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aksiyon> Aksiyon { get; set; }

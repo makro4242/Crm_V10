@@ -19,6 +19,7 @@ namespace Crm_v10.Models
 
         [StringLength(150)]
         [Display(Name = "Aksiyon Adý")]
+
         public string AksiyonAdi { get; set; }
 
         [StringLength(2)]
