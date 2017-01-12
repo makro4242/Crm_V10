@@ -17,6 +17,7 @@ namespace Crm_v10.Models
             MailYedeklemeLog = new HashSet<MailYedeklemeLog>();
         }
 
+
         public int ID { get; set; }
 
         [Required]

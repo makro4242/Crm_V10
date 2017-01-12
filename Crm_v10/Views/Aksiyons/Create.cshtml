@@ -8,7 +8,7 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
-        <div class="row col-sm-10">
+        <div class="row col-sm-9">
             <div class="col-sm-12">
                 <ol class="breadcrumb">
                     <li>
@@ -23,6 +23,7 @@
                 </ol>
             </div>
         </div>
+        @*-------------------------------------------------------------Kısayol Başlangıç---------------------------------------------------------------*@
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -59,8 +60,121 @@
                 </div>
             </div>
         </div>
+
+        @*-------------------------------------------------------------Kısayol Bitiş---------------------------------------------------------------*@
+
+        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
+        <div id="ZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Doldurulması Gereken Zorunlu Alanlar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            İşlevi
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Şimdilik Kısayol Atanmamıştır</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+        @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
+        <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Zorunluluk Alanı Seçimi</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Aksiyon Not</td>
+                                        <td><input type="checkbox" id="AksiyonNot|checkbox"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ekler1</td>
+                                        <td><input type="checkbox" id="file|checkbox" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ekler2</td>
+                                        <td><input type="checkbox" id="file2|checkbox" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ekler3</td>
+                                        <td><input type="checkbox" id="file3|checkbox" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ekler4</td>
+                                        <td><input type="checkbox" id="file4|checkbox" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ekler5</td>
+                                        <td><input type="checkbox" id="file5|checkbox" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+
+        @*------------------------------------------------------Pop Up Butonları Başlangıç--------------------------------------------------------------*@
         <div class="row col-sm-2">
-            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" style="margin-right:5%" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            @try
+            {
+                if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0") //Crm Girdi ise
+                {
+                    <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal" onclick="javascript: CrmZorunluluk('Aksiyons')"><i class="ion-gear-b"></i></a>
+                }
+                else //Normal kullanıcı girdi ise
+                {
+                    <a href="javascript;" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9"><i class="ion-gear-b"></i></a>
+
+                }
+            }
+            catch
+            {
+                Response.Redirect(@Url.Action("LoginPage", "Home"));
+            }
         </div>
         <div class="row">
             <div class="col-lg-8">
@@ -88,7 +202,7 @@
 
 
                         <div class="form-group">
-                           
+
                             @Html.LabelFor(model => model.Saat, "*Saat", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 <div class="input-group m-b-15">
@@ -122,7 +236,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.AksiyonNot, "*Aksiyon Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                @Html.TextAreaFor(model => model.AksiyonNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
+                                @Html.TextAreaFor(model => model.AksiyonNot, new { @class = "form-control AksiyonNot", @cols = 80, @rows = 10, @maxlength = "2000"})
                                 @Html.ValidationMessageFor(model => model.AksiyonNot, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -130,35 +244,35 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler1, "Ekler1", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                <input type="file" name="file" class="filestyle" data-size="sm">
+                                <input id="file" type="file" name="file" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler1, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler2, "Ekler2", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                <input type="file" name="file2" class="filestyle" data-size="sm">
+                                <input id="file2" type="file" name="file2" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler2, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler3, "Ekler3", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                <input type="file" name="file3" class="filestyle" data-size="sm">
+                                <input id="file3" type="file" name="file3" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler3, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler4, "Ekler4", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                <input type="file" name="file4" class="filestyle" data-size="sm">
+                                <input id="file4" type="file" name="file4" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler4, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler5, "Ekler5", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                <input type="file" name="file3" class="filestyle" data-size="sm">
+                                <input id="file5" type="file" name="file5" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler5, "", new { @class = "text-danger" })
                             </div>
                         </div>

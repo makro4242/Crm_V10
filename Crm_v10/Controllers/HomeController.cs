@@ -64,6 +64,23 @@ namespace Crm_v10.Controllers
             return RedirectToAction("LoginPage", "Home");
         }
 
+
+        public JsonResult CrmZorunlulukBilgisiGetir(string sayfa)
+        {
+            string sonuc = "";
+            List<GereklilikAlanlari> bilgiler = db.GereklilikAlanlari.Where(x=>x.SayfaAdi==sayfa).ToList();
+            if(bilgiler.Count()>0)
+            {
+               
+                foreach (var item in bilgiler)
+                {
+                    sonuc += item.GerekliAlanAdlari + "|" +( (item.GereklilikDurumu ==null) ? "0" : item.GereklilikDurumu)+ "|";
+                }
+
+            }
+
+            return Json(sonuc, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult _404()
         {
             return View();

@@ -8,7 +8,7 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
-        <div class="row col-sm-10">
+        <div class="row col-sm-9">
             <h2>Görev</h2>
             <div class="col-sm-12">
                 <ol class="breadcrumb">
@@ -105,7 +105,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.SatisElemaniID, "*Satış Elemanı Kodu", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
-                                @Html.DropDownList("SatisElemaniID", null, htmlAttributes: new { @class = "form-control select2" })
+                                @Html.DropDownList("SatisElemaniID", (IEnumerable<SelectListItem>)ViewBag.SatisElemani, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniID, "", new { @class = "text-danger" })
                             </div>
                         </div>

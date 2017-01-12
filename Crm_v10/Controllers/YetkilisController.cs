@@ -13,7 +13,6 @@ namespace Crm_v10.Controllers
     public class YetkilisController : Controller
     {
         private Crmv10DB db = new Crmv10DB();
-
         // GET: Yetkilis
         public ActionResult Index()
         {
@@ -50,8 +49,10 @@ namespace Crm_v10.Controllers
         // GET: Yetkilis/Create
         public ActionResult Create()
         {
+
             if (Session["KullaniciID"] != null)
             {
+               
                 return View();
             }
 

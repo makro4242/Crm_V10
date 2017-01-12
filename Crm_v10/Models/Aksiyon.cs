@@ -9,6 +9,7 @@ namespace Crm_v10.Models
     [Table("Aksiyon")]
     public partial class Aksiyon
     {
+
         public int ID { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
@@ -16,7 +17,7 @@ namespace Crm_v10.Models
         [Display(Name = "Tarih")]
         public DateTime Tarih { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Saat Alaný Gerekli")]
         [StringLength(10)]
         [Display(Name = "Saat")]
 
@@ -26,7 +27,7 @@ namespace Crm_v10.Models
 
         public int AksiyonSecimID { get; set; }
 
-        [Required]
+      
         [Display(Name = "Aksiyon Not")]
         public string AksiyonNot { get; set; }
 

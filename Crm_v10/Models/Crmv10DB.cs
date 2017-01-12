@@ -15,6 +15,7 @@ namespace Crm_v10.Models
         public virtual DbSet<Aksiyon> Aksiyon { get; set; }
         public virtual DbSet<AksiyonSecim> AksiyonSecim { get; set; }
         public virtual DbSet<Durum> Durum { get; set; }
+        public virtual DbSet<GereklilikAlanlari> GereklilikAlanlari { get; set; }
         public virtual DbSet<Gorev> Gorev { get; set; }
         public virtual DbSet<Iller> Iller { get; set; }
         public virtual DbSet<Kullanicilar> Kullanicilar { get; set; }

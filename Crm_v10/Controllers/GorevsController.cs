@@ -77,7 +77,18 @@ namespace Crm_v10.Controllers
                 ViewBag.DurumGosterim = new SelectList(db.Durum.Where(x => x.GosterimDurumu != "0"), "ID", "DurumAdi");
                 ViewBag.OncelikGosterim = OncelikGosterim;
                 ViewBag.PotansiyelID = new SelectList(db.Potansiyel.Where(x => x.GosterimDurumu != "0"), "ID", "PotansiyelUnvani");
-                ViewBag.SatisElemaniID = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "ID", "SatisElemaniAdiSoyadi");
+                int kullaniciID = Convert.ToInt32(Session["KullaniciID"]);
+                int gecerliSatisElemaniID = 0;  // Kullanıcıya atanmış satıs elemanı tespiti için
+                if (kullaniciID != 0)
+                {
+                    gecerliSatisElemaniID = Convert.ToInt32(db.Kullanicilar.SingleOrDefault(x => x.ID == kullaniciID).SatisElemaniID);
+                    ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi", gecerliSatisElemaniID);
+
+                }
+                else
+                {
+                    ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
+                }
                 return View();
             }
 

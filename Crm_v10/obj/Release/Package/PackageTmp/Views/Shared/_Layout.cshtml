@@ -341,6 +341,10 @@
                             <span class="clearfix"></span>
                         </li>
                         <li class="list-group-item">
+                            <a href="@Url.Action("Index", "MailGondermes")">Mail Gönderme Ayarları</a>
+                            <span class="clearfix"></span>
+                        </li>
+                        <li class="list-group-item">
                             <a href="@Url.Action("Index", "VeritabaniAyars")">Veritabanı Ayarları</a>
                             <span class="clearfix"></span>
                         </li>
@@ -623,6 +627,8 @@
             }
         })
     </script>
+
+    @*Mail yedekleme sorusu sorulan Popuptan alınan veriyi veritanına kaydetmek için aşağıdaki kodlama kullanılır*@
     <script>
         function MailLogOluştur(veri) {
             $.ajax({
@@ -637,6 +643,40 @@
                 },
                 error: function () {
                    
+                }
+            });
+        }
+    </script>
+    @* Crm kullanıcısının Zorunluluk Alanları Sectiği  Popupa veritabanından bilgi getirmek için  HomesControllerda CrmZorunlulukBilgisiGetir() metoduna  gider*@
+    <script>
+        function CrmZorunluluk(sayfa) {
+            $.ajax({
+                type: "POST",
+                url: "/Home/CrmZorunlulukBilgisiGetir",
+                data: "{sayfa:'" + sayfa + "'}",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data != "") {
+                        var veri = data.split('|');
+                        for (var i = 0; i < veri.length-1; i++) {
+                           
+                                if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
+                                    document.getElementById(veri[i-1] + "|checkbox").checked = true;
+                                    document.getElementById(veri[i - 1]).required = true;
+
+                                }
+                                else if (veri[i] == 0) {
+                                    document.getElementById(veri[i-1] + "|checkbox").checked = false;
+                                    document.getElementById(veri[i-1]).required = false;
+                                }
+                            
+                           
+                        }
+                        $("#CrmZorunlulukModal").modal("show");
+                    }
+                },
+                error: function () {
+
                 }
             });
         }

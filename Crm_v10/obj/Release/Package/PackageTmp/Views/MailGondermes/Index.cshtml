@@ -2,20 +2,21 @@
 @{
     ViewBag.Title = "Index";
 }
+
 @using (Html.BeginForm())
 {
     <div class="container">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <!-- Page-Title -->
         <div class="row col-sm-10">
-            <h2>Veritabanı Bağlantı Ayarları</h2>
+            <h2>Mail Gönderme Ayarları</h2>
             <div class="col-sm-12">
                 <ol class="breadcrumb">
                     <li>
                         <a href="#">Ayarlar</a>
                     </li>
                     <li>
-                        <a href="/VeritabaniAyars/Index">Veritabanı Bağlantı Ayarları</a>
+                        <a href="/MailGondermes/Index">Mail Gönderme Ayarları</a>
                     </li>
                 </ol>
             </div>
@@ -66,23 +67,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group col-lg-4 col-lg-push-1">
-                                    <label class="col-md-12 control-label w3-left-align">Sunucu Adı</label>
+                                    <label class="col-md-12 control-label w3-left-align">Email</label>
                                     <div class="col-md-12">
-                                        <input type="text" id="txtsunucu" name="txtsunucu" class="form-control" value="@ViewBag.SunucuAd" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-4 col-lg-push-2">
-                                    <label class="col-md-12 control-label w3-left-align">Veritabanı Adı</label>
-                                    <div class="col-md-12">
-                                        <input type="text" id="txtdatabase" name="txtdatabase" class="form-control" required data-parsley-maxlength="25" value="@ViewBag.VeritabaniAd" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-4 w3-col">
-                                </div>
-                                <div class="form-group col-lg-4 col-lg-push-1">
-                                    <label class="col-md-12 control-label w3-left-align">Kullanıcı Adı</label>
-                                    <div class="col-md-12">
-                                        <input type="text" id="txtkullanici" name="txtkullanici" class="form-control" required data-parsley-maxlength="25" value="@ViewBag.KullaniciAd" />
+                                        <input type="text" id="txtemail" name="txtemail" class="form-control" value="@ViewBag.Email" />
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-4 col-lg-push-2">
@@ -95,7 +82,7 @@
                                     <input type="submit" value="Kaydet" class="col-lg-3 btn btn-default waves-light col-lg-push-4 w3-margin-top" />
                                 </div>
                                 <div class="col-sm-12">
-                                   <span style="margin-left:35%">@ViewBag.Mesaj </span> 
+                                    <span style="margin-left:35%">@ViewBag.Mesaj </span>
                                 </div>
                             </div>
                         </div>

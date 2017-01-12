@@ -218,6 +218,7 @@
     <Compile Include="Models\AksiyonSecim.cs" />
     <Compile Include="Models\Crmv10DB.cs" />
     <Compile Include="Models\Durum.cs" />
+    <Compile Include="Models\GereklilikAlanlari.cs" />
     <Compile Include="Models\Gorev.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Iller.cs" />

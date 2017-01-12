@@ -34,7 +34,6 @@ namespace Crm_v10.Models
         [Display(Name = "Deðiþtirilen Tarih")]
 
         public DateTime? DegistirilenTarih { get; set; }
-
         public virtual Kullanicilar Kullanicilar { get; set; }
 
         public virtual Kullanicilar Kullanicilar1 { get; set; }

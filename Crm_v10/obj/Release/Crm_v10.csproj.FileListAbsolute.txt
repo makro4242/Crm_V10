@@ -79,3 +79,4 @@ C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Secur
 C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\obj\Release\Crm_v10.dll
 C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\obj\Release\Crm_v10.pdb
+C:\Users\Sema-Seda\Desktop\Makro\Github\Crm_V10\Crm_v10\obj\Release\Crm_v10.csprojResolveAssemblyReference.cache

@@ -17,6 +17,7 @@ namespace Crm_v10.Models
 
         public int ID { get; set; }
 
+        [Required]
         [StringLength(150)]
         [Display(Name = "Aksiyon Adý")]
 

@@ -14,6 +14,7 @@ namespace Crm_v10.Controllers
     {
         private Crmv10DB db = new Crmv10DB();
        
+        
         // GET: Potansiyels
         public ActionResult Index()
         {
@@ -55,12 +56,22 @@ namespace Crm_v10.Controllers
         {
             if (Session["KullaniciID"] != null)
             {
+                int kullaniciID = Convert.ToInt32(Session["KullaniciID"]);
+                int gecerliSatisElemaniID = 0;  // Kullanıcıya atanmış satıs elemanı tespiti için
+                if (kullaniciID!=0)
+                {
+                    gecerliSatisElemaniID = Convert.ToInt32(db.Kullanicilar.SingleOrDefault(x=>x.ID==kullaniciID).SatisElemaniID);
+                    ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi",gecerliSatisElemaniID);
 
+                }
+                else
+                {
+                    ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi" );
+                }
                 ViewBag.Yetkili = new SelectList(db.Yetkili.Where(x=>x.GosterimDurumu!="0"), "Id", "FullName");
                 ViewBag.Sektor = new SelectList(db.Sektor.Where(x=>x.GosterimDurumu!="0"), "Id", "SektorAd");
                 ViewBag.Ulke = new SelectList(db.Ulkeler, "Id", "UlkeAdi");
                 ViewBag.Il = new SelectList(db.Iller, "Id", "IlAdi");
-                ViewBag.SatisElemani = new SelectList(db.SatisElemanlari.Where(x => x.GosterimDurumu != "0"), "Id", "SatisElemaniAdiSoyadi");
                 return View();
             }
 
