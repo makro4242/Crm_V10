@@ -34,16 +34,17 @@
     <script src="/Content/js/modernizr.min.js"></script>
 
     <style>
-      table{
-            font-size:12px;
+        table {
+            font-size: 12px;
         }
-        table td{
-            height:20px;
-            vertical-align:middle;
-            display:table-cell;
-            white-space:nowrap;
-            overflow:hidden
-        }
+
+            table td {
+                height: 20px;
+                vertical-align: middle;
+                display: table-cell;
+                white-space: nowrap;
+                overflow: hidden;
+            }
     </style>
 
 
@@ -245,10 +246,10 @@
                             <a href="#" class="waves-effect"><i class="ion-pricetags"></i><span> Raporlar </span> </a>
                             <ul class="list-unstyled">
                                 @*<li><a href="@Url.Action("Index", "Gorevs")">Görev Ekleme</a></li>
-                                <li><a href="@Url.Action("Index", "Aksiyons")">Aksiyon Ekleme</a></li>*@
+                                    <li><a href="@Url.Action("Index", "Aksiyons")">Aksiyon Ekleme</a></li>*@
                             </ul>
                         </li>
-                        
+
                         @*@if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0")
                             {
                                 <li class="has_sub">
@@ -296,8 +297,8 @@
                     </div>
                 </div>
                 @*<div class="row col-sm-2" style="display:none">
-                    <a href="javascript;" id="mail_btn" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
-                </div>*@
+                        <a href="javascript;" id="mail_btn" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+                    </div>*@
                 <!-- end Modal -->
                 <!-- Start content -->
                 @RenderBody()
@@ -318,7 +319,7 @@
                 <h4 class="text-center">Ayarlar</h4>
                 <div class="contact-list nicescroll">
                     <ul class="list-group contacts-list">
-                       
+
                         <li class="list-group-item">
                             <a href="@Url.Action("Index", "Kullanicilars")">Kullanıcı Tanıtım Kartı</a>
                             <span class="clearfix"></span>
@@ -363,7 +364,7 @@
                     </ul>
                 </div>
             </div>
-            
+
         }
         <!-- /Right-bar -->
     </div>
@@ -485,19 +486,12 @@
         $(document).ready(function () {
 
             $('input.' + "harf").keypress(function (evt) {
-
                 var charCode = (evt.which) ? evt.which : event.keyCode
-
                 //Bu şartımız ile harf girildiği takdirde true olarak geri dönüş sağlıyoruz.
-                if (((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97) || charCode == 8) || charCode == 350 || charCode == 351 || charCode == 304 || charCode == 286 || charCode == 287 || charCode == 231 || charCode == 199 || charCode == 305 || charCode == 214 || charCode == 246 || charCode == 220 || charCode == 252 || charCode==32) {
-
+                if (((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97) || charCode == 8) || charCode == 350 || charCode == 351 || charCode == 304 || charCode == 286 || charCode == 287 || charCode == 231 || charCode == 199 || charCode == 305 || charCode == 214 || charCode == 246 || charCode == 220 || charCode == 252 || charCode == 32) {
                     return true;
-
                 }
-
                 return false;
-
-
             });
 
         });
@@ -515,6 +509,7 @@
         });
     </script>
     <script>
+//O gunku tarih değerini tarih alanına yazdırır Create sayfalarında
         $(document).ready(function () {
             var today = new Date();
             var dd = today.getDate();
@@ -533,13 +528,15 @@
             $(".tarihCreate").val(today);
         })
     </script>
-    <script>//dropdownlistler için
+    <script>
+//dropdownlistler için
         jQuery(document).ready(function () {
             // Select2
             $(".select2").select2();
         });
     </script>
     <script>
+// Yetkili Kodu Potansiyel Kodu gibi alanlarda ver,tabanındaki en son kayıt kodunu alıp 1 ekleyip kodu alanına geri döndürür
         $(document).ready(function () {
             $(".koduTamamla").keydown(function (e) {
                 if ((e.which || e.keyCode) == 112) {
@@ -580,9 +577,10 @@
         })
     </script>
     <script type="text/javascript">
+// Görev Kodu alanı için
         $(document).ready(function () {
 
-            if ($("#sayfa").hasClass("sayfa")) {
+            if ($("#sayfa").hasClass("gorev")) {
                 var sayfa = document.getElementById("sayfa").value;
                 $.ajax({
                     type: "POST",
@@ -596,7 +594,7 @@
                         else { document.querySelector('.GorevEkleKodu').value = data; }
                     },
                     error: function () {
-                        
+                        swal('Hata', 'error');
                     }
                 });
             }
@@ -621,7 +619,7 @@
                         }
                     },
                     error: function () {
-
+                        swal('Hata', 'error');
                     }
                 });
             }
@@ -642,14 +640,14 @@
                     }
                 },
                 error: function () {
-                   
+                    swal('Hata', 'error');
                 }
             });
         }
     </script>
     @* Crm kullanıcısının Zorunluluk Alanları Sectiği  Popupa veritabanından bilgi getirmek için  HomesControllerda CrmZorunlulukBilgisiGetir() metoduna  gider*@
     <script>
-        function CrmZorunluluk(sayfa) {
+        function Zorunluluk(sayfa) {
             $.ajax({
                 type: "POST",
                 url: "/Home/CrmZorunlulukBilgisiGetir",
@@ -658,28 +656,140 @@
                 success: function (data) {
                     if (data != "") {
                         var veri = data.split('|');
-                        for (var i = 0; i < veri.length-1; i++) {
-                           
-                                if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
-                                    document.getElementById(veri[i-1] + "|checkbox").checked = true;
-                                    document.getElementById(veri[i - 1]).required = true;
+                        var kullaniciID = '@Session["KullaniciID"].ToString()';
+                        if (kullaniciID == 0) {
+                            if (veri.length > 0) {
+                                for (var i = 0; i < veri.length - 1; i++) {
+
+                                    if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
+                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
+                                        document.getElementById(veri[i - 1] + "|checkboxCRM").checked = true;
+                                        document.getElementById(veri[i - 1]).required = true;
+
+                                    }
+                                    else if (veri[i] == 0) {
+                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
+                                        document.getElementById(veri[i - 1] + "|checkboxCRM").checked = false;
+                                        document.getElementById(veri[i - 1]).required = false;
+                                    }
+
 
                                 }
-                                else if (veri[i] == 0) {
-                                    document.getElementById(veri[i-1] + "|checkbox").checked = false;
-                                    document.getElementById(veri[i-1]).required = false;
-                                }
-                            
+                            }
                            
                         }
-                        $("#CrmZorunlulukModal").modal("show");
+                        else {
+                          
+                            if (veri.length > 0) {
+                                for (var i = 0; i < veri.length - 1; i++) {
+
+                                    if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
+                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
+                                        document.getElementById(veri[i - 1] + "|checkbox").checked = true;
+                                        document.getElementById(veri[i - 1]).required = true;
+
+                                    }
+                                    else if (veri[i] == 0) {
+                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
+                                        document.getElementById(veri[i - 1] + "|checkbox").checked = false;
+                                        document.getElementById(veri[i - 1]).required = false;
+                                    }
+
+                                }
+                            }
+                        }
+
                     }
                 },
                 error: function () {
-
+                    swal('Hata', 'error');
                 }
             });
         }
     </script>
+    <!--Create ve Edit Sayfalarında Zorunlu Alanlarda ki Inputlara Requried Degeri Ataması ve Zorunlu alanları göstermemiz gerekir bunun için javascript te Zorunluluk metodunu cagırmayı asagıdaki kodlama ile saglarız-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($("#sayfa").hasClass("sayfa")) {
+                var sayfa = document.getElementById("sayfa").value;
+                Zorunluluk(sayfa);
+            }
+
+        });
+    </script>
+    <script>
+        function ZorunluAlanDegisiklik(alanlar) {
+            if (alanlar != "") {
+                var sonuc = "";
+                var veri = alanlar.split('|');
+                var sayfa = document.getElementById("sayfa").value;
+                for (var i = 0; i < veri.length; i++) {
+                    if (document.getElementById(veri[i] + "|checkboxCRM").checked) {
+                        sonuc += veri[i] + "|" + "1|";
+                    }
+                    else {
+                        sonuc += veri[i] + "|" + "0|";
+                    }
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/CrmZorunlulukBilgisiDegisikligi",
+                    data: '{"sayfa":"' + sayfa + '","veri":"' + sonuc + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        var donenSonuc = data.split('|');
+                        if (donenSonuc[0] == "1") {
+                            swal('Basarılı', 'succes');
+                            var kullaniciID = '@Session["KullaniciID"].ToString()';
+                            if (kullaniciID == 0) {
+                                for (var i = 1; i < donenSonuc.length - 1; i++) {
+
+                                    if (donenSonuc[i] == 1) {// bu alanlar zorunlu alanlardır.
+                                        alert("alan=" + donenSonuc[i - 1] + " deger=" + donenSonuc[i]);
+                                        document.getElementById(donenSonuc[i - 1] + "|checkboxCRM").checked = true;
+                                        document.getElementById(donenSonuc[i - 1]).required = true;
+
+                                    }
+                                    else if (donenSonuc[i] == 0) {
+                                        alert("alan=" + donenSonuc[i - 1] + " deger=" + donenSonuc[i]);
+                                        document.getElementById(donenSonuc[i - 1] + "|checkboxCRM").checked = false;
+                                        document.getElementById(donenSonuc[i - 1]).required = false;
+                                    }
+
+
+                                }
+                            }
+                            else {
+                                for (var i = 0; i < donenSonuc.length - 1; i++) {
+
+                                    if (donenSonuc[i] == 1) {// bu alanlar zorunlu alanlardır.
+                                        document.getElementById(donenSonuc[i - 1] + "|checkbox").checked = true;
+                                        document.getElementById(donenSonuc[i - 1]).required = true;
+
+                                    }
+                                    else if (veri[i] == 0) {
+                                        document.getElementById(donenSonuc[i - 1] + "|checkbox").checked = false;
+                                        document.getElementById(donenSonuc[i - 1]).required = false;
+                                    }
+
+
+                                }
+                            }
+
+
+                        }
+                        else {
+                            var hataMesaji = data.split('|');
+                            swal(hataMesaji[1], 'error');
+                        }
+                    },
+                    error: function () {
+                        swal('Hata', 'error');
+                    }
+                });
+            }
+        }
+    </script>
+
 </body>
 </html>

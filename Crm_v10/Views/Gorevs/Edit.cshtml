@@ -8,6 +8,7 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
+        <input type="hidden" id="sayfa" class="sayfa" name="sayfa" value="Gorevs" />
         <div class="row col-sm-9">
             <h2>Görev</h2>
 
@@ -25,6 +26,7 @@
                 </ol>
             </div>
         </div>
+        @*------------------------------------------------------Kısayol Başlangıç-----------------------------------------------------------------------*@
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -61,9 +63,173 @@
                 </div>
             </div>
         </div>
-        <div class="row col-sm-2">
-            <a href="#" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+        @*-------------------------------------------------------------Kısayol Bitiş---------------------------------------------------------------*@
+
+        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
+        <div id="KullaniciZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Alanların Zorunluluk Durumu</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Potansiyel</td>
+                                        <td><input type="checkbox" id="PotansiyelID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Satış Elemanı</td>
+                                        <td><input type="checkbox" id="SatisElemaniID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Durum</td>
+                                        <td><input type="checkbox" id="DurumID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Öncelik</td>
+                                        <td><input type="checkbox" id="Oncelik|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Açıklama</td>
+                                        <td><input type="checkbox" id="Aciklama|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tarih</td>
+                                        <td><input type="checkbox" id="Tarih|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Para Birimi</td>
+                                        <td><input type="checkbox" id="ParaBirimi|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tahmini Tutar</td>
+                                        <td><input type="checkbox" id="TahminiTutar|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Not</td>
+                                        <td><input type="checkbox" id="GorevNot|checkbox" disabled /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+        @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
+        <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Zorunluluk Alanı Seçimi</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Potansiyel</td>
+                                        <td><input type="checkbox" id="PotansiyelID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Satış Elemanı</td>
+                                        <td><input type="checkbox" id="SatisElemaniID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Durum</td>
+                                        <td><input type="checkbox" id="DurumID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Öncelik</td>
+                                        <td><input type="checkbox" id="Oncelik|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Açıklama</td>
+                                        <td><input type="checkbox" id="Aciklama|checkboxCRM" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tarih</td>
+                                        <td><input type="checkbox" id="Tarih|checkboxCRM" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Para Birimi</td>
+                                        <td><input type="checkbox" id="ParaBirimi|checkboxCRM" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tahmini Tutar</td>
+                                        <td><input type="checkbox" id="TahminiTutar|checkboxCRM" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Not</td>
+                                        <td><input type="checkbox" id="GorevNot|checkboxCRM" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" onclick="javascript: ZorunluAlanDegisiklik('Aciklama|Tarih|ParaBirimi|TahminiTutar|GorevNot')" margin-right:5%" class="btn btn-default waves-effect waves-light">Kaydet</a>
+                        <a href="#" margin-right:5%" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Kapat</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+
+        @*------------------------------------------------------Pop Up Butonları Başlangıç--------------------------------------------------------------*@
+        <div class="row col-sm-2">
+            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" style="margin-right:5%" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            @try
+            {
+                if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0") //Crm Girdi ise
+                {
+                    <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
+                }
+                else //Normal kullanıcı girdi ise
+                {
+                    <a href="#" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#KullaniciZorunlulukModal"><i class="ion-gear-b"></i></a>
+
+                }
+            }
+            catch
+            {
+                Response.Redirect(@Url.Action("LoginPage", "Home"));
+            }
+        </div>
+        @*------------------------------------------------------Pop Up Butonları Bitis--------------------------------------------------------------*@
         <div class="row">
             <div class="col-lg-6">
                 <div class="card-box">
@@ -75,14 +241,14 @@
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
+                                
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.ID)
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.ID, "*Görev Kodu", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.ID, "Görev Kodu", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 <input type="text" name="GorevKodu" id="GorevKodu" disabled class="form-control" value="@Model.ID" />
                             </div>
@@ -90,7 +256,7 @@
                      
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Tarih, "*Tarih", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.Tarih, "Tarih", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.Tarih, new { htmlAttributes = new { @class = "form-control tarih", @maxlength = "10" } })
                                 @Html.ValidationMessageFor(model => model.Tarih, "", new { @class = "text-danger" })
@@ -98,7 +264,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelID, "*Potansiyel Unvanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.PotansiyelID, "Potansiyel Unvanı", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelID", (IEnumerable<SelectListItem>)ViewBag.PotansiyelID, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelID, "", new { @class = "text-danger" })
@@ -106,21 +272,21 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SatisElemaniID, "*Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.SatisElemaniID, "Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("SatisElemaniID", (IEnumerable<SelectListItem>)ViewBag.SatisElemani, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniID, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.ParaBirimi, "*Para Birimi", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.ParaBirimi, "Para Birimi", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("ParaBirimi", (IEnumerable<SelectListItem>)ViewBag.ParaGosterim, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.ParaBirimi, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.TahminiTutar, "*Tahmini Tutar", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.TahminiTutar, "Tahmini Tutar", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 <input type="text" id="editPara" class="form-control para sayi" style="text-align:right" value="@ViewBag.TahminiTutar" />
                                 @Html.EditorFor(model => model.TahminiTutar, new { htmlAttributes = new { @class = "form-control gosterilmeyenparaformati editpara", @style = "text-align:right; display:none" } })
@@ -135,7 +301,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.GorevNot, "*Görev Not", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.GorevNot, "Görev Not", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.TextAreaFor(model => model.GorevNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
                                 @Html.ValidationMessageFor(model => model.GorevNot, "", new { @class = "text-danger" })
@@ -143,7 +309,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Durum, "*Durum", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.Durum, "Durum", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @*@Html.EditorFor(model => model.Durum, new { htmlAttributes = new { @class = "form-control" } })*@
                                 @Html.DropDownList("DurumID", (IEnumerable<SelectListItem>)ViewBag.DurumGosterim, htmlAttributes: new { @class = "form-control select2" })
@@ -152,7 +318,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Oncelik, "*Öncelik", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.Oncelik, "Öncelik", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @*@Html.EditorFor(model => model.Oncelik, new { htmlAttributes = new { @class = "form-control" } })*@
                                 @Html.DropDownList("Oncelik", (IEnumerable<SelectListItem>)ViewBag.OncelikGosterim, htmlAttributes: new { @class = "form-control select2" })

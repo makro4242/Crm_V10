@@ -10,6 +10,7 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
+        <input type="hidden" id="sayfa" class="sayfa" name="sayfa" value="Potansiyels" />
         <div class="row col-sm-9">
             <h2>Potansiyel Tanıtım Kartı</h2>
             
@@ -27,6 +28,7 @@
                 </ol>
             </div>
         </div>
+        @*------------------------------------------------------Kısayol Başlangıç-----------------------------------------------------------------------*@
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -63,9 +65,236 @@
                 </div>
             </div>
         </div>
-        <div class="row col-sm-2">
-            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+        @*------------------------------------------------------Kısayol Bitiş-----------------------------------------------------------------------*@
+        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
+        <div id="KullaniciZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Alanların Zorunluluk Durumu</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Potansiyel Kodu</td>
+                                        <td><input type="checkbox" id="PotansiyelKodu|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Potansiyel Ünvanı</td>
+                                        <td><input type="checkbox" id="PotansiyelUnvani|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yetkili</td>
+                                        <td><input type="checkbox" id="PotansiyelYetkiliID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ülke</td>
+                                        <td><input type="checkbox" id="PotansiyelUlkeKodu|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>İl</td>
+                                        <td><input type="checkbox" id="PotansiyelIl|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sektör</td>
+                                        <td><input type="checkbox" id="PotansiyelSektorID|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Satış Elemanı</td>
+                                        <td><input type="checkbox" id="PotansiyelSatisElemani|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adres</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresi|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adres UIN Kodu</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresiUINKodu|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gps Enlem</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresGpsEnlem|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gps Boylam</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresGpsBoylam|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>İlçe</td>
+                                        <td><input type="checkbox" id="PotansiyelIlce|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vergi Dairesi</td>
+                                        <td><input type="checkbox" id="PotansiyelVergiDairesi|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vergi Numarası</td>
+                                        <td><input type="checkbox" id="PotansiyelVergiNumarasi|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><input type="checkbox" id="PotansiyelEmail|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Web Adresi</td>
+                                        <td><input type="checkbox" id="PotansiyelWebAdresi|checkbox" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Not</td>
+                                        <td><input type="checkbox" id="PotansiyelNot|checkbox" disabled /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+        @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
+        <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Zorunluluk Alanı Seçimi</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Potansiyel Kodu</td>
+                                        <td><input type="checkbox" id="PotansiyelKodu|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Potansiyel Ünvanı</td>
+                                        <td><input type="checkbox" id="PotansiyelUnvani|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yetkili</td>
+                                        <td><input type="checkbox" id="PotansiyelYetkiliID|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ülke</td>
+                                        <td><input type="checkbox" id="PotansiyelUlkeKodu|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>İl</td>
+                                        <td><input type="checkbox" id="PotansiyelIl|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sektör</td>
+                                        <td><input type="checkbox" id="PotansiyelSektorID|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Satış Elemanı</td>
+                                        <td><input type="checkbox" id="PotansiyelSatisElemani|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adres</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresi|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adres UIN Kodu</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresiUINKodu|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gps Enlem</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresGpsEnlem|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gps Boylam</td>
+                                        <td><input type="checkbox" id="PotansiyelAdresGpsBoylam|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>İlçe</td>
+                                        <td><input type="checkbox" id="PotansiyelIlce|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vergi Dairesi</td>
+                                        <td><input type="checkbox" id="PotansiyelVergiDairesi|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vergi Numarası</td>
+                                        <td><input type="checkbox" id="PotansiyelVergiNumarasi|checkboxCRM" disabled /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><input type="checkbox" id="PotansiyelEmail|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Web Adresi</td>
+                                        <td><input type="checkbox" id="PotansiyelWebAdresi|checkboxCRM"  /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Not</td>
+                                        <td><input type="checkbox" id="PotansiyelNot|checkboxCRM" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" onclick="javascript: ZorunluAlanDegisiklik('PotansiyelAdresi|PotansiyelAdresiUINKodu|PotansiyelAdresGpsEnlem|PotansiyelAdresGpsBoylam|PotansiyelIlce|PotansiyelVergiDairesi|PotansiyelVergiNumarasi|PotansiyelWebAdresi|PotansiyelNot')" margin-right:5%" class="btn btn-default waves-effect waves-light">Kaydet</a>
+                        <a href="#" margin-right:5%" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Kapat</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @*------------------------------------------------------Crm Zorunluluk Bitiş-----------------------------------------------------------------------*@
+
+        @*------------------------------------------------------Pop Up Butonları Başlangıç--------------------------------------------------------------*@
+        <div class="row col-sm-2">
+            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" style="margin-right:5%" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            @try
+            {
+                if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0") //Crm Girdi ise
+                {
+                    <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
+                }
+                else //Normal kullanıcı girdi ise
+                {
+                    <a href="#" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#KullaniciZorunlulukModal"><i class="ion-gear-b"></i></a>
+
+                }
+            }
+            catch
+            {
+                Response.Redirect(@Url.Action("LoginPage", "Home"));
+            }
+        </div>
+        @*------------------------------------------------------Pop Up Butonları Bitis--------------------------------------------------------------*@
 
         <div class="row">
             <div class="col-lg-6">
@@ -75,16 +304,15 @@
                         <b>POTANSİYEL BİLGİLERİ YENİ KAYIT</b>
                     </h4>
                     <div class="form-horizontal">
-                        <input type="hidden" id="sayfa" name="sayfa" value="Potansiyels" />
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
+                                
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelKodu,"*Potansiyel Kodu" ,htmlAttributes: new { @class = "control-label col-md-4 ", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelKodu,"Potansiyel Kodu" ,htmlAttributes: new { @class = "control-label col-md-4 ", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelKodu, new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelKodu, "", new { @class = "text-danger" })
@@ -92,7 +320,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.PotansiyelUnvani, "*Ünvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.PotansiyelUnvani, "Ünvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelUnvani, new { htmlAttributes = new { @class = "form-control", @maxlength = "150" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelUnvani, "", new { @class = "text-danger" })
@@ -108,7 +336,7 @@
                         </div>
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelYetkiliID, "*Yetkili", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelYetkiliID, "Yetkili", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelYetkiliID", (IEnumerable<SelectListItem>)ViewBag.Yetkili, new { @class = "form-control select2" })
                             </div>
@@ -137,7 +365,7 @@
                         </div>
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelUlkeKodu, "*Ülke", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelUlkeKodu, "Ülke", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelUlkeKodu", (IEnumerable<SelectListItem>)ViewBag.Ulke, new { @class = "form-control select2" })
                             </div>
@@ -151,7 +379,7 @@
                         </div>*@
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelIl, "*İl", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelIl, "İl", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelIl", (IEnumerable<SelectListItem>)ViewBag.Il, new { @class = "form-control select2" })
                             </div>
@@ -205,7 +433,7 @@
 
                         <div class="form-group">
 
-                            @Html.LabelFor(Model => Model.PotansiyelSektorID, "*Sektör", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelSektorID, "Sektör", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelSektorID", (IEnumerable<SelectListItem>)ViewBag.Sektor, new { @class = "form-control select2" })
                             </div>
@@ -220,7 +448,7 @@
                         </div>
                         <div class="form-group">
                            
-                            @Html.LabelFor(Model => Model.PotansiyelSatisElemani, "*Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(Model => Model.PotansiyelSatisElemani, "Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelSatisElemani", (IEnumerable<SelectListItem>)ViewBag.SatisElemani, new{ @class = "form-control select2" })
                             </div>

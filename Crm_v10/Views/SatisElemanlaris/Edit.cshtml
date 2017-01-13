@@ -5,6 +5,7 @@
     @Html.AntiForgeryToken()
 
     <div class="container">
+        <input type="hidden" id="sayfa" class="sayfa" name="sayfa" value="SatisElemanlaris" />
         <div class="row col-sm-9">
             <h2>Satış Elemanları Tanıtım Kartı</h2>
             <div class="col-sm-12">
@@ -21,6 +22,7 @@
                 </ol>
             </div>
         </div>
+        @*-------------------------------------------------------------Kısayol Baslangıç---------------------------------------------------------------*@
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -57,46 +59,158 @@
                 </div>
             </div>
         </div>
-        <div class="row col-sm-2">
-            <a href="#" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+        @*-------------------------------------------------------------Kısayol Bitiş---------------------------------------------------------------*@
+        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
+        <div id="KullaniciZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Alanların Zorunluluk Durumu</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Satış Elemanı Kodu</td>
+                                        <td><input type="checkbox" id="SatisElemaniKodu|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ad Soyad</td>
+                                        <td><input type="checkbox" id="SatisElemaniAdiSoyadi|checkbox" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><input type="checkbox" id="SatisElemaniEmail|checkbox" disabled checked /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+        @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
+        <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Zorunluluk Alanı Seçimi</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-lg-12" style="background-color:white">
+                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Alanlar
+                                        </th>
+                                        <th>
+                                            Zorunluluk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Satış Elemanı Kodu</td>
+                                        <td><input type="checkbox" id="SatisElemaniKodu|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ad Soyad</td>
+                                        <td><input type="checkbox" id="SatisElemaniAdiSoyadi|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><input type="checkbox" id="SatisElemaniEmail|checkboxZorunlu" disabled checked /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+
+        @*------------------------------------------------------Pop Up Butonları Başlangıç--------------------------------------------------------------*@
+        <div class="row col-sm-2">
+            <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" style="margin-right:5%" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            @try
+            {
+                if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0") //Crm Girdi ise
+                {
+                    <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
+                }
+                else //Normal kullanıcı girdi ise
+                {
+                    <a href="#" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#KullaniciZorunlulukModal"><i class="ion-gear-b"></i></a>
+
+                }
+            }
+            catch
+            {
+                Response.Redirect(@Url.Action("LoginPage", "Home"));
+            }
+        </div>
+        @*------------------------------------------------------Pop Up Butonları Bitis--------------------------------------------------------------*@
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
                 <div class="card-box">
                     <h2>Düzenle</h2>
                     <h4 class="m-t-0 header-title">
                         <b>SATIŞ ELEMANLARI BİLGİLERİNİ DÜZENLE</b>
                     </h4>
                     <div class="form-horizontal">
-                        <input type="hidden" id="sayfa" name="sayfa" value="SatisElemanlaris" />
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                <span class="control-label">(*) Alanlar Zorunlu Alanlardır .</span>
+                                
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.ID)
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SatisElemaniKodu,"*Satış Elemanı Kodu" ,htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            @Html.LabelFor(model => model.SatisElemaniKodu,"Satış Elemanı Kodu" ,htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.SatisElemaniKodu, new { htmlAttributes = new { @class = "form-control koduTamamla" } })
+                                @Html.EditorFor(model => model.SatisElemaniKodu, new { htmlAttributes = new { @class = "form-control koduTamamla", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniKodu, "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SatisElemaniAdiSoyadi,"*Ad Soyad", htmlAttributes: new { @class = "control-label col-md-4" })
+                            @Html.LabelFor(model => model.SatisElemaniAdiSoyadi,"Ad Soyad", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.SatisElemaniAdiSoyadi, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "100" } })
+                                @Html.EditorFor(model => model.SatisElemaniAdiSoyadi, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "100", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniAdiSoyadi, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.SatisElemaniEmail, "Email", htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-7">
-                                @Html.EditorFor(model => model.SatisElemaniEmail, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
+                                @Html.EditorFor(model => model.SatisElemaniEmail, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniEmail, "", new { @class = "text-danger" })
                             </div>
                         </div>

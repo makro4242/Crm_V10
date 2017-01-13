@@ -33,7 +33,7 @@ namespace Crm_v10.Controllers
             {
 
                 Session["KullaniciID"] = 0;
-                Session["KullaniciAd"] ="Crm";
+                Session["KullaniciAd"] = "Crm";
                 Session["MailSayac"] = "0";
                 return RedirectToAction("Index", "Home");
 
@@ -41,7 +41,7 @@ namespace Crm_v10.Controllers
             }
             else
             {
-                infoKullanicilar = db.Kullanicilar.SingleOrDefault(x => x.KullaniciKodu == kullaniciKodu && x.KullaniciSifresi == sifre && x.GosterimDurumu!="0");
+                infoKullanicilar = db.Kullanicilar.SingleOrDefault(x => x.KullaniciKodu == kullaniciKodu && x.KullaniciSifresi == sifre && x.GosterimDurumu != "0");
 
                 if (infoKullanicilar != null)
                 {
@@ -68,15 +68,45 @@ namespace Crm_v10.Controllers
         public JsonResult CrmZorunlulukBilgisiGetir(string sayfa)
         {
             string sonuc = "";
-            List<GereklilikAlanlari> bilgiler = db.GereklilikAlanlari.Where(x=>x.SayfaAdi==sayfa).ToList();
-            if(bilgiler.Count()>0)
+            List<GereklilikAlanlari> bilgiler = db.GereklilikAlanlari.Where(x => x.SayfaAdi == sayfa).ToList();
+            if (bilgiler.Count() > 0)
             {
-               
+
                 foreach (var item in bilgiler)
                 {
-                    sonuc += item.GerekliAlanAdlari + "|" +( (item.GereklilikDurumu ==null) ? "0" : item.GereklilikDurumu)+ "|";
+                    sonuc += item.GerekliAlanAdlari + "|" + ((item.GereklilikDurumu == null) ? "0" : item.GereklilikDurumu) + "|";
                 }
 
+            }
+
+            return Json(sonuc, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult CrmZorunlulukBilgisiDegisikligi(string sayfa, string veri)
+        {
+            string sonuc = "";
+            if (veri.Trim().Length > 0 && sayfa.Trim().Length > 0)
+            {
+                string[] alanlarDegerler = new string[veri.Split('|').Count()];
+                alanlarDegerler = veri.Split('|');
+                try
+                {
+                    List<GereklilikAlanlari> results = (from p in db.GereklilikAlanlari
+                                                        where p.SayfaAdi == sayfa
+                                                        select p).ToList();
+                    int i = 1;
+                    foreach (GereklilikAlanlari p in results)
+                    {
+                        p.GereklilikDurumu = alanlarDegerler[i];
+                        i += 2;
+                    }
+                    db.SaveChanges();
+                    sonuc = "1|" + veri;
+                }
+
+                catch (Exception ex)
+                {
+                    sonuc = "0|Hata :" + ex;
+                }
             }
 
             return Json(sonuc, JsonRequestBehavior.AllowGet);
@@ -84,6 +114,6 @@ namespace Crm_v10.Controllers
         public ActionResult _404()
         {
             return View();
-        }        
+        }
     }
 }
