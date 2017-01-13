@@ -62,6 +62,7 @@ namespace Crm_v10.Models
             }
         }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aksiyon> Aksiyon { get; set; }
 

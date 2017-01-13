@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
     <File Include="bin/Crm_v10.dll">
-      <publishTime>01/13/2017 17:00:43</publishTime>
+      <publishTime>01/13/2017 18:07:34</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/15/2016 17:44:36</publishTime>
@@ -8504,7 +8504,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/13/2017 15:17:52</publishTime>
+      <publishTime>01/13/2017 17:29:09</publishTime>
     </File>
     <File Include="Views/VeritabaniAyars/Index.cshtml">
       <publishTime>01/11/2017 17:50:25</publishTime>
@@ -8531,7 +8531,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/12/2017 18:13:53</publishTime>
+      <publishTime>01/13/2017 18:07:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

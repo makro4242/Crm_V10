@@ -19,7 +19,6 @@ namespace Crm_v10.Models
 
         [StringLength(150)]
         [Display(Name = "Durum Adý")]
-
         public string DurumAdi { get; set; }
 
         [StringLength(2)]

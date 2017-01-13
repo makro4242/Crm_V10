@@ -26,15 +26,11 @@ namespace Crm_v10.Models
         public virtual DbSet<Sektor> Sektor { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Ulkeler> Ulkeler { get; set; }
+        public virtual DbSet<YetkilendirmeAyar> YetkilendirmeAyar { get; set; }
         public virtual DbSet<Yetkili> Yetkili { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AksiyonSecim>()
-                .HasMany(e => e.Aksiyon)
-                .WithRequired(e => e.AksiyonSecim)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Durum>()
                 .HasMany(e => e.Gorev)
                 .WithRequired(e => e.Durum)
@@ -70,6 +66,11 @@ namespace Crm_v10.Models
 
             modelBuilder.Entity<Kullanicilar>()
                 .HasMany(e => e.MailYedeklemeLog)
+                .WithOptional(e => e.Kullanicilar)
+                .HasForeignKey(e => e.KullaniciID);
+
+            modelBuilder.Entity<Kullanicilar>()
+                .HasMany(e => e.YetkilendirmeAyar)
                 .WithOptional(e => e.Kullanicilar)
                 .HasForeignKey(e => e.KullaniciID);
 

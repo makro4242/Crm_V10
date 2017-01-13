@@ -9,7 +9,6 @@ namespace Crm_v10.Models
     [Table("Aksiyon")]
     public partial class Aksiyon
     {
-
         public int ID { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",
@@ -27,7 +26,7 @@ namespace Crm_v10.Models
 
         public int AksiyonSecimID { get; set; }
 
-      
+
         [Display(Name = "Aksiyon Not")]
         public string AksiyonNot { get; set; }
 
@@ -40,8 +39,6 @@ namespace Crm_v10.Models
         public string Ekler4 { get; set; }
 
         public string Ekler5 { get; set; }
-
-        public virtual AksiyonSecim AksiyonSecim { get; set; }
 
         public virtual Gorev Gorev { get; set; }
     }

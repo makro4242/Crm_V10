@@ -231,6 +231,7 @@
     <Compile Include="Models\Sektor.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Models\Ulkeler.cs" />
+    <Compile Include="Models\YetkilendirmeAyar.cs" />
     <Compile Include="Models\Yetkili.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

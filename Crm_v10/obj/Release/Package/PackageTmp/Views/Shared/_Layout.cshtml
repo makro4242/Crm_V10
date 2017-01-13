@@ -662,13 +662,11 @@
                                 for (var i = 0; i < veri.length - 1; i++) {
 
                                     if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
-                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
                                         document.getElementById(veri[i - 1] + "|checkboxCRM").checked = true;
                                         document.getElementById(veri[i - 1]).required = true;
 
                                     }
                                     else if (veri[i] == 0) {
-                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
                                         document.getElementById(veri[i - 1] + "|checkboxCRM").checked = false;
                                         document.getElementById(veri[i - 1]).required = false;
                                     }
@@ -684,13 +682,11 @@
                                 for (var i = 0; i < veri.length - 1; i++) {
 
                                     if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
-                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
                                         document.getElementById(veri[i - 1] + "|checkbox").checked = true;
                                         document.getElementById(veri[i - 1]).required = true;
 
                                     }
                                     else if (veri[i] == 0) {
-                                        alert("alan=" + veri[i - 1] + " deger=" + veri[i]);
                                         document.getElementById(veri[i - 1] + "|checkbox").checked = false;
                                         document.getElementById(veri[i - 1]).required = false;
                                     }
@@ -745,13 +741,11 @@
                                 for (var i = 1; i < donenSonuc.length - 1; i++) {
 
                                     if (donenSonuc[i] == 1) {// bu alanlar zorunlu alanlardır.
-                                        alert("alan=" + donenSonuc[i - 1] + " deger=" + donenSonuc[i]);
                                         document.getElementById(donenSonuc[i - 1] + "|checkboxCRM").checked = true;
                                         document.getElementById(donenSonuc[i - 1]).required = true;
 
                                     }
                                     else if (donenSonuc[i] == 0) {
-                                        alert("alan=" + donenSonuc[i - 1] + " deger=" + donenSonuc[i]);
                                         document.getElementById(donenSonuc[i - 1] + "|checkboxCRM").checked = false;
                                         document.getElementById(donenSonuc[i - 1]).required = false;
                                     }

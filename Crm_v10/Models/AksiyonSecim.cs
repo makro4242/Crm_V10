@@ -9,12 +9,6 @@ namespace Crm_v10.Models
     [Table("AksiyonSecim")]
     public partial class AksiyonSecim
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AksiyonSecim()
-        {
-            Aksiyon = new HashSet<Aksiyon>();
-        }
-
         public int ID { get; set; }
 
         [Required]
@@ -25,8 +19,5 @@ namespace Crm_v10.Models
 
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Aksiyon> Aksiyon { get; set; }
     }
 }

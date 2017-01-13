@@ -27,7 +27,6 @@ namespace Crm_v10.Models
         [StringLength(50)]
         [Display(Name = "Ülke Adý")]
         public string UlkeAdi { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Potansiyel> Potansiyel { get; set; }
     }

@@ -15,8 +15,8 @@ namespace Crm_v10.Models
             Log = new HashSet<Log>();
             Log1 = new HashSet<Log>();
             MailYedeklemeLog = new HashSet<MailYedeklemeLog>();
+            YetkilendirmeAyar = new HashSet<YetkilendirmeAyar>();
         }
-
 
         public int ID { get; set; }
 
@@ -42,7 +42,6 @@ namespace Crm_v10.Models
 
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
-
         public virtual SatisElemanlari SatisElemanlari { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -53,5 +52,8 @@ namespace Crm_v10.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MailYedeklemeLog> MailYedeklemeLog { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YetkilendirmeAyar> YetkilendirmeAyar { get; set; }
     }
 }
