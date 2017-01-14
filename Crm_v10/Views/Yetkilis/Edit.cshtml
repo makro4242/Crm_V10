@@ -29,6 +29,7 @@
                     </ol>
                 </div>
             </div>
+            @*------------------------------------------------------Kısayol Başlangıç-----------------------------------------------------------------------*@
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
@@ -65,9 +66,93 @@
                     </div>
                 </div>
             </div>
-            <div class="row col-sm-2">
-                <a href="#" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+            @*------------------------------------------------------Kısayol Bitiş-----------------------------------------------------------------------*@
+            @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
+            <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Zorunluluk Alanı Seçimi</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-lg-12" style="background-color:white">
+                                <table class="table datatable table-striped table-bordered" id="zorunluAlan">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Alanlar
+                                            </th>
+                                            <th>
+                                                Zorunluluk
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Yetkili Kodu</td>
+                                            <td><input type="checkbox" id="YetkiliKodu|checkboxZorunlu" disabled checked /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ad</td>
+                                            <td><input type="checkbox" id="YetkiliAd|checkboxZorunlu" disabled checked /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Soyad</td>
+                                            <td><input type="checkbox" id="YetkiliSoyad|checkboxZorunlu" disabled checked /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GSM1</td>
+                                            <td><input type="checkbox" id="YetkiliGSM1|checkboxCRM" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GSM2</td>
+                                            <td><input type="checkbox" id="YetkiliGSM2|checkboxCRM" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mail1</td>
+                                            <td><input type="checkbox" id="YetkiliMail1|checkboxCRM" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mail2</td>
+                                            <td><input type="checkbox" id="YetkiliMail2|checkboxCRM" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Doğum Tarihi</td>
+                                            <td><input type="checkbox" id="YetkiliDogumTarihi|checkboxCRM" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" onclick="javascript: ZorunluAlanDegisiklik('YetkiliGSM1|YetkiliGSM2|YetkiliMail1|YetkiliMail2|YetkiliDogumTarihi')" margin-right:5%" class="btn btn-default waves-effect waves-light">Kaydet</a>
+                            <a href="#" margin-right:5%" class="btn btn-default waves-effect waves-light" data-dismiss="modal">Kapat</a>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
+            @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
+
+            @*------------------------------------------------------Pop Up Butonları Başlangıç--------------------------------------------------------------*@
+            <div class="row col-sm-2">
+                <a href="javascript;" class="col-lg-3 btn btn-default col-lg-push-9" style="margin-right:5%" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-info-sign"></i></a>
+                @try
+                {
+                    if (Session["KullaniciID"].ToString() != null && Session["KullaniciID"].ToString() == "0") //Crm Girdi ise
+                    {
+                        <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
+                    }
+                }
+                catch
+                {
+                    Response.Redirect(@Url.Action("LoginPage", "Home"));
+                }
+            </div>
+            @*------------------------------------------------------Pop Up Butonları Bitis--------------------------------------------------------------*@
             <div class="col-lg-6">
                 <div class="card-box">
                     <h2>Düzenle</h2>
@@ -80,7 +165,7 @@
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                
+                                (*) Alanlar Zorunlu Alanlardır.
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -88,6 +173,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliKodu, "Yetkili Kodu", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.YetkiliKodu, new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliKodu, "", new { @class = "text-danger" })
@@ -96,6 +182,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliAd, "Yetkili Ad", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.YetkiliAd, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliAd, "", new { @class = "text-danger" })
@@ -104,6 +191,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliSoyad, "Yetkili Soyad", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.YetkiliSoyad, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliSoyad, "", new { @class = "text-danger" })
@@ -112,7 +200,8 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliGSM1, "GSM 1 (0*)", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
-                            <div class="col-md-7">
+                            <label id="YetkiliGSM1|Text"></label>
+                            <div class="col-md-4">
                                 @Html.EditorFor(model => model.YetkiliGSM1,(string)@ViewBag.Tel1, new { htmlAttributes = new { @class = "form-control sayi Tel1", @maxlength = "15" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliGSM1, "", new { @class = "text-danger" })
                             </div>
@@ -120,7 +209,8 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliGSM2, "GSM 2 (0*)", htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-7">
+                            <label id="YetkiliGSM2|Text"></label>
+                            <div class="col-md-4">
                                 @Html.EditorFor(model => model.YetkiliGSM2, (string)@ViewBag.Tel2, new { htmlAttributes = new { @class = "form-control sayi Tel2", @maxlength = "15" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliGSM2, "", new { @class = "text-danger" })
                             </div>
@@ -128,6 +218,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliMail1, "EMail 1", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="YetkiliMail1|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.YetkiliMail1, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliMail1, "", new { @class = "text-danger" })
@@ -136,6 +227,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliMail2, "EMail 2", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label id="YetkiliMail2|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.YetkiliMail2, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliMail2, "", new { @class = "text-danger" })
@@ -144,7 +236,8 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.YetkiliDogumTarihi, "Doğum Tarihi", htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-7">
+                            <label id="YetkiliDogumTarihi|Text"></label>
+                            <div class="col-md-3">
                                 @Html.EditorFor(model => model.YetkiliDogumTarihi, new { htmlAttributes = new { @class = "form-control tarih" } })
                                 @Html.ValidationMessageFor(model => model.YetkiliDogumTarihi, "", new { @class = "text-danger" })
                             </div>

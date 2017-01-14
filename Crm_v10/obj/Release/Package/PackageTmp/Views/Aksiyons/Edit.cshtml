@@ -64,80 +64,6 @@
         </div>
         @*-------------------------------------------------------------Kısayol Bitiş---------------------------------------------------------------*@
 
-        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
-        <div id="KullaniciZorunlulukModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Alanların Zorunluluk Durumu</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-lg-12" style="background-color:white">
-                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Alanlar
-                                        </th>
-                                        <th>
-                                            Zorunluluk
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tarih</td>
-                                        <td><input type="checkbox" id="Tarih|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Saat</td>
-                                        <td><input type="checkbox" id="Saat|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Görev</td>
-                                        <td><input type="checkbox" id="GorevEklemeID|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Aksiyon</td>
-                                        <td><input type="checkbox" id="AksiyonSecimID|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Aksiyon Not</td>
-                                        <td><input type="checkbox" id="AksiyonNot|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ekler1</td>
-                                        <td><input type="checkbox" id="file|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ekler2</td>
-                                        <td><input type="checkbox" id="file2|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ekler3</td>
-                                        <td><input type="checkbox" id="file3|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ekler4</td>
-                                        <td><input type="checkbox" id="file4|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ekler5</td>
-                                        <td><input type="checkbox" id="file5|checkbox" disabled /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
         @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
         <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -224,12 +150,6 @@
                 {
                     <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
                 }
-                else //Normal kullanıcı girdi ise
-                {
-                    <a href="#" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#KullaniciZorunlulukModal"><i class="ion-gear-b"></i></a>
-                    
-
-                }
             }
             catch
             {
@@ -249,14 +169,15 @@
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                
+                                (*) Alanlar Zorunlu Alanlardır.  
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.ID)
                         <div class="form-group">
                             @Html.LabelFor(model => model.Tarih, "Tarih", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
-                            <div class="col-md-7">
+                            <label>(*)</label> 
+                            <div class="col-md-3">
                                 @Html.EditorFor(model => model.Tarih, new { htmlAttributes = new { @class = "form-control tarih", @maxlength = "10" } })
                                 @Html.ValidationMessageFor(model => model.Tarih, "", new { @class = "text-danger" })
 
@@ -265,7 +186,8 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Saat, "Saat", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
-                            <div class="col-md-7">
+                            <label>(*)</label> 
+                            <div class="col-md-3">
                                 <div class="input-group m-b-15">
 
                                     <div class="bootstrap-timepicker">
@@ -279,6 +201,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.GorevEklemeID, "Görev", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label> 
                             <div class="col-md-7">
                                 @Html.DropDownList("GorevEklemeID", null, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.GorevEklemeID, "", new { @class = "text-danger" })
@@ -287,6 +210,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.AksiyonSecim,"Aksiyon", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label> 
                             <div class="col-md-7">
                                 @Html.DropDownList("AksiyonSecimID", (IEnumerable<SelectListItem>)ViewBag.AksiyonSecim, htmlAttributes: new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.AksiyonSecim, "", new { @class = "text-danger" })
@@ -295,6 +219,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.AksiyonNot,"Aksiyon Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="AksiyonNot|Text"></label>
                             <div class="col-md-7">
                                 @Html.TextAreaFor(model => model.AksiyonNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
                                 @Html.ValidationMessageFor(model => model.AksiyonNot, "", new { @class = "text-danger" })
@@ -302,6 +227,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler1, "Ekler1", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="file|Text"></label>
                             <div class="col-md-7">
                                 <input type="file" id="file" name="file" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler1, "", new { @class = "text-danger" })
@@ -309,6 +235,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler2, "Ekler2", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="file2|Text"></label>
                             <div class="col-md-7">
                                 <input type="file" id="file2" name="file2" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler2, "", new { @class = "text-danger" })
@@ -316,6 +243,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler3, "Ekler3", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="file3|Text"></label>
                             <div class="col-md-7">
                                 <input type="file" id="file3" name="file3" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler3, "", new { @class = "text-danger" })
@@ -323,6 +251,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler4, "Ekler4", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="file4|Text"></label>
                             <div class="col-md-7">
                                 <input type="file" id="file4" name="file4" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler4, "", new { @class = "text-danger" })
@@ -330,6 +259,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Ekler5, "Ekler5", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="file5|Text"></label>
                             <div class="col-md-7">
                                 <input type="file" id="file5" name="file3" class="filestyle" data-size="sm">
                                 @Html.ValidationMessageFor(model => model.Ekler5, "", new { @class = "text-danger" })

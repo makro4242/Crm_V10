@@ -31,6 +31,11 @@ namespace Crm_v10.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AksiyonSecim>()
+                .HasMany(e => e.Aksiyon)
+                .WithRequired(e => e.AksiyonSecim)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Durum>()
                 .HasMany(e => e.Gorev)
                 .WithRequired(e => e.Durum)

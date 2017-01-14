@@ -60,52 +60,6 @@
             </div>
         </div>
         @*-------------------------------------------------------------Kısayol Bitiş---------------------------------------------------------------*@
-        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
-        <div id="KullaniciZorunlulukModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Alanların Zorunluluk Durumu</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-lg-12" style="background-color:white">
-                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Alanlar
-                                        </th>
-                                        <th>
-                                            Zorunluluk
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Satış Elemanı Kodu</td>
-                                        <td><input type="checkbox" id="SatisElemaniKodu|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ad Soyad</td>
-                                        <td><input type="checkbox" id="SatisElemaniAdiSoyadi|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td><input type="checkbox" id="SatisElemaniEmail|checkbox" disabled checked /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
         @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
         <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -163,11 +117,6 @@
                 {
                     <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
                 }
-                else //Normal kullanıcı girdi ise
-                {
-                    <a href="#" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#KullaniciZorunlulukModal"><i class="ion-gear-b"></i></a>
-
-                }
             }
             catch
             {
@@ -186,7 +135,7 @@
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                
+                                (*) Alanlar Zorunlu Alanlardır.
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -194,6 +143,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SatisElemaniKodu,"Satış Elemanı Kodu" ,htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.SatisElemaniKodu, new { htmlAttributes = new { @class = "form-control koduTamamla", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniKodu, "", new { @class = "text-danger" })
@@ -202,6 +152,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.SatisElemaniAdiSoyadi,"Ad Soyad", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.SatisElemaniAdiSoyadi, new { htmlAttributes = new { @class = "form-control harf", @maxlength = "100", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniAdiSoyadi, "", new { @class = "text-danger" })
@@ -209,6 +160,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.SatisElemaniEmail, "Email", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.SatisElemaniEmail, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", @required = "" } })
                                 @Html.ValidationMessageFor(model => model.SatisElemaniEmail, "", new { @class = "text-danger" })

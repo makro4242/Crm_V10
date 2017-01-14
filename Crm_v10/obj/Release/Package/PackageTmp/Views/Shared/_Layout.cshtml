@@ -663,11 +663,13 @@
 
                                     if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
                                         document.getElementById(veri[i - 1] + "|checkboxCRM").checked = true;
+                                        document.getElementById(veri[i - 1] + "|Text").innerHTML = '(*)';
                                         document.getElementById(veri[i - 1]).required = true;
 
                                     }
                                     else if (veri[i] == 0) {
                                         document.getElementById(veri[i - 1] + "|checkboxCRM").checked = false;
+                                        document.getElementById(veri[i - 1] + "|Text").innerHTML = '';
                                         document.getElementById(veri[i - 1]).required = false;
                                     }
 
@@ -682,12 +684,12 @@
                                 for (var i = 0; i < veri.length - 1; i++) {
 
                                     if (veri[i] == 1) {// bu alanlar zorunlu alanlardır.
-                                        document.getElementById(veri[i - 1] + "|checkbox").checked = true;
+                                        document.getElementById(veri[i - 1] + "|Text").innerHTML ='(*)';
                                         document.getElementById(veri[i - 1]).required = true;
 
                                     }
                                     else if (veri[i] == 0) {
-                                        document.getElementById(veri[i - 1] + "|checkbox").checked = false;
+                                        document.getElementById(veri[i - 1] + "|Text").innerHTML = ' ';
                                         document.getElementById(veri[i - 1]).required = false;
                                     }
 
@@ -735,18 +737,20 @@
                     success: function (data) {
                         var donenSonuc = data.split('|');
                         if (donenSonuc[0] == "1") {
-                            swal('Basarılı', 'succes');
+                            swal('Başarılı', 'Başarılı');
                             var kullaniciID = '@Session["KullaniciID"].ToString()';
                             if (kullaniciID == 0) {
                                 for (var i = 1; i < donenSonuc.length - 1; i++) {
 
                                     if (donenSonuc[i] == 1) {// bu alanlar zorunlu alanlardır.
                                         document.getElementById(donenSonuc[i - 1] + "|checkboxCRM").checked = true;
+                                        document.getElementById(donenSonuc[i - 1] + "|Text").innerHTML = '(*)';
                                         document.getElementById(donenSonuc[i - 1]).required = true;
 
                                     }
                                     else if (donenSonuc[i] == 0) {
                                         document.getElementById(donenSonuc[i - 1] + "|checkboxCRM").checked = false;
+                                        document.getElementById(donenSonuc[i - 1] + "|Text").innerHTML = '';
                                         document.getElementById(donenSonuc[i - 1]).required = false;
                                     }
 
@@ -757,12 +761,12 @@
                                 for (var i = 0; i < donenSonuc.length - 1; i++) {
 
                                     if (donenSonuc[i] == 1) {// bu alanlar zorunlu alanlardır.
-                                        document.getElementById(donenSonuc[i - 1] + "|checkbox").checked = true;
+                                        document.getElementById(donenSonuc[i - 1] + "|Text").value = '(*)';
                                         document.getElementById(donenSonuc[i - 1]).required = true;
 
                                     }
                                     else if (veri[i] == 0) {
-                                        document.getElementById(donenSonuc[i - 1] + "|checkbox").checked = false;
+                                        document.getElementById(donenSonuc[i - 1] + "|Text").value = "";
                                         document.getElementById(donenSonuc[i - 1]).required = false;
                                     }
 

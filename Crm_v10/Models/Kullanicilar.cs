@@ -42,6 +42,7 @@ namespace Crm_v10.Models
 
         [StringLength(2)]
         public string GosterimDurumu { get; set; }
+
         public virtual SatisElemanlari SatisElemanlari { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

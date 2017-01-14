@@ -40,6 +40,8 @@ namespace Crm_v10.Models
 
         public string Ekler5 { get; set; }
 
+        public virtual AksiyonSecim AksiyonSecim { get; set; }
+
         public virtual Gorev Gorev { get; set; }
     }
 }

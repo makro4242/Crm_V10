@@ -67,108 +67,6 @@
             </div>
         </div>
         @*------------------------------------------------------Kısayol Bitiş-----------------------------------------------------------------------*@
-        @*-------------------------------------------------------Zorunluluk Başlangıç-----------------------------------------------------------------------*@
-        <div id="KullaniciZorunlulukModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Alanların Zorunluluk Durumu</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-lg-12" style="background-color:white">
-                            <table class="table datatable table-striped table-bordered" id="zorunluAlan">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Alanlar
-                                        </th>
-                                        <th>
-                                            Zorunluluk
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Potansiyel Kodu</td>
-                                        <td><input type="checkbox" id="PotansiyelKodu|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Potansiyel Ünvanı</td>
-                                        <td><input type="checkbox" id="PotansiyelUnvani|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yetkili</td>
-                                        <td><input type="checkbox" id="PotansiyelYetkiliID|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ülke</td>
-                                        <td><input type="checkbox" id="PotansiyelUlkeKodu|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>İl</td>
-                                        <td><input type="checkbox" id="PotansiyelIl|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sektör</td>
-                                        <td><input type="checkbox" id="PotansiyelSektorID|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Satış Elemanı</td>
-                                        <td><input type="checkbox" id="PotansiyelSatisElemani|checkbox" disabled checked /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Adres</td>
-                                        <td><input type="checkbox" id="PotansiyelAdresi|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Adres UIN Kodu</td>
-                                        <td><input type="checkbox" id="PotansiyelAdresiUINKodu|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gps Enlem</td>
-                                        <td><input type="checkbox" id="PotansiyelAdresGpsEnlem|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gps Boylam</td>
-                                        <td><input type="checkbox" id="PotansiyelAdresGpsBoylam|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>İlçe</td>
-                                        <td><input type="checkbox" id="PotansiyelIlce|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Vergi Dairesi</td>
-                                        <td><input type="checkbox" id="PotansiyelVergiDairesi|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Vergi Numarası</td>
-                                        <td><input type="checkbox" id="PotansiyelVergiNumarasi|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td><input type="checkbox" id="PotansiyelEmail|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Web Adresi</td>
-                                        <td><input type="checkbox" id="PotansiyelWebAdresi|checkbox" disabled /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Not</td>
-                                        <td><input type="checkbox" id="PotansiyelNot|checkbox" disabled /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" style="margin-top:20px" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @*------------------------------------------------------Zorunluluk Bitiş-----------------------------------------------------------------------*@
         @*--------------------------------------------------Crm Zorunluluk Başlangıç-------------------------------------------------------------------*@
         <div id="CrmZorunlulukModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -284,11 +182,6 @@
                 {
                     <a href="#" id="btn_CrmZorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#CrmZorunlulukModal"><i class="ion-gear-b"></i></a>
                 }
-                else //Normal kullanıcı girdi ise
-                {
-                    <a href="#" id="btn_zorunluAlan" class="col-lg-3 btn btn-default col-lg-push-9" data-toggle="modal" data-target="#KullaniciZorunlulukModal"><i class="ion-gear-b"></i></a>
-
-                }
             }
             catch
             {
@@ -308,7 +201,7 @@
                         <hr />
                         <div class="form-group">
                             <div class="col-md-7">
-                                
+                                (*) Alanlar Zorunlu Alanlardır.
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -316,6 +209,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelKodu, htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelKodu, "Potansiyel Kodu" ,new { htmlAttributes = new { @class = "form-control koduTamamla", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelKodu, "", new { @class = "text-danger" })
@@ -324,6 +218,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelUnvani, "Ünvanı", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelUnvani, new { htmlAttributes = new { @class = "form-control", @maxlength = "150" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelUnvani, "", new { @class = "text-danger" })
@@ -333,20 +228,23 @@
                         
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelAdresiUINKodu, "Adres UIN Kodu", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelAdresiUINKodu|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresiUINKodu, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresiUINKodu, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
-
-                            @Html.LabelFor(Model => Model.PotansiyelYetkiliID, "Yetkili", htmlAttributes: new { @class = "control-label col-md-4" })
+                          
+                            @Html.LabelFor(Model => Model.PotansiyelYetkiliID, "Yetkili", htmlAttributes: new { @class = "control-label col-md-4" }) 
+                             <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelYetkiliID", (IEnumerable<SelectListItem>)ViewBag.Yetkili, new { @class = "form-control select2" })
                             </div>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelAdresGpsEnlem, "GPS Enlem", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelAdresGpsEnlem|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresGpsEnlem, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresGpsEnlem, "", new { @class = "text-danger" })
@@ -355,6 +253,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelAdresGpsBoylam, "GPS Boylam", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelAdresGpsBoylam|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelAdresGpsBoylam, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresGpsBoylam, "", new { @class = "text-danger" })
@@ -362,6 +261,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelAdresi, "Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelAdresi|Text"></label>
                             <div class="col-md-7">
                                 @Html.TextAreaFor(model => model.PotansiyelAdresi, new { @class = "form-control", @cols = 80, @rows = 2, @maxlength = "150" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelAdresi, "", new { @class = "text-danger" })
@@ -371,6 +271,7 @@
                         <div class="form-group">
 
                             @Html.LabelFor(Model => Model.PotansiyelUlkeKodu, "Ülke", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelUlkeKodu", (IEnumerable<SelectListItem>)ViewBag.Ulke, new { @class = "form-control select2" })
                             </div>
@@ -385,6 +286,7 @@
                         <div class="form-group">
 
                             @Html.LabelFor(Model => Model.PotansiyelIl, "İl", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelIl", (IEnumerable<SelectListItem>)ViewBag.Il, new { @class = "form-control select2" })
                             </div>
@@ -399,6 +301,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelIlce, "İlçe", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelIlce|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelIlce, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelIlce, "", new { @class = "text-danger" })
@@ -407,6 +310,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelVergiDairesi, "Vergi Dairesi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelVergiDairesi|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelVergiDairesi, new { htmlAttributes = new { @class = "form-control",@maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiDairesi, "", new { @class = "text-danger" })
@@ -415,6 +319,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelVergiNumarasi, "Vergi Numarası", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelVergiNumarasi|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelVergiNumarasi, new { htmlAttributes = new { @class = "form-control",@maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelVergiNumarasi, "", new { @class = "text-danger" })
@@ -422,6 +327,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelEmail, "Potansiyel Email", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelEmail|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelEmail, new { htmlAttributes = new { @class = "form-control", @maxlength = "50" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelEmail, "", new { @class = "text-danger" })
@@ -429,6 +335,7 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelWebAdresi, "Web Adresi", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelWebAdresi|Text"></label>
                             <div class="col-md-7">
                                 @Html.EditorFor(model => model.PotansiyelWebAdresi, new { htmlAttributes = new { @class = "form-control", @maxlength = "80" } })
                                 @Html.ValidationMessageFor(model => model.PotansiyelWebAdresi, "", new { @class = "text-danger" })
@@ -437,6 +344,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelSektorID, "Sektör", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelSektorID", (IEnumerable<SelectListItem>)ViewBag.Sektor, new { @class = "form-control select2" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelSektorID, "", new { @class = "text-danger" })
@@ -445,6 +353,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PotansiyelNot, "Not", htmlAttributes: new { @class = "control-label col-md-4", @required = "" })
+                            <label id="PotansiyelNot|Text"></label>
                             <div class="col-md-7">
                                 @Html.TextAreaFor(model => model.PotansiyelNot, new { @class = "form-control", @cols = 80, @rows = 10, @maxlength = "2000" })
                                 @Html.ValidationMessageFor(model => model.PotansiyelNot, "", new { @class = "text-danger" })
@@ -453,6 +362,7 @@
                         <div class="form-group">
 
                             @Html.LabelFor(Model => Model.PotansiyelSatisElemani, "Satış Elemanı", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label>(*)</label>
                             <div class="col-md-7">
                                 @Html.DropDownList("PotansiyelSatisElemani", (IEnumerable<SelectListItem>)ViewBag.SatisElemani, new { @class = "form-control select2" })
                             </div>
