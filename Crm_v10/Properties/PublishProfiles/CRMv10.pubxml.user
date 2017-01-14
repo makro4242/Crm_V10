@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhtWnPpgTrEe4oFwjlkAPFwAAAAACAAAAAAAQZgAAAAEAACAAAAApmRZCG/lFfo864BujTd7hmsyaLaOKKj4X+n47+/6XOAAAAAAOgAAAAAIAACAAAADhiRCQH3608NU7NvtfOD4kWITfuvwGg/Z2jcsuR24KsSAAAABcgPFSc8QxJcdPH7gkfYznYsoFN60XB1vMDbHdtI+BaUAAAACbbDbH7pqIsfvyxMSYRW4kghy3t5ivWowOduJZ0VEj/+KsKKbBe5p0ku7fbGRG7ES5OnoINC82dZui4Ip9DFi0</EncryptedPassword>
-    <_PublishTargetUrl>d:\Users\Safa\Desktop\14012017.1549</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Sema-Seda\Desktop\14012017.1713</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:18</publishTime>
     </File>
     <File Include="bin/Crm_v10.dll">
-      <publishTime>01/14/2017 15:50:18</publishTime>
+      <publishTime>01/14/2017 17:14:06</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>12/15/2016 17:44:36</publishTime>
@@ -8432,7 +8432,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/11/2017 17:50:12</publishTime>
     </File>
     <File Include="Views/MailYedeklemeLogs/Index.cshtml">
-      <publishTime>01/11/2017 17:19:23</publishTime>
+      <publishTime>01/14/2017 17:10:23</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -8504,7 +8504,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/14/2017 15:52:16</publishTime>
+      <publishTime>01/14/2017 16:07:39</publishTime>
     </File>
     <File Include="Views/VeritabaniAyars/Index.cshtml">
       <publishTime>01/11/2017 17:50:25</publishTime>
@@ -8531,7 +8531,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2016 17:44:31</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/14/2017 15:50:24</publishTime>
+      <publishTime>01/14/2017 17:14:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

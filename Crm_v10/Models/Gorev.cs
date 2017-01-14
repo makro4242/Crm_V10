@@ -37,6 +37,7 @@ namespace Crm_v10.Models
         public string ParaBirimi { get; set; }
 
         [Display(Name = "Tahmini Tutar")]
+        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         public decimal TahminiTutar { get; set; }
 
         [Required]
